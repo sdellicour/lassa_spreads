@@ -6,6 +6,7 @@
 <!--       Institute of Evolutionary Biology, University of Edinburgh        -->
 <!--       David Geffen School of Medicine, University of California, Los Angeles-->
 <!--       http://beast.community/                                           -->
+
 <beast version="1.10.4">
 	
 	<!-- The list of taxa to be analysed (can also include dates/ages).          -->
@@ -1675,8 +1676,8 @@
 		</taxon>
 	</taxa>
 	
-	<!-- gene name = LASV_S_NI1, ntax= 9                             -->
-	<taxa id="LASV_S_NI1.taxa">
+	<!-- gene name = LASV_S_alignment_2_NI1, ntax= 9                             -->
+	<taxa id="LASV_S_alignment_2_NI1.taxa">
 		<taxon idref="pinneo_NGA-Borno_Lassa_LS_1969"/>
 		<taxon idref="KU961971|Togo/2016/7082|Human|Togo|2016-02-26"/>
 		<taxon idref="LASV_NGA_2016_IRR_006_NGA-Ekiti_IdoEkiti_Hs_2016-01-14"/>
@@ -1688,8 +1689,8 @@
 		<taxon idref="OSPMH86_NGA-Osun_COORDINATES_Hp_2008-10"/>
 	</taxa>
 
-	<!-- gene name = LASV_S_NI2, ntax= 478                           -->
-	<taxa id="LASV_S_NI2.taxa">
+	<!-- gene name = LASV_S_alignment_2_NI2, ntax= 478                           -->
+	<taxa id="LASV_S_alignment_2_NI2.taxa">
 		<taxon idref="LASV_NGA_2017_IRR_008_NGA-Ebonyi_EzzaNorth_Hs_2017-02-02"/>
 		<taxon idref="MH053584|ISTH_0779|Human|Nigeria|2016-02-29"/>
 		<taxon idref="LASV_NGA_2016_IRR_018_NGA-Ebonyi_Ikwo_Hs_2016-02-09"/>
@@ -2170,8 +2171,8 @@
 		<taxon idref="KM822029|LASV237_NIG_2010|Human|Nigeria|2010"/>
 	</taxa>
 
-	<!-- gene name = LASV_S_NI3, ntax= 67                            -->
-	<taxa id="LASV_S_NI3.taxa">
+	<!-- gene name = LASV_S_alignment_2_NI3, ntax= 67                            -->
+	<taxa id="LASV_S_alignment_2_NI3.taxa">
 		<taxon idref="LASV_NGA_2015_IRR_005_NGA-Kaduna_Zaria_Hs_2015-01-28"/>
 		<taxon idref="GA391_NGA-Kaduna_Zaria_Hs_1977-11"/>
 		<taxon idref="GU481064|Nig08-02|Human|Nigeria|2008-01-02"/>
@@ -4474,19 +4475,19 @@
 	
 	<!-- The unique patterns from 1 to end                                       -->
 	<!-- npatterns=547                                                           -->
-	<patterns id="LASV_S_NI1.patterns" from="1" strip="false">
+	<patterns id="LASV_S_alignment_2_NI1.patterns" from="1" strip="false">
 		<alignment idref="alignment1"/>
 	</patterns>
 	
 	<!-- The unique patterns from 1 to end                                       -->
 	<!-- npatterns=2304                                                          -->
-	<patterns id="LASV_S_NI2.patterns" from="1" strip="false">
+	<patterns id="LASV_S_alignment_2_NI2.patterns" from="1" strip="false">
 		<alignment idref="alignment2"/>
 	</patterns>
 	
 	<!-- The unique patterns from 1 to end                                       -->
 	<!-- npatterns=1492                                                          -->
-	<patterns id="LASV_S_NI3.patterns" from="1" strip="false">
+	<patterns id="LASV_S_alignment_2_NI3.patterns" from="1" strip="false">
 		<alignment idref="alignment3"/>
 	</patterns>
 	
@@ -4499,93 +4500,93 @@
 	</constantSize>
 	
 	<!-- Generate a random starting tree under the coalescent process            -->
-	<coalescentSimulator id="LASV_S_NI1.startingTree">
-		<taxa idref="LASV_S_NI1.taxa"/>
+	<coalescentSimulator id="LASV_S_alignment_2_NI1.startingTree">
+		<taxa idref="LASV_S_alignment_2_NI1.taxa"/>
 		<constantSize idref="initialDemo"/>
 	</coalescentSimulator>
 
 	<!-- Generate a random starting tree under the coalescent process            -->
-	<coalescentSimulator id="LASV_S_NI2.startingTree">
-		<taxa idref="LASV_S_NI2.taxa"/>
+	<coalescentSimulator id="LASV_S_alignment_2_NI2.startingTree">
+		<taxa idref="LASV_S_alignment_2_NI2.taxa"/>
 		<constantSize idref="initialDemo"/>
 	</coalescentSimulator>
 	
 	<!-- Generate a random starting tree under the coalescent process            -->
-	<coalescentSimulator id="LASV_S_NI3.startingTree">
-		<taxa idref="LASV_S_NI3.taxa"/>
+	<coalescentSimulator id="LASV_S_alignment_2_NI3.startingTree">
+		<taxa idref="LASV_S_alignment_2_NI3.taxa"/>
 		<constantSize idref="initialDemo"/>
 	</coalescentSimulator>
 
 	<!-- Generate a tree model                                                   -->
-	<treeModel id="LASV_S_NI1.treeModel">
-		<coalescentTree idref="LASV_S_NI1.startingTree"/>
+	<treeModel id="LASV_S_alignment_2_NI1.treeModel">
+		<coalescentTree idref="LASV_S_alignment_2_NI1.startingTree"/>
 		<rootHeight>
-			<parameter id="LASV_S_NI1.treeModel.rootHeight"/>
+			<parameter id="LASV_S_alignment_2_NI1.treeModel.rootHeight"/>
 		</rootHeight>
 		<nodeHeights internalNodes="true">
-			<parameter id="LASV_S_NI1.treeModel.internalNodeHeights"/>
+			<parameter id="LASV_S_alignment_2_NI1.treeModel.internalNodeHeights"/>
 		</nodeHeights>
 		<nodeHeights internalNodes="true" rootNode="true">
-			<parameter id="LASV_S_NI1.treeModel.allInternalNodeHeights"/>
+			<parameter id="LASV_S_alignment_2_NI1.treeModel.allInternalNodeHeights"/>
 		</nodeHeights>
 	</treeModel>
 
 	<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
-	<treeLengthStatistic id="LASV_S_NI1.treeLength">
-		<treeModel idref="LASV_S_NI1.treeModel"/>
+	<treeLengthStatistic id="LASV_S_alignment_2_NI1.treeLength">
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 	</treeLengthStatistic>
 
 	<!-- Statistic for time of most recent common ancestor of tree               -->
-	<tmrcaStatistic id="LASV_S_NI1.age(root)" absolute="true">
-		<treeModel idref="LASV_S_NI1.treeModel"/>
+	<tmrcaStatistic id="LASV_S_alignment_2_NI1.age(root)" absolute="true">
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 	</tmrcaStatistic>
 	
 	<!-- Generate a tree model                                                   -->
-	<treeModel id="LASV_S_NI2.treeModel">
-		<coalescentTree idref="LASV_S_NI2.startingTree"/>
+	<treeModel id="LASV_S_alignment_2_NI2.treeModel">
+		<coalescentTree idref="LASV_S_alignment_2_NI2.startingTree"/>
 		<rootHeight>
-			<parameter id="LASV_S_NI2.treeModel.rootHeight"/>
+			<parameter id="LASV_S_alignment_2_NI2.treeModel.rootHeight"/>
 		</rootHeight>
 		<nodeHeights internalNodes="true">
-			<parameter id="LASV_S_NI2.treeModel.internalNodeHeights"/>
+			<parameter id="LASV_S_alignment_2_NI2.treeModel.internalNodeHeights"/>
 		</nodeHeights>
 		<nodeHeights internalNodes="true" rootNode="true">
-			<parameter id="LASV_S_NI2.treeModel.allInternalNodeHeights"/>
+			<parameter id="LASV_S_alignment_2_NI2.treeModel.allInternalNodeHeights"/>
 		</nodeHeights>
 	</treeModel>
 
 	<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
-	<treeLengthStatistic id="LASV_S_NI2.treeLength">
-		<treeModel idref="LASV_S_NI2.treeModel"/>
+	<treeLengthStatistic id="LASV_S_alignment_2_NI2.treeLength">
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 	</treeLengthStatistic>
 
 	<!-- Statistic for time of most recent common ancestor of tree               -->
-	<tmrcaStatistic id="LASV_S_NI2.age(root)" absolute="true">
-		<treeModel idref="LASV_S_NI2.treeModel"/>
+	<tmrcaStatistic id="LASV_S_alignment_2_NI2.age(root)" absolute="true">
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 	</tmrcaStatistic>
 
 	<!-- Generate a tree model                                                   -->
-	<treeModel id="LASV_S_NI3.treeModel">
-		<coalescentTree idref="LASV_S_NI3.startingTree"/>
+	<treeModel id="LASV_S_alignment_2_NI3.treeModel">
+		<coalescentTree idref="LASV_S_alignment_2_NI3.startingTree"/>
 		<rootHeight>
-			<parameter id="LASV_S_NI3.treeModel.rootHeight"/>
+			<parameter id="LASV_S_alignment_2_NI3.treeModel.rootHeight"/>
 		</rootHeight>
 		<nodeHeights internalNodes="true">
-			<parameter id="LASV_S_NI3.treeModel.internalNodeHeights"/>
+			<parameter id="LASV_S_alignment_2_NI3.treeModel.internalNodeHeights"/>
 		</nodeHeights>
 		<nodeHeights internalNodes="true" rootNode="true">
-			<parameter id="LASV_S_NI3.treeModel.allInternalNodeHeights"/>
+			<parameter id="LASV_S_alignment_2_NI3.treeModel.allInternalNodeHeights"/>
 		</nodeHeights>
 	</treeModel>
 
 	<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
-	<treeLengthStatistic id="LASV_S_NI3.treeLength">
-		<treeModel idref="LASV_S_NI3.treeModel"/>
+	<treeLengthStatistic id="LASV_S_alignment_2_NI3.treeLength">
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 	</treeLengthStatistic>
 
 	<!-- Statistic for time of most recent common ancestor of tree               -->
-	<tmrcaStatistic id="LASV_S_NI3.age(root)" absolute="true">
-		<treeModel idref="LASV_S_NI3.treeModel"/>
+	<tmrcaStatistic id="LASV_S_alignment_2_NI3.age(root)" absolute="true">
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 	</tmrcaStatistic>
 	
 	<!-- Generate a gmrfSkyGridLikelihood for the Bayesian SkyGrid process       -->
@@ -4609,109 +4610,109 @@
 		</cutOff>
  -->
 		<populationTree>
-			<treeModel idref="LASV_S_NI1.treeModel"/>
-			<treeModel idref="LASV_S_NI2.treeModel"/>
-			<treeModel idref="LASV_S_NI3.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 		</populationTree>
 	</gmrfSkyGridLikelihood>
 
 	<!-- The uncorrelated relaxed clock (Drummond, Ho, Phillips & Rambaut (2006) PLoS Biology 4, e88 )-->
-	<discretizedBranchRates id="LASV_S_NI1.branchRates">
-		<treeModel idref="LASV_S_NI1.treeModel"/>
+	<discretizedBranchRates id="LASV_S_alignment_2_NI1.branchRates">
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 		<distribution>
 			<logNormalDistributionModel meanInRealSpace="true">
 				<mean>
-					<parameter id="LASV_S_NI1.ucld.mean" value="1.0" lower="0.0"/>
+					<parameter id="LASV_S_alignment_2_NI1.ucld.mean" value="1.0" lower="0.0"/>
 				</mean>
 				<stdev>
-					<parameter id="LASV_S_NI1.ucld.stdev" value="0.3333333333333333" lower="0.0"/>
+					<parameter id="LASV_S_alignment_2_NI1.ucld.stdev" value="0.3333333333333333" lower="0.0"/>
 				</stdev>
 			</logNormalDistributionModel>
 		</distribution>
 		<rateCategories>
-			<parameter id="LASV_S_NI1.branchRates.categories"/>
+			<parameter id="LASV_S_alignment_2_NI1.branchRates.categories"/>
 		</rateCategories>
 	</discretizedBranchRates>
 	
-	<rateStatistic id="LASV_S_NI1.meanRate" name="LASV_S_NI1.meanRate" mode="mean" internal="true" external="true">
-		<treeModel idref="LASV_S_NI1.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
+	<rateStatistic id="LASV_S_alignment_2_NI1.meanRate" name="LASV_S_alignment_2_NI1.meanRate" mode="mean" internal="true" external="true">
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
 	</rateStatistic>
 	
-	<rateStatistic id="LASV_S_NI1.coefficientOfVariation" name="LASV_S_NI1.coefficientOfVariation" mode="coefficientOfVariation" internal="true" external="true">
-		<treeModel idref="LASV_S_NI1.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
+	<rateStatistic id="LASV_S_alignment_2_NI1.coefficientOfVariation" name="LASV_S_alignment_2_NI1.coefficientOfVariation" mode="coefficientOfVariation" internal="true" external="true">
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
 	</rateStatistic>
 	
-	<rateCovarianceStatistic id="LASV_S_NI1.covariance" name="LASV_S_NI1.covariance">
-		<treeModel idref="LASV_S_NI1.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
+	<rateCovarianceStatistic id="LASV_S_alignment_2_NI1.covariance" name="LASV_S_alignment_2_NI1.covariance">
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
 	</rateCovarianceStatistic>
 	
 	<!-- The uncorrelated relaxed clock (Drummond, Ho, Phillips & Rambaut (2006) PLoS Biology 4, e88 )-->
-	<discretizedBranchRates id="LASV_S_NI2.branchRates">
-		<treeModel idref="LASV_S_NI2.treeModel"/>
+	<discretizedBranchRates id="LASV_S_alignment_2_NI2.branchRates">
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 		<distribution>
 			<logNormalDistributionModel meanInRealSpace="true">
 				<mean>
-					<parameter id="LASV_S_NI2.ucld.mean" value="1.0" lower="0.0"/>
+					<parameter id="LASV_S_alignment_2_NI2.ucld.mean" value="1.0" lower="0.0"/>
 				</mean>
 				<stdev>
-					<parameter id="LASV_S_NI2.ucld.stdev" value="0.3333333333333333" lower="0.0"/>
+					<parameter id="LASV_S_alignment_2_NI2.ucld.stdev" value="0.3333333333333333" lower="0.0"/>
 				</stdev>
 			</logNormalDistributionModel>
 		</distribution>
 		<rateCategories>
-			<parameter id="LASV_S_NI2.branchRates.categories"/>
+			<parameter id="LASV_S_alignment_2_NI2.branchRates.categories"/>
 		</rateCategories>
 	</discretizedBranchRates>
 	
-	<rateStatistic id="LASV_S_NI2.meanRate" name="LASV_S_NI2.meanRate" mode="mean" internal="true" external="true">
-		<treeModel idref="LASV_S_NI2.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
+	<rateStatistic id="LASV_S_alignment_2_NI2.meanRate" name="LASV_S_alignment_2_NI2.meanRate" mode="mean" internal="true" external="true">
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
 	</rateStatistic>
 	
-	<rateStatistic id="LASV_S_NI2.coefficientOfVariation" name="LASV_S_NI2.coefficientOfVariation" mode="coefficientOfVariation" internal="true" external="true">
-		<treeModel idref="LASV_S_NI2.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
+	<rateStatistic id="LASV_S_alignment_2_NI2.coefficientOfVariation" name="LASV_S_alignment_2_NI2.coefficientOfVariation" mode="coefficientOfVariation" internal="true" external="true">
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
 	</rateStatistic>
 	
-	<rateCovarianceStatistic id="LASV_S_NI2.covariance" name="LASV_S_NI2.covariance">
-		<treeModel idref="LASV_S_NI2.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
+	<rateCovarianceStatistic id="LASV_S_alignment_2_NI2.covariance" name="LASV_S_alignment_2_NI2.covariance">
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
 	</rateCovarianceStatistic>
 	
 	<!-- The uncorrelated relaxed clock (Drummond, Ho, Phillips & Rambaut (2006) PLoS Biology 4, e88 )-->
-	<discretizedBranchRates id="LASV_S_NI3.branchRates">
-		<treeModel idref="LASV_S_NI3.treeModel"/>
+	<discretizedBranchRates id="LASV_S_alignment_2_NI3.branchRates">
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 		<distribution>
 			<logNormalDistributionModel meanInRealSpace="true">
 				<mean>
-					<parameter id="LASV_S_NI3.ucld.mean" value="1.0" lower="0.0"/>
+					<parameter id="LASV_S_alignment_2_NI3.ucld.mean" value="1.0" lower="0.0"/>
 				</mean>
 				<stdev>
-					<parameter id="LASV_S_NI3.ucld.stdev" value="0.3333333333333333" lower="0.0"/>
+					<parameter id="LASV_S_alignment_2_NI3.ucld.stdev" value="0.3333333333333333" lower="0.0"/>
 				</stdev>
 			</logNormalDistributionModel>
 		</distribution>
 		<rateCategories>
-			<parameter id="LASV_S_NI3.branchRates.categories"/>
+			<parameter id="LASV_S_alignment_2_NI3.branchRates.categories"/>
 		</rateCategories>
 	</discretizedBranchRates>
 	
-	<rateStatistic id="LASV_S_NI3.meanRate" name="LASV_S_NI3.meanRate" mode="mean" internal="true" external="true">
-		<treeModel idref="LASV_S_NI3.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+	<rateStatistic id="LASV_S_alignment_2_NI3.meanRate" name="LASV_S_alignment_2_NI3.meanRate" mode="mean" internal="true" external="true">
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 	</rateStatistic>
 	
-	<rateStatistic id="LASV_S_NI3.coefficientOfVariation" name="LASV_S_NI3.coefficientOfVariation" mode="coefficientOfVariation" internal="true" external="true">
-		<treeModel idref="LASV_S_NI3.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+	<rateStatistic id="LASV_S_alignment_2_NI3.coefficientOfVariation" name="LASV_S_alignment_2_NI3.coefficientOfVariation" mode="coefficientOfVariation" internal="true" external="true">
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 	</rateStatistic>
 	
-	<rateCovarianceStatistic id="LASV_S_NI3.covariance" name="LASV_S_NI3.covariance">
-		<treeModel idref="LASV_S_NI3.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+	<rateCovarianceStatistic id="LASV_S_alignment_2_NI3.covariance" name="LASV_S_alignment_2_NI3.covariance">
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 	</rateCovarianceStatistic>
 	
 	<!-- The general time reversible (GTR) substitution model                    -->
@@ -4744,33 +4745,33 @@
 	</statistic>
 	
 	<!-- Likelihood for tree given sequence data                                 -->
-	<treeDataLikelihood id="LASV_S_NI1.LASV_S_NI1.treeLikelihood" useAmbiguities="false">
+	<treeDataLikelihood id="LASV_S_alignment_2_NI1.LASV_S_alignment_2_NI1.treeLikelihood" useAmbiguities="false">
 		<partition>
-			<patterns idref="LASV_S_NI1.patterns"/>
+			<patterns idref="LASV_S_alignment_2_NI1.patterns"/>
 			<siteModel idref="siteModel"/>
 		</partition>
-		<treeModel idref="LASV_S_NI1.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
+		<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
 	</treeDataLikelihood>
 	
 	<!-- Likelihood for tree given sequence data                                 -->
-	<treeDataLikelihood id="LASV_S_NI2.LASV_S_NI2.treeLikelihood" useAmbiguities="false">
+	<treeDataLikelihood id="LASV_S_alignment_2_NI2.LASV_S_alignment_2_NI2.treeLikelihood" useAmbiguities="false">
 		<partition>
-			<patterns idref="LASV_S_NI2.patterns"/>
+			<patterns idref="LASV_S_alignment_2_NI2.patterns"/>
 			<siteModel idref="siteModel"/>
 		</partition>
-		<treeModel idref="LASV_S_NI2.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
+		<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
 	</treeDataLikelihood>
 	
 	<!-- Likelihood for tree given sequence data                                 -->
-	<treeDataLikelihood id="LASV_S_NI3.LASV_S_NI3.treeLikelihood" useAmbiguities="false">
+	<treeDataLikelihood id="LASV_S_alignment_2_NI3.LASV_S_alignment_2_NI3.treeLikelihood" useAmbiguities="false">
 		<partition>
-			<patterns idref="LASV_S_NI3.patterns"/>
+			<patterns idref="LASV_S_alignment_2_NI3.patterns"/>
 			<siteModel idref="siteModel"/>
 		</partition>
-		<treeModel idref="LASV_S_NI3.treeModel"/>
-		<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+		<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
+		<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 	</treeDataLikelihood>
 	
 	<!-- Define operators                                                        -->
@@ -4785,118 +4786,118 @@
 			<parameter idref="alpha"/>
 		</scaleOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI1.ucld.mean"/>
+			<parameter idref="LASV_S_alignment_2_NI1.ucld.mean"/>
 		</scaleOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI1.ucld.stdev"/>
+			<parameter idref="LASV_S_alignment_2_NI1.ucld.stdev"/>
 		</scaleOperator>
 		<upDownOperator scaleFactor="0.75" weight="3">
 			<up>
-				<parameter idref="LASV_S_NI1.treeModel.allInternalNodeHeights"/>
+				<parameter idref="LASV_S_alignment_2_NI1.treeModel.allInternalNodeHeights"/>
 			</up>
 			<down>
-				<parameter idref="LASV_S_NI1.ucld.mean"/>
+				<parameter idref="LASV_S_alignment_2_NI1.ucld.mean"/>
 			</down>
 		</upDownOperator>
 		<swapOperator size="1" weight="10" autoOptimize="false">
-			<parameter idref="LASV_S_NI1.branchRates.categories"/>
+			<parameter idref="LASV_S_alignment_2_NI1.branchRates.categories"/>
 		</swapOperator>
 		<uniformIntegerOperator weight="10">
-			<parameter idref="LASV_S_NI1.branchRates.categories"/>
+			<parameter idref="LASV_S_alignment_2_NI1.branchRates.categories"/>
 		</uniformIntegerOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI2.ucld.mean"/>
+			<parameter idref="LASV_S_alignment_2_NI2.ucld.mean"/>
 		</scaleOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI2.ucld.stdev"/>
+			<parameter idref="LASV_S_alignment_2_NI2.ucld.stdev"/>
 		</scaleOperator>
 		<upDownOperator scaleFactor="0.75" weight="3">
 			<up>
-				<parameter idref="LASV_S_NI2.treeModel.allInternalNodeHeights"/>
+				<parameter idref="LASV_S_alignment_2_NI2.treeModel.allInternalNodeHeights"/>
 			</up>
 			<down>
-				<parameter idref="LASV_S_NI2.ucld.mean"/>
+				<parameter idref="LASV_S_alignment_2_NI2.ucld.mean"/>
 			</down>
 		</upDownOperator>
 		<swapOperator size="1" weight="10" autoOptimize="false">
-			<parameter idref="LASV_S_NI2.branchRates.categories"/>
+			<parameter idref="LASV_S_alignment_2_NI2.branchRates.categories"/>
 		</swapOperator>
 		<uniformIntegerOperator weight="10">
-			<parameter idref="LASV_S_NI2.branchRates.categories"/>
+			<parameter idref="LASV_S_alignment_2_NI2.branchRates.categories"/>
 		</uniformIntegerOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI3.ucld.mean"/>
+			<parameter idref="LASV_S_alignment_2_NI3.ucld.mean"/>
 		</scaleOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI3.ucld.stdev"/>
+			<parameter idref="LASV_S_alignment_2_NI3.ucld.stdev"/>
 		</scaleOperator>
 		<upDownOperator scaleFactor="0.75" weight="3">
 			<up>
-				<parameter idref="LASV_S_NI3.treeModel.allInternalNodeHeights"/>
+				<parameter idref="LASV_S_alignment_2_NI3.treeModel.allInternalNodeHeights"/>
 			</up>
 			<down>
-				<parameter idref="LASV_S_NI3.ucld.mean"/>
+				<parameter idref="LASV_S_alignment_2_NI3.ucld.mean"/>
 			</down>
 		</upDownOperator>
 		<swapOperator size="1" weight="10" autoOptimize="false">
-			<parameter idref="LASV_S_NI3.branchRates.categories"/>
+			<parameter idref="LASV_S_alignment_2_NI3.branchRates.categories"/>
 		</swapOperator>
 		<uniformIntegerOperator weight="10">
-			<parameter idref="LASV_S_NI3.branchRates.categories"/>
+			<parameter idref="LASV_S_alignment_2_NI3.branchRates.categories"/>
 		</uniformIntegerOperator>
 		<subtreeSlide size="1.0" gaussian="true" weight="30">
-			<treeModel idref="LASV_S_NI1.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 		</subtreeSlide>
 		<narrowExchange weight="30">
-			<treeModel idref="LASV_S_NI1.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 		</narrowExchange>
 		<wideExchange weight="3">
-			<treeModel idref="LASV_S_NI1.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 		</wideExchange>
 		<wilsonBalding weight="3">
-			<treeModel idref="LASV_S_NI1.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 		</wilsonBalding>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI1.treeModel.rootHeight"/>
+			<parameter idref="LASV_S_alignment_2_NI1.treeModel.rootHeight"/>
 		</scaleOperator>
 		<uniformOperator weight="30">
-			<parameter idref="LASV_S_NI1.treeModel.internalNodeHeights"/>
+			<parameter idref="LASV_S_alignment_2_NI1.treeModel.internalNodeHeights"/>
 		</uniformOperator>
 		<subtreeSlide size="1.0" gaussian="true" weight="30">
-			<treeModel idref="LASV_S_NI2.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 		</subtreeSlide>
 		<narrowExchange weight="30">
-			<treeModel idref="LASV_S_NI2.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 		</narrowExchange>
 		<wideExchange weight="3">
-			<treeModel idref="LASV_S_NI2.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 		</wideExchange>
 		<wilsonBalding weight="3">
-			<treeModel idref="LASV_S_NI2.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 		</wilsonBalding>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI2.treeModel.rootHeight"/>
+			<parameter idref="LASV_S_alignment_2_NI2.treeModel.rootHeight"/>
 		</scaleOperator>
 		<uniformOperator weight="30">
-			<parameter idref="LASV_S_NI2.treeModel.internalNodeHeights"/>
+			<parameter idref="LASV_S_alignment_2_NI2.treeModel.internalNodeHeights"/>
 		</uniformOperator>
 		<subtreeSlide size="1.0" gaussian="true" weight="30">
-			<treeModel idref="LASV_S_NI3.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 		</subtreeSlide>
 		<narrowExchange weight="30">
-			<treeModel idref="LASV_S_NI3.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 		</narrowExchange>
 		<wideExchange weight="3">
-			<treeModel idref="LASV_S_NI3.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 		</wideExchange>
 		<wilsonBalding weight="3">
-			<treeModel idref="LASV_S_NI3.treeModel"/>
+			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 		</wilsonBalding>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="LASV_S_NI3.treeModel.rootHeight"/>
+			<parameter idref="LASV_S_alignment_2_NI3.treeModel.rootHeight"/>
 		</scaleOperator>
 		<uniformOperator weight="30">
-			<parameter idref="LASV_S_NI3.treeModel.internalNodeHeights"/>
+			<parameter idref="LASV_S_alignment_2_NI3.treeModel.internalNodeHeights"/>
 		</uniformOperator>
 		<gmrfGridBlockUpdateOperator scaleFactor="1.0" weight="2">
 			<gmrfSkyrideLikelihood idref="skygrid"/>
@@ -4921,45 +4922,43 @@
 				</exponentialPrior>
 				<ctmcScalePrior>
 					<ctmcScale>
-						<parameter idref="LASV_S_NI1.ucld.mean"/>
+						<parameter idref="LASV_S_alignment_2_NI1.ucld.mean"/>
 					</ctmcScale>
-					<treeModel idref="LASV_S_NI1.treeModel"/>
+					<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 				</ctmcScalePrior>
 				<exponentialPrior mean="0.3333333333333333" offset="0.0">
-					<parameter idref="LASV_S_NI1.ucld.stdev"/>
+					<parameter idref="LASV_S_alignment_2_NI1.ucld.stdev"/>
 				</exponentialPrior>
 				<ctmcScalePrior>
 					<ctmcScale>
-						<parameter idref="LASV_S_NI2.ucld.mean"/>
+						<parameter idref="LASV_S_alignment_2_NI2.ucld.mean"/>
 					</ctmcScale>
-					<treeModel idref="LASV_S_NI2.treeModel"/>
+					<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 				</ctmcScalePrior>
 				<exponentialPrior mean="0.3333333333333333" offset="0.0">
-					<parameter idref="LASV_S_NI2.ucld.stdev"/>
+					<parameter idref="LASV_S_alignment_2_NI2.ucld.stdev"/>
 				</exponentialPrior>
 				<ctmcScalePrior>
 					<ctmcScale>
-						<parameter idref="LASV_S_NI3.ucld.mean"/>
+						<parameter idref="LASV_S_alignment_2_NI3.ucld.mean"/>
 					</ctmcScale>
-					<treeModel idref="LASV_S_NI3.treeModel"/>
+					<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 				</ctmcScalePrior>
 				<exponentialPrior mean="0.3333333333333333" offset="0.0">
-					<parameter idref="LASV_S_NI3.ucld.stdev"/>
+					<parameter idref="LASV_S_alignment_2_NI3.ucld.stdev"/>
 				</exponentialPrior>
 				<gammaPrior shape="0.001" scale="1000.0" offset="0.0">
 					<parameter idref="skygrid.precision"/>
-				</gammaPrior>
-				
+				</gammaPrior>			
 				<gmrfSkyGridLikelihood idref="skygrid"/>
-				
-				<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
-				<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
-				<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+				<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
+				<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
+				<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 			</prior>
 			<likelihood id="likelihood">
-				<treeDataLikelihood idref="LASV_S_NI1.LASV_S_NI1.treeLikelihood"/>
-				<treeDataLikelihood idref="LASV_S_NI2.LASV_S_NI2.treeLikelihood"/>
-				<treeDataLikelihood idref="LASV_S_NI3.LASV_S_NI3.treeLikelihood"/>
+				<treeDataLikelihood idref="LASV_S_alignment_2_NI1.LASV_S_alignment_2_NI1.treeLikelihood"/>
+				<treeDataLikelihood idref="LASV_S_alignment_2_NI2.LASV_S_alignment_2_NI2.treeLikelihood"/>
+				<treeDataLikelihood idref="LASV_S_alignment_2_NI3.LASV_S_alignment_2_NI3.treeLikelihood"/>
 			</likelihood>
 		</joint>
 		<operators idref="operators"/>
@@ -4975,23 +4974,23 @@
 			<column label="Likelihood" dp="4" width="12">
 				<likelihood idref="likelihood"/>
 			</column>
-			<column label="LASV_S_NI1.age(root)" sf="6" width="12">
-				<tmrcaStatistic idref="LASV_S_NI1.age(root)"/>
+			<column label="LASV_S_alignment_2_NI1.age(root)" sf="6" width="12">
+				<tmrcaStatistic idref="LASV_S_alignment_2_NI1.age(root)"/>
 			</column>
-			<column label="LASV_S_NI2.age(root)" sf="6" width="12">
-				<tmrcaStatistic idref="LASV_S_NI2.age(root)"/>
+			<column label="LASV_S_alignment_2_NI2.age(root)" sf="6" width="12">
+				<tmrcaStatistic idref="LASV_S_alignment_2_NI2.age(root)"/>
 			</column>
-			<column label="LASV_S_NI3.age(root)" sf="6" width="12">
-				<tmrcaStatistic idref="LASV_S_NI3.age(root)"/>
+			<column label="LASV_S_alignment_2_NI3.age(root)" sf="6" width="12">
+				<tmrcaStatistic idref="LASV_S_alignment_2_NI3.age(root)"/>
 			</column>
-			<column label="LASV_S_NI1.ucld.mean" sf="6" width="12">
-				<parameter idref="LASV_S_NI1.ucld.mean"/>
+			<column label="LASV_S_alignment_2_NI1.ucld.mean" sf="6" width="12">
+				<parameter idref="LASV_S_alignment_2_NI1.ucld.mean"/>
 			</column>
-			<column label="LASV_S_NI2.ucld.mean" sf="6" width="12">
-				<parameter idref="LASV_S_NI2.ucld.mean"/>
+			<column label="LASV_S_alignment_2_NI2.ucld.mean" sf="6" width="12">
+				<parameter idref="LASV_S_alignment_2_NI2.ucld.mean"/>
 			</column>
-			<column label="LASV_S_NI3.ucld.mean" sf="6" width="12">
-				<parameter idref="LASV_S_NI3.ucld.mean"/>
+			<column label="LASV_S_alignment_2_NI3.ucld.mean" sf="6" width="12">
+				<parameter idref="LASV_S_alignment_2_NI3.ucld.mean"/>
 			</column>
 		</log>
 
@@ -5000,15 +4999,15 @@
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
-			<parameter idref="LASV_S_NI1.treeModel.rootHeight"/>
-			<parameter idref="LASV_S_NI2.treeModel.rootHeight"/>
-			<parameter idref="LASV_S_NI3.treeModel.rootHeight"/>
-			<tmrcaStatistic idref="LASV_S_NI1.age(root)"/>
-			<tmrcaStatistic idref="LASV_S_NI2.age(root)"/>
-			<tmrcaStatistic idref="LASV_S_NI3.age(root)"/>
-			<treeLengthStatistic idref="LASV_S_NI1.treeLength"/>
-			<treeLengthStatistic idref="LASV_S_NI2.treeLength"/>
-			<treeLengthStatistic idref="LASV_S_NI3.treeLength"/>
+			<parameter idref="LASV_S_alignment_2_NI1.treeModel.rootHeight"/>
+			<parameter idref="LASV_S_alignment_2_NI2.treeModel.rootHeight"/>
+			<parameter idref="LASV_S_alignment_2_NI3.treeModel.rootHeight"/>
+			<tmrcaStatistic idref="LASV_S_alignment_2_NI1.age(root)"/>
+			<tmrcaStatistic idref="LASV_S_alignment_2_NI2.age(root)"/>
+			<tmrcaStatistic idref="LASV_S_alignment_2_NI3.age(root)"/>
+			<treeLengthStatistic idref="LASV_S_alignment_2_NI1.treeLength"/>
+			<treeLengthStatistic idref="LASV_S_alignment_2_NI2.treeLength"/>
+			<treeLengthStatistic idref="LASV_S_alignment_2_NI3.treeLength"/>
 			<parameter idref="skygrid.precision"/>
 			<parameter idref="skygrid.logPopSize"/>
 <!-- 
@@ -5017,49 +5016,49 @@
 			<parameter idref="gtr.rates"/>
 			<parameter idref="frequencies"/>
 			<parameter idref="alpha"/>
-			<parameter idref="LASV_S_NI1.ucld.mean"/>
-			<parameter idref="LASV_S_NI1.ucld.stdev"/>
-			<parameter idref="LASV_S_NI2.ucld.mean"/>
-			<parameter idref="LASV_S_NI2.ucld.stdev"/>
-			<parameter idref="LASV_S_NI3.ucld.mean"/>
-			<parameter idref="LASV_S_NI3.ucld.stdev"/>
-			<rateStatistic idref="LASV_S_NI1.meanRate"/>
-			<rateStatistic idref="LASV_S_NI1.coefficientOfVariation"/>
-			<rateCovarianceStatistic idref="LASV_S_NI1.covariance"/>
-			<rateStatistic idref="LASV_S_NI2.meanRate"/>
-			<rateStatistic idref="LASV_S_NI2.coefficientOfVariation"/>
-			<rateCovarianceStatistic idref="LASV_S_NI2.covariance"/>
-			<rateStatistic idref="LASV_S_NI3.meanRate"/>
-			<rateStatistic idref="LASV_S_NI3.coefficientOfVariation"/>
-			<rateCovarianceStatistic idref="LASV_S_NI3.covariance"/>
-			<treeDataLikelihood idref="LASV_S_NI1.LASV_S_NI1.treeLikelihood"/>
-			<treeDataLikelihood idref="LASV_S_NI2.LASV_S_NI2.treeLikelihood"/>
-			<treeDataLikelihood idref="LASV_S_NI3.LASV_S_NI3.treeLikelihood"/>
-			<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
-			<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
-			<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+			<parameter idref="LASV_S_alignment_2_NI1.ucld.mean"/>
+			<parameter idref="LASV_S_alignment_2_NI1.ucld.stdev"/>
+			<parameter idref="LASV_S_alignment_2_NI2.ucld.mean"/>
+			<parameter idref="LASV_S_alignment_2_NI2.ucld.stdev"/>
+			<parameter idref="LASV_S_alignment_2_NI3.ucld.mean"/>
+			<parameter idref="LASV_S_alignment_2_NI3.ucld.stdev"/>
+			<rateStatistic idref="LASV_S_alignment_2_NI1.meanRate"/>
+			<rateStatistic idref="LASV_S_alignment_2_NI1.coefficientOfVariation"/>
+			<rateCovarianceStatistic idref="LASV_S_alignment_2_NI1.covariance"/>
+			<rateStatistic idref="LASV_S_alignment_2_NI2.meanRate"/>
+			<rateStatistic idref="LASV_S_alignment_2_NI2.coefficientOfVariation"/>
+			<rateCovarianceStatistic idref="LASV_S_alignment_2_NI2.covariance"/>
+			<rateStatistic idref="LASV_S_alignment_2_NI3.meanRate"/>
+			<rateStatistic idref="LASV_S_alignment_2_NI3.coefficientOfVariation"/>
+			<rateCovarianceStatistic idref="LASV_S_alignment_2_NI3.covariance"/>
+			<treeDataLikelihood idref="LASV_S_alignment_2_NI1.LASV_S_alignment_2_NI1.treeLikelihood"/>
+			<treeDataLikelihood idref="LASV_S_alignment_2_NI2.LASV_S_alignment_2_NI2.treeLikelihood"/>
+			<treeDataLikelihood idref="LASV_S_alignment_2_NI3.LASV_S_alignment_2_NI3.treeLikelihood"/>
+			<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
+			<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
+			<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 			<gmrfSkyGridLikelihood idref="skygrid"/>
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="LASV_S_NI1.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_NI1.trees" sortTranslationTable="true">
-			<treeModel idref="LASV_S_NI1.treeModel"/>
-			<trait name="rate" tag="LASV_S_NI1.rate">
-				<discretizedBranchRates idref="LASV_S_NI1.branchRates"/>
+		<logTree id="LASV_S_alignment_2_NI1.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_alignment_2_NI1.trees" sortTranslationTable="true">
+			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
+			<trait name="rate" tag="LASV_S_alignment_2_NI1.rate">
+				<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
 			</trait>
 			<joint idref="joint"/>
 		</logTree>
-		<logTree id="LASV_S_NI2.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_NI2.trees" sortTranslationTable="true">
-			<treeModel idref="LASV_S_NI2.treeModel"/>
-			<trait name="rate" tag="LASV_S_NI2.rate">
-				<discretizedBranchRates idref="LASV_S_NI2.branchRates"/>
+		<logTree id="LASV_S_alignment_2_NI2.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_alignment_2_NI2.trees" sortTranslationTable="true">
+			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
+			<trait name="rate" tag="LASV_S_alignment_2_NI2.rate">
+				<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
 			</trait>
 			<joint idref="joint"/>
 		</logTree>
-		<logTree id="LASV_S_NI3.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_NI3.trees" sortTranslationTable="true">
-			<treeModel idref="LASV_S_NI3.treeModel"/>
-			<trait name="rate" tag="LASV_S_NI3.rate">
-				<discretizedBranchRates idref="LASV_S_NI3.branchRates"/>
+		<logTree id="LASV_S_alignment_2_NI3.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_alignment_2_NI3.trees" sortTranslationTable="true">
+			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
+			<trait name="rate" tag="LASV_S_alignment_2_NI3.rate">
+				<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>
 			</trait>
 			<joint idref="joint"/>
 		</logTree>

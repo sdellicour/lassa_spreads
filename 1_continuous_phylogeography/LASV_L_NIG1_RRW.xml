@@ -6,9 +6,9 @@
 <!--       Institute of Evolutionary Biology, University of Edinburgh        -->
 <!--       David Geffen School of Medicine, University of California, Los Angeles-->
 <!--       http://beast.community/                                           -->
+
 <beast version="1.10.4">
 	
-
 	<!-- The list of taxa to be analysed (can also include dates/ages).          -->
 	<!-- ntax=4                                                                  -->
 	<taxa id="taxa">
@@ -25,7 +25,6 @@
 			<attr name="location">
 				10.686987 13.272643
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -42,7 +41,6 @@
 			<attr name="location">
 				7.6833 4.6167
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -59,7 +57,6 @@
 			<attr name="location">
 				7.845422 5.182916
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -76,14 +73,11 @@
 			<attr name="location">
 				7.525829 5.762072
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 	</taxa>
 	
-	
-
 	<!-- The sequence alignment (each sequence refers to a taxon above).         -->
 	<!-- ntax=4 nchar=7026                                                       -->
 	<alignment id="alignment" dataType="nucleotide">
@@ -105,15 +99,12 @@
 		</sequence>
 	</alignment>
 	
-	
-
 	<!-- The unique patterns from 1 to end                                       -->
 	<!-- npatterns=211                                                           -->
 	<patterns id="patterns" from="1" strip="false">
 		<alignment idref="alignment"/>
 	</patterns>
 	
-
 	<!-- This is a simple constant population size coalescent model              -->
 	<!-- that is used to generate an initial tree for the chain.                 -->
 	<constantSize id="initialDemo" units="years">
@@ -122,14 +113,12 @@
 		</populationSize>
 	</constantSize>
 	
-
 	<!-- Generate a random starting tree under the coalescent process            -->
 	<coalescentSimulator id="startingTree">
 		<taxa idref="taxa"/>
 		<constantSize idref="initialDemo"/>
 	</coalescentSimulator>
 	
-
 	<!-- Generate a tree model                                                   -->
 	<treeModel id="treeModel">
 		<coalescentTree idref="startingTree"/>
@@ -154,12 +143,9 @@
 		<treeModel idref="treeModel"/>
 	</tmrcaStatistic>
 	
-	
-
 	<!-- Generate a gmrfSkyGridLikelihood for the Bayesian SkyGrid process       -->
 	<gmrfSkyGridLikelihood id="skygrid">
 		<populationSizes>
-
 			<!-- skygrid.logPopSize is in log units unlike other popSize                 -->
 			<parameter id="skygrid.logPopSize" dimension="100" value="1.0"/>
 		</populationSizes>
@@ -210,7 +196,6 @@
 		<discretizedBranchRates idref="branchRates"/>
 	</rateCovarianceStatistic>
 	
-
 	<!-- The general time reversible (GTR) substitution model                    -->
 	<gtrModel id="gtr">
 		<frequencies>
@@ -235,15 +220,11 @@
 		</gammaShape>
 	</siteModel>
 
-	<!--                                                                         -->
 	<statistic id="mu" name="mu">
 		<siteModel idref="siteModel"/>
 	</statistic>
 	
-	
-
 	<!-- START Multivariate diffusion model                                      -->
-
 	<multivariateDiffusionModel id="location.diffusionModel">
 		<precisionMatrix>
 			<matrixParameter id="location.precision">
@@ -264,7 +245,6 @@
 			<parameter idref="location.precision"/>
 		</data>
 	</multivariateWishartPrior>
-
 	<!-- END Multivariate diffusion model                                        -->
 
 
@@ -278,7 +258,6 @@
 		<discretizedBranchRates idref="branchRates"/>
 	</treeDataLikelihood>
 	
-
 	<!-- START Multivariate diffusion model                                      -->
 	<arbitraryBranchRates id="location.diffusion.branchRates">
 		<treeModel idref="treeModel"/>
@@ -329,9 +308,7 @@
 	<continuousDiffusionStatistic id="location.diffusionRate" greatCircleDistance="true">
 		<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 	</continuousDiffusionStatistic>
-
 	<!-- END Multivariate diffusion model                                        -->
-
 
 	<!-- Define operators                                                        -->
 	<operators id="operators" optimizationSchedule="log">
@@ -400,14 +377,12 @@
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<multivariateWishartPrior idref="location.precisionPrior"/>
 		</precisionGibbsOperator>
-
 		<!-- END Multivariate diffusion model                                        -->
 
 	</operators>
 	
-
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_L_3_NIG1_RWW.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_L_NIG1_RRW.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -442,7 +417,6 @@
 				<!-- START Multivariate diffusion model                                      -->
 				<distributionLikelihood idref="location.diffusion.prior"/>
 				<multivariateWishartPrior idref="location.precisionPrior"/>
-
 				<!-- END Multivariate diffusion model                                        -->
 
 			</prior>
@@ -451,7 +425,6 @@
 
 				<!-- START Multivariate diffusion model                                      -->
 				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-
 				<!-- END Multivariate diffusion model                                        -->
 
 			</likelihood>
@@ -478,7 +451,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100000" fileName="LASV_L_3_NIG1_RWW.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_L_NIG1_RRW.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -503,7 +476,6 @@
 			<matrixInverse idref="location.varCovar"/>
 			<continuousDiffusionStatistic idref="location.diffusionRate"/>
 			<parameter idref="location.halfDF"/>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 			<treeDataLikelihood idref="treeLikelihood"/>
@@ -511,14 +483,13 @@
 
 			<!-- START Multivariate diffusion model                                      -->
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 			<gmrfSkyGridLikelihood idref="skygrid"/>
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_L_3_NIG1_RWW.trees" sortTranslationTable="true">
+		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_L_NIG1_RRW.trees" sortTranslationTable="true">
 			<treeModel idref="treeModel"/>
 			<trait name="rate" tag="rate">
 				<discretizedBranchRates idref="branchRates"/>
@@ -529,9 +500,7 @@
 			<trait name="location" tag="location">
 				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			</trait>
-
 			<!-- END Ancestral state reconstruction                                      -->
-
 
 			<!-- START Multivariate diffusion model                                      -->
 			<multivariateDiffusionModel idref="location.diffusionModel"/>
@@ -539,7 +508,6 @@
 			<trait name="rate" tag="location.rate">
 				<arbitraryBranchRates idref="location.diffusion.branchRates"/>
 			</trait>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</logTree>

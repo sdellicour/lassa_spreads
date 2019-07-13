@@ -24,8 +24,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.3831 -7.1517
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="GU573551|Soromba_R245|Mouse|Mali|2009">
@@ -40,8 +39,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.5891 -7.1558
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KF478767|Komina_R16|Mouse|Mali|2012-03-03">
@@ -56,8 +54,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.6164 -7.1583
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="GU573552|Soromba_R249|Mouse|Mali|2009">
@@ -72,8 +69,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.5891 -7.1558
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="GU573547|Soromba_R240|Mouse|Mali|2009">
@@ -88,8 +84,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.5891 -7.1558
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KF478765|Soromba_R|Mouse|Mali|2009-06">
@@ -104,8 +99,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.5891 -7.1558
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182271|las803796|Human|Liberia|1981">
@@ -120,8 +114,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.027106 -9.552698
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832676|BA375|Mouse|Guinea|2003">
@@ -136,8 +129,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832668|GB132|Mouse|Guinea|2003">
@@ -152,8 +144,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.841017 -11.04015
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832667|GB129|Mouse|Guinea|2003">
@@ -168,8 +159,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.841017 -11.04015
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832689|TA817|Mouse|Guinea|2004">
@@ -184,8 +174,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.0004 -10.972783
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832684|TA444|Mouse|Guinea|2003">
@@ -200,8 +189,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.0004 -10.972783
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832686|TA464|Mouse|Guinea|2003">
@@ -216,8 +204,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.0004 -10.972783
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832690|TA820|Mouse|Guinea|2004">
@@ -232,8 +219,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.0004 -10.972783
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832682|TA416|Mouse|Guinea|2003">
@@ -248,8 +234,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.0004 -10.972783
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832683|TA341|Mouse|Guinea|2003">
@@ -264,8 +249,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.0004 -10.972783
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832671|BA302|Mouse|Guinea|2003">
@@ -280,8 +264,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832681|BA686|Mouse|Guinea|2004">
@@ -296,8 +279,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832678|BA378|Mouse|Guinea|2003">
@@ -312,8 +294,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832674|BA356|Mouse|Guinea|2003">
@@ -328,8 +309,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="GU830839|BA366|Mouse|Guinea|2003">
@@ -344,8 +324,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.050452 -10.587936
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832669|BA263|Mouse|Guinea|2003">
@@ -360,8 +339,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832673|BA354|Mouse|Guinea|2003">
@@ -376,8 +354,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832672|BA350|Mouse|Guinea|2003">
@@ -392,8 +369,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.059767 -10.58615
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="MH732623|GUIN-1739-Mn-2018|Mastomys_natalensis|Guinea|2018">
@@ -408,8 +384,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.758615 -8.815928
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="MH732626|GUIN-1745-Mn-2018|Mastomys_natalensis|Guinea|2018">
@@ -424,8 +399,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.758615 -8.815928
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="MH732625|GUIN-1744-Mn-2018|Mastomys_natalensis|Guinea|2018">
@@ -440,8 +414,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.758615 -8.815928
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="MH732624|GUIN-1750-Mn-2018|Mastomys_natalensis|Guinea|2018">
@@ -456,8 +429,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.758615 -8.815928
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182264|las806829|Human|Liberia|1981">
@@ -472,8 +444,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182259|las803201|Human|Liberia|1972">
@@ -488,8 +459,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182260|las803792|Human|Liberia|1980">
@@ -504,8 +474,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182263|las803793|Human|Liberia|1980">
@@ -520,8 +489,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182262|las803791|Human|Liberia|1980">
@@ -536,8 +504,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182268|las807977|Human|Liberia|1981">
@@ -552,8 +519,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182266|las803203|Human|Liberia|1972">
@@ -568,8 +534,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.775819 -9.427707
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832692|DGD4|Mouse|Guinea|2005">
@@ -584,8 +549,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.338811 -10.543925
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832699|DGD112|Mouse|Guinea|2005">
@@ -600,8 +564,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.338811 -10.543925
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="DQ832694|DGD28|Mouse|Guinea|2005">
@@ -616,8 +579,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.338811 -10.543925
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KT992417|Mad41|Mouse|Guinea|2014-05-08">
@@ -632,8 +594,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.87 -12.43
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KT992421|Mad83|Mouse|Guinea|2014-05-10">
@@ -648,8 +609,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.87 -12.43
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KT992419|Mad63|Mouse|Guinea|2014-05-09">
@@ -664,8 +624,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.87 -12.43
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KT992420|Mad69|Mouse|Guinea|2014-05-09">
@@ -680,8 +639,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.87 -12.43
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KT992418|Mad62|Mouse|Guinea|2014-05-09">
@@ -696,8 +654,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.87 -12.43
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KT992416|Mad39|Mouse|Guinea|2014-05-08">
@@ -712,8 +669,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				9.87 -12.43
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821885|G3034_SLE_2013|Human|Sierra_Leone|2013-02-27">
@@ -728,8 +684,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821847|G2363_SLE_2012|Human|Sierra_Leone|2012-02-27">
@@ -744,8 +699,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821904|G3234_SLE_2013|Human|Sierra_Leone|2013-07-15">
@@ -760,8 +714,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.956596 -11.736703
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821802|G1529_SLE_2011|Human|Sierra_Leone|2011-03-02">
@@ -776,8 +729,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821869|G2615_SLE_2012|Human|Sierra_Leone|2012-07-24">
@@ -792,8 +744,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821871|G2723_SLE_2012|Human|Sierra_Leone|2012-08-21">
@@ -808,8 +759,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821909|G3278_SLE_2013|Human|Sierra_Leone|2013-08-02">
@@ -824,8 +774,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821835|G2259_SLE_2012|Human|Sierra_Leone|2012-01-16">
@@ -840,8 +789,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821833|G2230_SLE_2012|Human|Sierra_Leone|2011-12-29">
@@ -856,8 +804,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821856|G2431_SLE_2012|Human|Sierra_Leone|2012-04-02">
@@ -872,8 +819,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821800|G1442_SLE_2011|Human|Sierra_Leone|2011-01-20">
@@ -888,8 +834,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821837|G2263_SLE_2012|Human|Sierra_Leone|2012-01-17">
@@ -904,8 +849,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182234|las801618|Human|Sierra_Leone|1979">
@@ -920,8 +864,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.266454 -10.950343
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182233|las802662|Human|Sierra_Leone|1980">
@@ -936,8 +879,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.166329 -11.330602
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182238|las806827|Human|Sierra_Leone|1977">
@@ -952,8 +894,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.251329 -10.908552
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821806|G1646_SLE_2011|Human|Sierra_Leone|2011-04-13">
@@ -968,8 +909,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821804|G1618_SLE_2011|Human|Sierra_Leone|2011-03-26">
@@ -984,8 +924,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821859|G2554_SLE_2012|Human|Sierra_Leone|2012-06-24">
@@ -1000,8 +939,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821787|G733_SLE_2010|Human|Sierra_Leone|2010-01-17">
@@ -1016,8 +954,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182237|las9607290|Human|Sierra_Leone|1996">
@@ -1032,8 +969,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.997399 -10.950236
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182235|las803205|Human|Sierra_Leone|1976">
@@ -1048,8 +984,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.997399 -10.950236
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182236|las803209|Human|Sierra_Leone|1975">
@@ -1064,8 +999,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.997399 -10.950236
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821854|G2427_SLE_2012|Human|Sierra_Leone|2012-03-31">
@@ -1080,8 +1014,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821894|G3151_SLE_2013|Human|Sierra_Leone|2013-06-05">
@@ -1096,8 +1029,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821900|G3222_SLE_2013|Human|Sierra_Leone|2013-07-10">
@@ -1112,8 +1044,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821850|G2392_SLE_2012|Human|Sierra_Leone|2012-03-14">
@@ -1128,8 +1059,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821902|G3229_SLE_2013|Human|Sierra_Leone|2013-07-13">
@@ -1144,8 +1074,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182239|las801105|Mouse|Sierra_Leone|1978">
@@ -1160,8 +1089,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.266454 -10.950343
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182243|las801109|Mouse|Sierra_Leone|1978">
@@ -1176,8 +1104,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.266454 -10.950343
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182241|las801104|Mouse|Sierra_Leone|1978">
@@ -1192,8 +1119,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.266454 -10.950343
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182242|las801106|Mouse|Sierra_Leone|1978">
@@ -1208,8 +1134,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.266454 -10.950343
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182244|las801108|Mouse|Sierra_Leone|1978">
@@ -1224,8 +1149,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.266454 -10.950343
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821882|G3010_SLE_2013|Human|Sierra_Leone|2013-02-05">
@@ -1240,8 +1164,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821818|G1959_SLE_2011|Human|Sierra_Leone|2011-09-09">
@@ -1256,8 +1179,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821877|G2906_SLE_2012|Human|Sierra_Leone|2012-11-03">
@@ -1272,8 +1194,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821830|G2197_SLE_2011|Human|Sierra_Leone|2011-12-04">
@@ -1288,8 +1209,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821789|G771_SLE_2010|Human|Sierra_Leone|2010-02-08">
@@ -1304,8 +1224,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.874519 -11.342483
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821777|G610_SLE_2009|Human|Sierra_Leone|2009-08-28">
@@ -1320,8 +1239,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821820|G1960_SLE_2011|Human|Sierra_Leone|2011-09-11">
@@ -1336,8 +1254,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821814|G1792_SLE_2011|Human|Sierra_Leone|2011-06-17">
@@ -1352,8 +1269,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821878|G2934_SLE_2012|Human|Sierra_Leone|2012-11-27">
@@ -1368,8 +1284,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821775|G503_SLE_2009|Human|Sierra_Leone|2009-04-30">
@@ -1384,8 +1299,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182253|las801100|Mouse|Sierra_Leone|1978">
@@ -1400,8 +1314,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821824|G2147_SLE_2011|Human|Sierra_Leone|2011-11-16">
@@ -1416,8 +1329,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182254|las806843|Human|Sierra_Leone|1993">
@@ -1432,8 +1344,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821794|G1180_SLE_2010|Human|Sierra_Leone|2010-09-02">
@@ -1448,8 +1359,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821773|G502_SLE_2009|Human|Sierra_Leone|2009-04-29">
@@ -1464,8 +1374,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821828|G2184_SLE_2011|Human|Sierra_Leone|2011-11-26">
@@ -1480,8 +1389,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821848|G2384_SLE_2012|Human|Sierra_Leone|2012-03-09">
@@ -1496,8 +1404,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.997399 -10.950236
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821826|G2165_SLE_2011|Human|Sierra_Leone|2011-11-18">
@@ -1512,8 +1419,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182246|las807976|Human|Sierra_Leone|1977">
@@ -1528,8 +1434,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821874|G2868_SLE_2012|Human|Sierra_Leone|2012-10-08">
@@ -1544,8 +1449,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821792|G808_SLE_2010|Human|Sierra_Leone|2010-02-27">
@@ -1560,8 +1464,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821899|G3206_SLE_2013|Human|Sierra_Leone|2013-07-01">
@@ -1576,8 +1479,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821876|G2903_SLE_2012|Human|Sierra_Leone|2012-10-30">
@@ -1592,8 +1494,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821843|G2315_SLE_2012|Human|Sierra_Leone|2012-02-10">
@@ -1608,8 +1509,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182248|las801101|Mouse|Sierra_Leone|1978">
@@ -1624,8 +1524,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182249|las801103|Mouse|Sierra_Leone|1978">
@@ -1640,8 +1539,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182247|las803211|Human|Sierra_Leone|1972">
@@ -1656,8 +1554,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182250|las803206|Human|Sierra_Leone|1976">
@@ -1672,8 +1569,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182251|las801102|Mouse|Sierra_Leone|1978">
@@ -1688,8 +1584,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182252|las9607300|Human|Sierra_Leone|1996">
@@ -1704,8 +1599,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821832|G2222_SLE_2011|Human|Sierra_Leone|2011-12-19">
@@ -1720,8 +1614,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.05 -11.11
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821812|G1774_SLE_2011|Human|Sierra_Leone|2011-06-11">
@@ -1736,8 +1629,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.05 -11.11
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821790|G806_SLE_2010|Human|Sierra_Leone|2010-02-26">
@@ -1752,8 +1644,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="AF182255|las9607302|Human|Sierra_Leone|1996">
@@ -1768,8 +1659,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.660429 -11.059281
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821867|G2612_SLE_2012|Human|Sierra_Leone|2012-07-23">
@@ -1784,8 +1674,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821884|G3016_SLE_2013|Human|Sierra_Leone|2013-02-14">
@@ -1800,8 +1689,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821839|G2280_SLE_2012|Human|Sierra_Leone|2012-01-23">
@@ -1816,8 +1704,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821816|G1932_SLE_2011|Human|Sierra_Leone|2011-08-24">
@@ -1832,8 +1719,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.064348 -11.619382
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821808|G1647_SLE_2011|Human|Sierra_Leone|2011-04-15">
@@ -1848,8 +1734,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821857|G2511_SLE_2012|Human|Sierra_Leone|2012-05-18">
@@ -1864,8 +1749,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821865|G2587_SLE_2012|Human|Sierra_Leone|2012-07-04">
@@ -1880,8 +1764,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821841|G2295_SLE_2012|Human|Sierra_Leone|2012-01-31">
@@ -1896,8 +1779,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821781|G676_SLE_2009|Human|Sierra_Leone|2009-12-09">
@@ -1912,8 +1794,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.154893 -11.171735
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821886|G3076_SLE_2013|Human|Sierra_Leone|2013-04-15">
@@ -1928,8 +1809,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821852|G2405_SLE_2012|Human|Sierra_Leone|2012-03-27">
@@ -1944,8 +1824,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821810|G1727_SLE_2011|Human|Sierra_Leone|2011-05-31">
@@ -1960,8 +1839,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821796|G1190_SLE_2010|Human|Sierra_Leone|2010-09-09">
@@ -1976,8 +1854,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821880|G2944_SLE_2012|Human|Sierra_Leone|2012-12-05">
@@ -1992,8 +1869,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821910|G3283_SLE_2013|Human|Sierra_Leone|2013-08-05">
@@ -2008,8 +1884,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821895|G3157_SLE_2013|Human|Sierra_Leone|2013-06-11">
@@ -2024,8 +1899,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.862212 -11.196247
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="KM821892|G3148_SLE_2013|Human|Sierra_Leone|2013-06-01">
@@ -2040,8 +1914,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				8.184479 -11.134313
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 	</taxa>
@@ -2605,8 +2478,7 @@
 	
 	<!-- Generate a gmrfSkyGridLikelihood for the Bayesian SkyGrid process       -->
 	<gmrfSkyGridLikelihood id="skygrid">
-		<populationSizes>
-			<!-- skygrid.logPopSize is in log units unlike other popSize                 -->
+		<populationSizes>			<!-- skygrid.logPopSize is in log units unlike other popSize                 -->
 			<parameter id="skygrid.logPopSize" dimension="100" value="1.0"/>
 		</populationSizes>
 		<precisionParameter>
@@ -2684,7 +2556,6 @@
 	</statistic>
 	
 	<!-- START Multivariate diffusion model                                      -->
-
 	<multivariateDiffusionModel id="location.diffusionModel">
 		<precisionMatrix>
 			<matrixParameter id="location.precision">
@@ -2704,8 +2575,7 @@
 		<data>
 			<parameter idref="location.precision"/>
 		</data>
-	</multivariateWishartPrior>
-	<!-- END Multivariate diffusion model                                        -->
+	</multivariateWishartPrior>	<!-- END Multivariate diffusion model                                        -->
 
 	<!-- Likelihood for tree given sequence data                                 -->
 	<treeDataLikelihood id="treeLikelihood" useAmbiguities="false">
@@ -2766,9 +2636,7 @@
 	</matrixInverse>
 	<continuousDiffusionStatistic id="location.diffusionRate" greatCircleDistance="true">
 		<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-	</continuousDiffusionStatistic>
-	<!-- END Multivariate diffusion model                                        -->
-
+	</continuousDiffusionStatistic>	<!-- END Multivariate diffusion model                                        -->
 	<!-- Define operators                                                        -->
 	<operators id="operators" optimizationSchedule="log">
 		<deltaExchange delta="0.01" weight="1">
@@ -2835,13 +2703,12 @@
 		<precisionGibbsOperator weight="2">
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<multivariateWishartPrior idref="location.precisionPrior"/>
-		</precisionGibbsOperator>
-		<!-- END Multivariate diffusion model                                        -->
+		</precisionGibbsOperator>		<!-- END Multivariate diffusion model                                        -->
 
 	</operators>
 	
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="200000000" autoOptimize="true" operatorAnalysis="LASV_S_3_MRU_RRW.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_S_MRU_RRW.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -2875,16 +2742,14 @@
 
 				<!-- START Multivariate diffusion model                                      -->
 				<distributionLikelihood idref="location.diffusion.prior"/>
-				<multivariateWishartPrior idref="location.precisionPrior"/>
-				<!-- END Multivariate diffusion model                                        -->
+				<multivariateWishartPrior idref="location.precisionPrior"/>				<!-- END Multivariate diffusion model                                        -->
 
 			</prior>
 			<likelihood id="likelihood">
 				<treeDataLikelihood idref="treeLikelihood"/>
 
 				<!-- START Multivariate diffusion model                                      -->
-				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-				<!-- END Multivariate diffusion model                                        -->
+				<multivariateTraitLikelihood idref="location.traitLikelihood"/>				<!-- END Multivariate diffusion model                                        -->
 
 			</likelihood>
 		</joint>
@@ -2910,7 +2775,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100000" fileName="LASV_S_3_MRU_RRW.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_S_MRU_RRW.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -2934,21 +2799,19 @@
 			<correlation idref="location.correlation"/>
 			<matrixInverse idref="location.varCovar"/>
 			<continuousDiffusionStatistic idref="location.diffusionRate"/>
-			<parameter idref="location.halfDF"/>
-			<!-- END Multivariate diffusion model                                        -->
+			<parameter idref="location.halfDF"/>			<!-- END Multivariate diffusion model                                        -->
 
 			<treeDataLikelihood idref="treeLikelihood"/>
 			<discretizedBranchRates idref="branchRates"/>
 
 			<!-- START Multivariate diffusion model                                      -->
-			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-			<!-- END Multivariate diffusion model                                        -->
+			<multivariateTraitLikelihood idref="location.traitLikelihood"/>			<!-- END Multivariate diffusion model                                        -->
 
 			<gmrfSkyGridLikelihood idref="skygrid"/>
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_3_MRU_RRW.trees" sortTranslationTable="true">
+		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_MRU_RRW.trees" sortTranslationTable="true">
 			<treeModel idref="treeModel"/>
 			<trait name="rate" tag="rate">
 				<discretizedBranchRates idref="branchRates"/>
@@ -2958,16 +2821,13 @@
 			<!-- START Ancestral state reconstruction                                    -->
 			<trait name="location" tag="location">
 				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-			</trait>
-			<!-- END Ancestral state reconstruction                                      -->
-
+			</trait>			<!-- END Ancestral state reconstruction                                      -->
 			<!-- START Multivariate diffusion model                                      -->
 			<multivariateDiffusionModel idref="location.diffusionModel"/>
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<trait name="rate" tag="location.rate">
 				<arbitraryBranchRates idref="location.diffusion.branchRates"/>
-			</trait>
-			<!-- END Multivariate diffusion model                                        -->
+			</trait>			<!-- END Multivariate diffusion model                                        -->
 
 		</logTree>
 	</mcmc>

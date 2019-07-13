@@ -24,8 +24,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				10.686987 13.272643
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_006_NGA-Ekiti_IdoEkiti_Hs_2016-01-14">
@@ -40,8 +39,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.845422 5.182916
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="LASV|NGA|2019|IRR_0082|2019-01-17">
@@ -56,8 +54,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.525829 5.762072
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="OSPMH124_NGA-Osun_COORDINATES_Hp_2009-03">
@@ -72,8 +69,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.6833 4.6167
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="OSPMH89_NGA-Osun_COORDINATES_Hp_2008-10">
@@ -88,8 +84,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.6833 4.6167
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="OSPMH123_NGA-Osun_COORDINATES_Hp_2009-03">
@@ -104,8 +99,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.6833 4.6167
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="Kak-428_NGA-Osun_COORDINATES_Hp_2012-03-15">
@@ -120,8 +114,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.6833 4.6167
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 		<taxon id="OSPMH86_NGA-Osun_COORDINATES_Hp_2008-10">
@@ -136,8 +129,7 @@
 			<!-- START Multivariate diffusion model                                      -->
 			<attr name="location">
 				7.6833 4.6167
-			</attr>
-			<!-- END Multivariate diffusion model                                        -->
+			</attr>			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 	</taxa>
@@ -225,8 +217,7 @@
 	
 	<!-- Generate a gmrfSkyGridLikelihood for the Bayesian SkyGrid process       -->
 	<gmrfSkyGridLikelihood id="skygrid">
-		<populationSizes>
-			<!-- skygrid.logPopSize is in log units unlike other popSize                 -->
+		<populationSizes>			<!-- skygrid.logPopSize is in log units unlike other popSize                 -->
 			<parameter id="skygrid.logPopSize" dimension="100" value="1.0"/>
 		</populationSizes>
 		<precisionParameter>
@@ -304,7 +295,6 @@
 	</statistic>
 	
 	<!-- START Multivariate diffusion model                                      -->
-
 	<multivariateDiffusionModel id="location.diffusionModel">
 		<precisionMatrix>
 			<matrixParameter id="location.precision">
@@ -324,8 +314,7 @@
 		<data>
 			<parameter idref="location.precision"/>
 		</data>
-	</multivariateWishartPrior>
-	<!-- END Multivariate diffusion model                                        -->
+	</multivariateWishartPrior>	<!-- END Multivariate diffusion model                                        -->
 
 	<!-- Likelihood for tree given sequence data                                 -->
 	<treeDataLikelihood id="treeLikelihood" useAmbiguities="false">
@@ -386,9 +375,7 @@
 	</matrixInverse>
 	<continuousDiffusionStatistic id="location.diffusionRate" greatCircleDistance="true">
 		<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-	</continuousDiffusionStatistic>
-	<!-- END Multivariate diffusion model                                        -->
-
+	</continuousDiffusionStatistic>	<!-- END Multivariate diffusion model                                        -->
 	<!-- Define operators                                                        -->
 	<operators id="operators" optimizationSchedule="log">
 		<deltaExchange delta="0.01" weight="1">
@@ -455,13 +442,12 @@
 		<precisionGibbsOperator weight="2">
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<multivariateWishartPrior idref="location.precisionPrior"/>
-		</precisionGibbsOperator>
-		<!-- END Multivariate diffusion model                                        -->
+		</precisionGibbsOperator>		<!-- END Multivariate diffusion model                                        -->
 
 	</operators>
 	
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="200000000" autoOptimize="true" operatorAnalysis="LASV_S_3_NIG1_RRW.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_S_NIG1_RRW.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -495,16 +481,14 @@
 
 				<!-- START Multivariate diffusion model                                      -->
 				<distributionLikelihood idref="location.diffusion.prior"/>
-				<multivariateWishartPrior idref="location.precisionPrior"/>
-				<!-- END Multivariate diffusion model                                        -->
+				<multivariateWishartPrior idref="location.precisionPrior"/>				<!-- END Multivariate diffusion model                                        -->
 
 			</prior>
 			<likelihood id="likelihood">
 				<treeDataLikelihood idref="treeLikelihood"/>
 
 				<!-- START Multivariate diffusion model                                      -->
-				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-				<!-- END Multivariate diffusion model                                        -->
+				<multivariateTraitLikelihood idref="location.traitLikelihood"/>				<!-- END Multivariate diffusion model                                        -->
 
 			</likelihood>
 		</joint>
@@ -530,7 +514,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100000" fileName="LASV_S_3_NIG1_RRW.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_S_NIG1_RRW.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -554,21 +538,19 @@
 			<correlation idref="location.correlation"/>
 			<matrixInverse idref="location.varCovar"/>
 			<continuousDiffusionStatistic idref="location.diffusionRate"/>
-			<parameter idref="location.halfDF"/>
-			<!-- END Multivariate diffusion model                                        -->
+			<parameter idref="location.halfDF"/>			<!-- END Multivariate diffusion model                                        -->
 
 			<treeDataLikelihood idref="treeLikelihood"/>
 			<discretizedBranchRates idref="branchRates"/>
 
 			<!-- START Multivariate diffusion model                                      -->
-			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-			<!-- END Multivariate diffusion model                                        -->
+			<multivariateTraitLikelihood idref="location.traitLikelihood"/>			<!-- END Multivariate diffusion model                                        -->
 
 			<gmrfSkyGridLikelihood idref="skygrid"/>
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_3_NIG1_RRW.trees" sortTranslationTable="true">
+		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NIG1_RRW.trees" sortTranslationTable="true">
 			<treeModel idref="treeModel"/>
 			<trait name="rate" tag="rate">
 				<discretizedBranchRates idref="branchRates"/>
@@ -578,16 +560,13 @@
 			<!-- START Ancestral state reconstruction                                    -->
 			<trait name="location" tag="location">
 				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-			</trait>
-			<!-- END Ancestral state reconstruction                                      -->
-
+			</trait>			<!-- END Ancestral state reconstruction                                      -->
 			<!-- START Multivariate diffusion model                                      -->
 			<multivariateDiffusionModel idref="location.diffusionModel"/>
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<trait name="rate" tag="location.rate">
 				<arbitraryBranchRates idref="location.diffusion.branchRates"/>
-			</trait>
-			<!-- END Multivariate diffusion model                                        -->
+			</trait>			<!-- END Multivariate diffusion model                                        -->
 
 		</logTree>
 	</mcmc>

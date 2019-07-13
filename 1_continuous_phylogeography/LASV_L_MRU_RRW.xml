@@ -6,9 +6,9 @@
 <!--       Institute of Evolutionary Biology, University of Edinburgh        -->
 <!--       David Geffen School of Medicine, University of California, Los Angeles-->
 <!--       http://beast.community/                                           -->
+
 <beast version="1.10.4">
 	
-
 	<!-- The list of taxa to be analysed (can also include dates/ages).          -->
 	<!-- ntax=64                                                                 -->
 	<taxa id="taxa">
@@ -25,7 +25,6 @@
 			<attr name="location">
 				10.3831 -7.1517
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -42,7 +41,6 @@
 			<attr name="location">
 				10.5891 -7.1558
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -59,7 +57,6 @@
 			<attr name="location">
 				10.5891 -7.1558
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -76,7 +73,6 @@
 			<attr name="location">
 				10.5891 -7.1558
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -93,7 +89,6 @@
 			<attr name="location">
 				10.6164 -7.1583
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -110,7 +105,6 @@
 			<attr name="location">
 				10.050452 -10.587936
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -127,7 +121,6 @@
 			<attr name="location">
 				7.775819 -9.427707
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -144,7 +137,6 @@
 			<attr name="location">
 				8.660429 -11.059281
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -161,7 +153,6 @@
 			<attr name="location">
 				9.87 -12.43
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -178,7 +169,6 @@
 			<attr name="location">
 				9.87 -12.43
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -195,7 +185,6 @@
 			<attr name="location">
 				9.87 -12.43
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -212,7 +201,6 @@
 			<attr name="location">
 				9.87 -12.43
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -229,7 +217,6 @@
 			<attr name="location">
 				9.87 -12.43
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -246,7 +233,6 @@
 			<attr name="location">
 				9.87 -12.43
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -263,7 +249,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -280,7 +265,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -297,7 +281,6 @@
 			<attr name="location">
 				7.956596 -11.736703
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -314,7 +297,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -331,7 +313,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -348,7 +329,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -365,7 +345,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -382,7 +361,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -399,7 +377,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -416,7 +393,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -433,7 +409,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -450,7 +425,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -467,7 +441,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -484,7 +457,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -501,7 +473,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -518,7 +489,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -535,7 +505,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -552,7 +521,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -569,7 +537,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -586,7 +553,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -603,7 +569,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -620,7 +585,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -637,7 +601,6 @@
 			<attr name="location">
 				8.660429 -11.059281
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -654,7 +617,6 @@
 			<attr name="location">
 				7.874519 -11.342483
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -671,7 +633,6 @@
 			<attr name="location">
 				8.660429 -11.059281
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -688,7 +649,6 @@
 			<attr name="location">
 				8.660429 -11.059281
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -705,7 +665,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -722,7 +681,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -739,7 +697,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -756,7 +713,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -773,7 +729,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -790,7 +745,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -807,7 +761,6 @@
 			<attr name="location">
 				8.064348 -11.619382
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -824,7 +777,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -841,7 +793,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -858,7 +809,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -875,7 +825,6 @@
 			<attr name="location">
 				8.05 -11.11
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -892,7 +841,6 @@
 			<attr name="location">
 				8.05 -11.11
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -909,7 +857,6 @@
 			<attr name="location">
 				8.154893 -11.171735
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -926,7 +873,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -943,7 +889,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -960,7 +905,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -977,7 +921,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -994,7 +937,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -1011,7 +953,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -1028,7 +969,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -1045,7 +985,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -1062,7 +1001,6 @@
 			<attr name="location">
 				8.184479 -11.134313
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -1079,7 +1017,6 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
@@ -1096,14 +1033,11 @@
 			<attr name="location">
 				7.862212 -11.196247
 			</attr>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</taxon>
 	</taxa>
 	
-	
-
 	<!-- The sequence alignment (each sequence refers to a taxon above).         -->
 	<!-- ntax=64 nchar=7026                                                      -->
 	<alignment id="alignment" dataType="nucleotide">
@@ -1365,15 +1299,12 @@
 		</sequence>
 	</alignment>
 	
-	
-
 	<!-- The unique patterns from 1 to end                                       -->
 	<!-- npatterns=3140                                                          -->
 	<patterns id="patterns" from="1" strip="false">
 		<alignment idref="alignment"/>
 	</patterns>
 	
-
 	<!-- This is a simple constant population size coalescent model              -->
 	<!-- that is used to generate an initial tree for the chain.                 -->
 	<constantSize id="initialDemo" units="years">
@@ -1382,14 +1313,12 @@
 		</populationSize>
 	</constantSize>
 	
-
 	<!-- Generate a random starting tree under the coalescent process            -->
 	<coalescentSimulator id="startingTree">
 		<taxa idref="taxa"/>
 		<constantSize idref="initialDemo"/>
 	</coalescentSimulator>
 	
-
 	<!-- Generate a tree model                                                   -->
 	<treeModel id="treeModel">
 		<coalescentTree idref="startingTree"/>
@@ -1414,12 +1343,9 @@
 		<treeModel idref="treeModel"/>
 	</tmrcaStatistic>
 	
-	
-
 	<!-- Generate a gmrfSkyGridLikelihood for the Bayesian SkyGrid process       -->
 	<gmrfSkyGridLikelihood id="skygrid">
 		<populationSizes>
-
 			<!-- skygrid.logPopSize is in log units unlike other popSize                 -->
 			<parameter id="skygrid.logPopSize" dimension="100" value="1.0"/>
 		</populationSizes>
@@ -1470,7 +1396,6 @@
 		<discretizedBranchRates idref="branchRates"/>
 	</rateCovarianceStatistic>
 	
-
 	<!-- The general time reversible (GTR) substitution model                    -->
 	<gtrModel id="gtr">
 		<frequencies>
@@ -1495,15 +1420,11 @@
 		</gammaShape>
 	</siteModel>
 
-	<!--                                                                         -->
 	<statistic id="mu" name="mu">
 		<siteModel idref="siteModel"/>
 	</statistic>
 	
-	
-
 	<!-- START Multivariate diffusion model                                      -->
-
 	<multivariateDiffusionModel id="location.diffusionModel">
 		<precisionMatrix>
 			<matrixParameter id="location.precision">
@@ -1524,7 +1445,6 @@
 			<parameter idref="location.precision"/>
 		</data>
 	</multivariateWishartPrior>
-
 	<!-- END Multivariate diffusion model                                        -->
 
 
@@ -1538,7 +1458,6 @@
 		<discretizedBranchRates idref="branchRates"/>
 	</treeDataLikelihood>
 	
-
 	<!-- START Multivariate diffusion model                                      -->
 	<arbitraryBranchRates id="location.diffusion.branchRates">
 		<treeModel idref="treeModel"/>
@@ -1589,9 +1508,7 @@
 	<continuousDiffusionStatistic id="location.diffusionRate" greatCircleDistance="true">
 		<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 	</continuousDiffusionStatistic>
-
 	<!-- END Multivariate diffusion model                                        -->
-
 
 	<!-- Define operators                                                        -->
 	<operators id="operators" optimizationSchedule="log">
@@ -1660,14 +1577,12 @@
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<multivariateWishartPrior idref="location.precisionPrior"/>
 		</precisionGibbsOperator>
-
 		<!-- END Multivariate diffusion model                                        -->
 
 	</operators>
 	
-
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_L_3_MRU_RRW.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_L_MRU_RRW.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -1702,7 +1617,6 @@
 				<!-- START Multivariate diffusion model                                      -->
 				<distributionLikelihood idref="location.diffusion.prior"/>
 				<multivariateWishartPrior idref="location.precisionPrior"/>
-
 				<!-- END Multivariate diffusion model                                        -->
 
 			</prior>
@@ -1711,7 +1625,6 @@
 
 				<!-- START Multivariate diffusion model                                      -->
 				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-
 				<!-- END Multivariate diffusion model                                        -->
 
 			</likelihood>
@@ -1738,7 +1651,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100000" fileName="LASV_L_3_MRU_RRW.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_L_MRU_RRW.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -1763,7 +1676,6 @@
 			<matrixInverse idref="location.varCovar"/>
 			<continuousDiffusionStatistic idref="location.diffusionRate"/>
 			<parameter idref="location.halfDF"/>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 			<treeDataLikelihood idref="treeLikelihood"/>
@@ -1771,14 +1683,13 @@
 
 			<!-- START Multivariate diffusion model                                      -->
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 			<gmrfSkyGridLikelihood idref="skygrid"/>
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_L_3_MRU_RRW.trees" sortTranslationTable="true">
+		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_L_MRU_RRW.trees" sortTranslationTable="true">
 			<treeModel idref="treeModel"/>
 			<trait name="rate" tag="rate">
 				<discretizedBranchRates idref="branchRates"/>
@@ -1788,18 +1699,13 @@
 			<!-- START Ancestral state reconstruction                                    -->
 			<trait name="location" tag="location">
 				<multivariateTraitLikelihood idref="location.traitLikelihood"/>
-			</trait>
-
-			<!-- END Ancestral state reconstruction                                      -->
-
-
+			</trait>			<!-- END Ancestral state reconstruction                                      -->
 			<!-- START Multivariate diffusion model                                      -->
 			<multivariateDiffusionModel idref="location.diffusionModel"/>
 			<multivariateTraitLikelihood idref="location.traitLikelihood"/>
 			<trait name="rate" tag="location.rate">
 				<arbitraryBranchRates idref="location.diffusion.branchRates"/>
 			</trait>
-
 			<!-- END Multivariate diffusion model                                        -->
 
 		</logTree>
