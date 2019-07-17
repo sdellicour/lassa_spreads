@@ -4908,7 +4908,7 @@
 	</operators>
 	
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_S_NGA_skygrid.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_S_2_NGA_skygrid.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -4995,7 +4995,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100000" fileName="LASV_S_NGA_skygrid.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_S_2_NGA_skygrid.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -5041,21 +5041,21 @@
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="LASV_S_alignment_2_NI1.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_alignment_2_NI1.trees" sortTranslationTable="true">
+		<logTree id="LASV_S_alignment_2_NI1.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_2_NGA_skygrid.LASV_S_alignment_2_NI1.trees" sortTranslationTable="true">
 			<treeModel idref="LASV_S_alignment_2_NI1.treeModel"/>
 			<trait name="rate" tag="LASV_S_alignment_2_NI1.rate">
 				<discretizedBranchRates idref="LASV_S_alignment_2_NI1.branchRates"/>
 			</trait>
 			<joint idref="joint"/>
 		</logTree>
-		<logTree id="LASV_S_alignment_2_NI2.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_alignment_2_NI2.trees" sortTranslationTable="true">
+		<logTree id="LASV_S_alignment_2_NI2.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_2_NGA_skygrid.LASV_S_alignment_2_NI2.trees" sortTranslationTable="true">
 			<treeModel idref="LASV_S_alignment_2_NI2.treeModel"/>
 			<trait name="rate" tag="LASV_S_alignment_2_NI2.rate">
 				<discretizedBranchRates idref="LASV_S_alignment_2_NI2.branchRates"/>
 			</trait>
 			<joint idref="joint"/>
 		</logTree>
-		<logTree id="LASV_S_alignment_2_NI3.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NGA_skygrid.LASV_S_alignment_2_NI3.trees" sortTranslationTable="true">
+		<logTree id="LASV_S_alignment_2_NI3.treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_2_NGA_skygrid.LASV_S_alignment_2_NI3.trees" sortTranslationTable="true">
 			<treeModel idref="LASV_S_alignment_2_NI3.treeModel"/>
 			<trait name="rate" tag="LASV_S_alignment_2_NI3.rate">
 				<discretizedBranchRates idref="LASV_S_alignment_2_NI3.branchRates"/>

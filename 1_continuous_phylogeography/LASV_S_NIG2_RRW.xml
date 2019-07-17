@@ -4076,7 +4076,7 @@
 	</operators>
 	
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_S_NIG2_RRW.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_S_3_NIG2_RRW.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -4143,7 +4143,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="100000" fileName="LASV_S_NIG2_RRW.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_S_3_NIG2_RRW.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -4179,7 +4179,7 @@
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_NIG2_RRW.trees" sortTranslationTable="true">
+		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_S_3_NIG2_RRW.trees" sortTranslationTable="true">
 			<treeModel idref="treeModel"/>
 			<trait name="rate" tag="rate">
 				<discretizedBranchRates idref="branchRates"/>

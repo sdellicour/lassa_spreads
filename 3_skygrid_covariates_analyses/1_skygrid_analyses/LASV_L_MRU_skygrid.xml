@@ -980,7 +980,7 @@
 	</operators>
 
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="10000000" autoOptimize="true" operatorAnalysis="LASV_L_MRU_skygrid.ops">
+	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_L_2_MRU_skygrid.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
@@ -1014,7 +1014,7 @@
 		<operators idref="operators"/>
 
 		<!-- write log to screen                                                     -->
-		<log id="screenLog" logEvery="1000">
+		<log id="screenLog" logEvery="100000">
 			<column label="Joint" dp="4" width="12">
 				<joint idref="joint"/>
 			</column>
@@ -1033,7 +1033,7 @@
 		</log>
 
 		<!-- write log to file                                                       -->
-		<log id="fileLog" logEvery="1000" fileName="LASV_L_MRU_skygrid.log" overwrite="false">
+		<log id="fileLog" logEvery="100000" fileName="LASV_L_2_MRU_skygrid.log" overwrite="false">
 			<joint idref="joint"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
@@ -1059,7 +1059,7 @@
 		</log>
 
 		<!-- write tree log to file                                                  -->
-		<logTree id="treeFileLog" logEvery="1000" nexusFormat="true" fileName="LASV_L_MRU_skygrid.trees" sortTranslationTable="true">
+		<logTree id="treeFileLog" logEvery="100000" nexusFormat="true" fileName="LASV_L_2_MRU_skygrid.trees" sortTranslationTable="true">
 			<treeModel idref="treeModel"/>
 			<trait name="rate" tag="rate">
 				<discretizedBranchRates idref="branchRates"/>
