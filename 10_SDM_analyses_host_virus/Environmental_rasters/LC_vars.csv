@@ -1,0 +1,15 @@
+ID,name
+primf,forested primary land
+primn,non-forested primary land
+secdf,potentially forested secondary land
+secdn,potentially non-forested secondary land
+urban,urban land
+c3ann,C3 annual crops
+c4ann,C4 annual crops
+c3per,C3 perennial crops
+c4per,C4 perennial crops
+c3nfx,C3 nitrogen-fixing crops
+pastr,managed pasture
+range,rangeland
+secmb,secondary mean biomass carbon density
+secma,secondary mean age
