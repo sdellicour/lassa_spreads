@@ -1,0 +1,115 @@
+library(seraphim)
+library(lubridate)
+library(seraphim)#
+library(lubridate)#
+#
+# 1. Preparation of LASV sequences#
+# 2. Preliminary phylogenetic analyses#
+# 3. Temporal signal analyses#
+# 4. Continuous phylogeographic analyses#
+# 5. Generating dispersal history graphs#
+# 6. Estimating dispersal statistics#
+# 7. Post-hoc landscape phylogeography#
+# 8. Prepration of skygrid-GLM covariates#
+# 9. Analysis of skygrid-GLM analyses#
+# 10. Species distribution modelling#
+#
+wd = getwd()#
+wd1 = "01_sequences_preparation"wd1 = "02_preliminary_BEAST_runs"wd1 = "03_temporal_signal_analyses"wd1 = "04_RRW_phylogeography"wd1 = "05_dispersal_history_graphs"wd1 = "06_dispersal_stat_estimations"wd1 = "07_all_seraphim_analyses"wd1 = "08_covariates_preparation"wd1 = "09_skygrid_GLM_analyses"wd1 = "10_SDM_analyses_host_virus"
+library(diagram)#
+library(dismo)#
+library(gbm)#
+library(geosphere)#
+library(lubridate)#
+library(ncdf4)#
+library(pgirmess)#
+library(seraphim)#
+library(seqinr)#
+library(vioplot)#
+#
+# 1. Preparation of LASV sequences#
+# 2. Preliminary phylogenetic analyses#
+# 3. Temporal signal analyses#
+# 4. Continuous phylogeographic analyses#
+# 5. Generating dispersal history graphs#
+# 6. Estimating dispersal statistics#
+# 7. Post-hoc landscape phylogeography#
+# 8. Prepration of skygrid-GLM covariates#
+# 9. Analysis of skygrid-GLM analyses#
+# 10. Species distribution modelling#
+#
+wd = getwd()#
+wd1 = "01_sequences_preparation"wd2 = "02_preliminary_BEAST_runs"wd3 = "03_temporal_signal_analyses"wd4 = "04_RRW_phylogeography"wd5 = "05_dispersal_history_graphs"wd6 = "06_dispersal_stat_estimations"wd7 = "07_all_seraphim_analyses"wd8 = "08_covariates_preparation"wd9 = "09_skygrid_GLM_analyses"wd10 = "10_SDM_analyses_host_virus"#
+#
+# 1. Preparation of LASV sequences#
+#
+setwd(paste(wd,wd1,sep="/"))#
+#
+	# 1.1. Renaming sequence IDs to match with metadata files#
+#
+segments = c("L","S"); test = decimal_date(ymd("1986-01-26"))#
+metadata = read.csv("Original_sequence_files/LASV_all_the_metadata.csv", head=T, colClasses="character")
+colanmes(tab1)
+colnames(tab1)
+i=1
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)#
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude")#
+		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]#
+		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])
+colnames(tab1)
+colnames(metadata)
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)#
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",,paste0("kept_in_",segments[i],"_alignment"))#
+		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]#
+		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])#
+		missingSequences = which(!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&
+colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",,paste0("kept_in_",segments[i],"_aln"))
+colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)
+colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))
+tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]
+sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])
+tab1[,paste0("kept_in_",segments[i],"_aln")]
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)#
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))#
+		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]#
+		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])#
+		missingSequences = which((!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&(tab1[,paste0("kept_in_",segments[i],"_aln")]=="0"))#
+		if (length(tab1[missingSequences,paste0("accession_",segments[i])]) > 0)#
+			{#
+				cat(tab1[missingSequences,paste0("accession_",segments[i])],sep="\n")#
+			}
+missingSequences = which((!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&(tab1[,paste0("kept_in_",segments[i],"_aln")]!="0"))
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)#
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))#
+		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]#
+		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])#
+		missingSequences = which((!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&(tab1[,paste0("kept_in_",segments[i],"_aln")]!="0"))#
+		if (length(tab1[missingSequences,paste0("accession_",segments[i])]) > 0)#
+			{#
+				cat(tab1[missingSequences,paste0("accession_",segments[i])],sep="\n")#
+			}
+i=2
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)#
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))#
+		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]#
+		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])#
+		missingSequences = which((!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&(tab1[,paste0("kept_in_",segments[i],"_aln")]!="0"))#
+		if (length(tab1[missingSequences,paste0("accession_",segments[i])]) > 0)#
+			{#
+				cat(tab1[missingSequences,paste0("accession_",segments[i])],sep="\n")#
+			}
+segments = c("L","S"); test = decimal_date(ymd("1986-01-26"))#
+metadata = read.csv("Original_sequence_files/LASV_all_the_metadata.csv", head=T, colClasses="character")
+i=1
+fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)#
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))#
+		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]#
+		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])#
+		missingSequences = which((!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&(tab1[,paste0("kept_in_",segments[i],"_aln")]!="0"))
+if (length(tab1[missingSequences,paste0("accession_",segments[i])]) > 0)#
+			{#
+				cat(tab1[missingSequences,paste0("accession_",segments[i])],sep="\n")#
+			}
+colnames(tab)
+colnames(tab1)

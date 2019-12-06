@@ -9,23 +9,178 @@ library(seraphim)
 library(seqinr)
 library(vioplot)
 
-# 1. Preparation of LASV sequences
-# 2. Preliminary phylogenetic analyses
-# 3. Temporal signal analyses
-# 4. Continuous phylogeographic analyses
-# 5. Generating dispersal history graphs
-# 6. Estimating dispersal statistics
-# 7. Post-hoc landscape phylogeography
-# 8. Prepration of skygrid-GLM covariates
-# 9. Analysis of skygrid-GLM analyses
-# 10. Species distribution modelling
+# A. SPECIES DISTRIBUTION MODEL ANALYSES
+# B. PHYLOGEOGRAPHIC AND SKYGRID ANALYSES
+# B1. Preparation of LASV sequences
+# B2. Preliminary phylogenetic analyses
+# B3. Temporal signal analyses
+# B4. Continuous phylogeographic analyses
+# B5. Generating dispersal history graphs
+# B6. Estimating dispersal statistics
+# B7. Post-hoc landscape phylogeography
+# B8. Prepration of skygrid-GLM covariates
+# B9. Analysis of skygrid-GLM analyses
 
 wd = getwd()
-wd1 = "01_sequences_preparation"wd2 = "02_preliminary_BEAST_runs"wd3 = "03_temporal_signal_analyses"wd4 = "04_RRW_phylogeography"wd5 = "05_dispersal_history_graphs"wd6 = "06_dispersal_stat_estimations"wd7 = "07_all_seraphim_analyses"wd8 = "08_covariates_preparation"wd9 = "09_skygrid_GLM_analyses"wd10 = "10_SDM_analyses_host_virus"
+wdb1 = "A1_SDM_analyses_host_virus"
+wdb1 = "B1_sequences_preparation"wdb2 = "B2_preliminary_BEAST_runs"wdb3 = "B3_temporal_signal_analyses"wdb4 = "B4_RRW_phylogeography"wdb5 = "B5_dispersal_history_graphs"wdb6 = "B6_dispersal_stat_estimations"wdb7 = "B7_all_seraphim_analyses"wdb8 = "B8_covariates_preparation"wdb9 = "B9_skygrid_GLM_analyses"
 
-# 1. Preparation of LASV sequences
+# A. SPECIES DISTRIBUTION MODEL ANALYSES
 
-setwd(paste(wd,wd1,sep="/"))
+setwd(paste(wd,wdb1,sep="/"))
+
+# A.1. Preparation of land cover and climatic environmental rasters
+
+		# Source: http://luh.umd.edu/data.shtml; see also Lawrence et al. (2016, Geosci. Model Dev.)
+		# Units: population (# of people), temperature (Kelvin, °C+273.15), precipitation (kg/m2/second)
+
+	# A.1.1. Loading the human population, temperature, precipitation, and land cover rasters
+		
+mask = raster("Environmental_rasters/Mask.nc4"); continents = shapefile("Continents_shapefile/Continents.shp")
+population = raster("Environmental_rasters/Calibration/GSWP3_EWEMBI/population_histsoc_0p5deg_annual_1986_2005_timmean.nc4")
+temperature = raster("Environmental_rasters/Calibration/GSWP3_EWEMBI/tas_day_GSWP3+EWEMBI_HistObs_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
+precipitation = raster("Environmental_rasters/Calibration/GSWP3_EWEMBI/pr_day_GSWP3+EWEMBI_HistObs_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
+land_cover = nc_open("Environmental_rasters/Calibration/GSWP3_EWEMBI/landcover_HistObs_annual_1986_2005_timmean.nc4") 
+
+	# A.1.2. Preparation of distinct land cover rasters from the initial ".nc" object
+
+landCoverVariableIDs = names(land_cover$var); cols = list()
+landCoverVariableNames = as.character(read.csv("Environmental_rasters/LC_vars.csv")[1:12,2])
+land_covers1 = list(); land_covers2 = list(); land_covers3 = list()
+for (i in 2:13) land_covers1[[i-1]] = brick(fileName, varname=landCoverVariableIDs[i])
+for (i in 1:length(land_covers1))
+	{
+		names(land_covers1[[i]]) = landCoverVariableNames[i]
+		cols[[i]] = colorRampPalette(brewer.pal(9,"YlGn"))(120)[11:110]
+		if (i == 1)
+			{
+				r_global = land_covers1[[1]]
+			}	else		{
+				r_global[] = r_global[]+land_covers1[[i]][]	
+			}
+	}
+if (!file.exists("Land_cover_rasters.pdf"))	
+	{
+		pdf("Land_cover_rasters_1.pdf", width=7.5, height=5.0); par(mfrow=c(4,3), oma=c(1.5,2.0,1,0.5), mar=c(0,0,0,0), mgp=c(1,0.2,0), lwd=0.2)
+		for (i in 1:12)
+			{
+				plot(land_covers1[[i]], bty="n", box=F, axes=F, legend=F, col=c("gray90",cols[[i]]), colNA="white")
+				plot(land_covers1[[i]], legend.only=T, add=T, col=cols[[i]], legend.width=0.5, legend.shrink=0.3, smallplot=c(0.09,0.105,0.14,0.49), adj=3,
+					 axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.8, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.4,0)), alpha=1, side=3)
+				mtext(gsub("\\."," ",names(land_covers1[[i]])), side=1, adj=0.5, line=-1.8, at=40, cex=0.45, font=1, col="gray30")
+			}
+		dev.off()
+	}
+
+	# A.1.3. Saving distinct land cover rasters for the "seraphim" analyses
+
+setwd(paste(wd,wdb7,sep="/"))
+variable_codes = c("croplands","pastures","urbanAreas","primaryForest","primaryNonF","secondaryForest","secondaryNonF")
+variable_names = c("crops","pasture","urban land","forested primary land","non-forested primary land",
+				   "potentially forested secondary land","potentially non-forested secondary land")
+for (i in 1:length(variable_names))
+	{
+		names = gsub("\\."," ",landCoverVariableNames); indices = which(landCoverVariableNames==variable_names[i])
+		if (length(indices) == 0) indices = which(grepl(variable_names[i],names))
+		if (variable_names[i] == "pasture") indices = c(indices, which(grepl("rangeland",names)))
+		land_cover = land_covers1[[indices[1]]]; names(land_cover) = variable_codes[i]
+		if (length(indices) > 1)
+			{
+				for (j in 2:length(indices)) land_cover[] = land_cover[]+land_covers1[[indices[j]]][]
+			}
+		if (!file.exists(paste0("Environmental_files/LUH2_",variable_codes[i],".asc")))
+			{
+				writeRaster(land_cover[[1]], paste0("Environmental_files/LUH2_",variable_codes[i],".asc"))
+			}
+		land_covers2[[i]] = land_cover[[1]]; land_covers3[[i]] = raster::aggregate(land_cover[[1]],2)
+	}
+setwd(paste(wd,wda1,sep="/"))
+
+	# A.1.4. Preparation of the African shapefile that will be used as a mask
+
+africa1 = subset(continents, continents$CONTINENT=="Africa"); polygons = list(); c = 0
+for (i in 1:length(africa1@polygons[[1]]@Polygons))
+	{
+		if (africa1@polygons[[1]]@Polygons[[i]]@area > 1)
+			{
+				c = c+1; polygons[[c]] = africa1@polygons[[1]]@Polygons[[i]]
+			}
+	}
+pols = Polygons(polygons, 1); pols_list = list(); pols_list[[1]] = pols
+africa2 = SpatialPolygons(pols_list); africa3 = gSimplify(africa2, 0.1)
+
+	# A.1.5. Selecting and treating the environmental rasters for the SDM analyses
+
+envVariables = list()
+envVariables[[1]] = temperature; envVariables[[2]] = precipitation
+envVariables[[3]] = land_covers3[[4]] # primary forest areas
+envVariables[[4]] = land_covers3[[5]] # primary non-forest areas
+envVariables[[5]] = land_covers3[[6]] # secondary forest areas
+envVariables[[6]] = land_covers3[[7]] # secondary non-forest areas
+envVariables[[7]] = land_covers3[[1]] # croplands (all catergories)
+envVariables[[8]] = land_covers3[[2]] # managed pasture + rangeland
+pLog = population; pLog[] = log10(pLog[]+1); envVariables[[9]] = pLog
+for (i in 1:length(envVariables)) envVariables[[i]][is.na(mask[])] = NA
+for (i in 1:length(envVariables)) envVariables[[i]] = crop(envVariables[[i]], africa2, snap="out")
+for (i in 1:length(envVariables)) envVariables[[i]] = mask(envVariables[[i]], africa2)
+envVariables[[1]][] = envVariables[[1]][]-273.5 # conversion to Celcius degrees
+envVariables[[2]][] = envVariables[[2]][]*60*60*24 # conversion to kg/m2/day
+
+	# A.1.6. Plotting the different environmental rasters used for the SDM analyses
+
+showingPlots = FALSE; if (showingPlots == TRUE) {
+dev.new(width=8, height=3); par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
+plot(envVariables[[1]], col=colorRampPalette(brewer.pal(9,"YlOrRd"))(150)[1:100], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Air temperature", side=3, line=0.3, cex=0.65, col="gray30"); mtext("near surface (°C)", side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[1]], col=colorRampPalette(brewer.pal(9,"YlOrRd"))(150)[1:100], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[2]], col=colorRampPalette(brewer.pal(9,"YlGnBu"))(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Precipitation", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0("(kg/m2/day)"), side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[2]], col=colorRampPalette(brewer.pal(9,"YlGnBu"))(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[3]], col=colorRampPalette(c("gray97","chartreuse4"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Forested", side=3, line=0.3, cex=0.65, col="gray30"); mtext("primary land", side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[3]], col=colorRampPalette(c("gray97","chartreuse4"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[5]], col=colorRampPalette(c("gray97","olivedrab3"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Forested", side=3, line=0.3, cex=0.65, col="gray30"); mtext("secondary land", side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[5]], col=colorRampPalette(c("gray97","olivedrab3"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[7]], col=colorRampPalette(c("gray97","navajowhite4"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Croplands", side=3, line=0.3, cex=0.65, col="gray30"); mtext("(all categories)", side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[7]], col=colorRampPalette(c("gray97","navajowhite4"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[8]], col=colorRampPalette(c("gray97","burlywood3"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Pastures", side=3, line=0.3, cex=0.65, col="gray30"); mtext("(and rangeland)", side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[8]], col=colorRampPalette(c("gray97","burlywood3"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[9]], col=colorRampPalette(brewer.pal(9,"BuPu"))(150)[1:100], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+mtext("Human", side=3, line=0.3, cex=0.65, col="gray30"); mtext("population (log10)", side=3, line=-0.7, cex=0.65, col="gray30")
+plot(envVariables[[9]], col=colorRampPalette(brewer.pal(9,"BuPu"))(150)[1:100], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+	 axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T) }
+
+# A.2. Defining the background areas for the host and for the virus
+
+nullRaster = envVariables[[1]]; nullRaster[!is.na(null_raster[])] = 1; names(nullRaster) = "nullRaster"
+muridaeFam = read.csv("Occurrence_data_sets/Muridae_family_allData_RK220819.csv", header=T)[,c("longitude","latitude")]
+natalensis = read.csv("Occurrence_data_sets/Mastomys_natalensis_RK260819.csv", header=T)[,c("longitude","latitude")]
+backgroundCells1 = unique(raster::extract(null_raster, muridaeFam, cellnumbers=T))
+backgroundCells2 = unique(raster::extract(null_raster, natalensis, cellnumbers=T))
+background1 = nullRaster; background1[!(1:length(background1[]))%in%backgroundCells1] = NA
+background2 = nullRaster; background2[!(1:length(background2[]))%in%backgroundCells2] = NA
+
+# A.3. Filtering occurrence data (keeping only one record per raster cell)
+
+natalensis = read.csv("Occurrence_data_sets/Mastomys_natalensis_RK260819.csv", header=T)[,c("longitude","latitude")]
+lassaVirus = read.csv("Occurrence_data_sets/Lassa_virus_cases_RKXXXXXX.csv", header=T)[,c("longitude","latitude")]
+
+########## EDITED UNTIL HERE ##########
+
+# B. PHYLOGEOGRAPHIC AND SKYGRID ANALYSES
+
+# B1. Preparation of LASV sequences
+
+setwd(paste(wd,wdb1,sep="/"))
 
 	# 1.1. Renaming sequence IDs to match with metadata files
 
@@ -34,14 +189,19 @@ metadata = read.csv("Original_sequence_files/LASV_all_the_metadata.csv", head=T,
 for (i in 1:length(segments))
 	{
 		fasta = scan(paste0("Original_sequence_files/LASV_",segments[i],"_alignment_SD.fasta"), what="", sep="\n", quiet=T)
-		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude")
+		colNames = c(paste0("segment_",segments[i]),paste0("accession_",segments[i]),"country","admin1","location","latitude","longitude",paste0("kept_in_",segments[i],"_aln"))
 		tab1 = metadata[,colNames]; tab1 = tab1[which(tab1[,paste0("segment_",segments[i])]!=""),]
 		sequenceIDs = gsub(">","",fasta[which(grepl(">",fasta))])
-		if (length(sequenceIDs[which(sequenceIDs%in%tab1[,paste0("accession_",segments[i])])]) > 0)
+		missingSequences = which((!tab1[,paste0("accession_",segments[i])]%in%sequenceIDs)&(tab1[,paste0("kept_in_",segments[i],"_aln")]!="0"))
+		if (length(tab1[missingSequences,paste0("accession_",segments[i])]) > 0)
+			{
+				cat(tab1[missingSequences,paste0("accession_",segments[i])],sep="\n")
+			}
+		if (length(sequenceIDs[which(!sequenceIDs%in%tab1[,paste0("accession_",segments[i])])]) > 0)
 			{
 				cat(sequenceIDs[which(!sequenceIDs%in%tab1[,paste0("accession_",segments[i])])],sep="\n")
 			}
-		tab1 = tab1[which(tab1[,paste0("accession_",segments[i])]%in%sequenceIDs),]
+		tab1 = tab1[which(tab1[,paste0("accession_",segments[i])]%in%sequenceIDs),1:7]
 		row.names(tab1) = tab1[,paste0("accession_",segments[i])]; tab1 = tab1[sequenceIDs,]
 		write.csv(tab1, paste0("LASV_",segments[i],"_alignment_1.csv"), quote=F, row.names=F)
 		for (j in 1:length(fasta))
@@ -261,21 +421,23 @@ for (i in 1:length(segments))
 		write.csv(tab4, paste0("LASV_",segments[i],"_NGA_2019.csv"), quote=F, row.names=F)
 	}
 
-# 2. Preliminary phylogenetic analyses
+# B2. Preliminary phylogenetic analyses
 
 	# 2.1. Preparing and running analyses in BEAST
 	
 		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, constant population size coalescent model
 
 	# 2.2. Generating alignements and metadata for each clade
-	
+
+########## EDITED UNTIL HERE ##########
+
 segments = c("L","S"); clades = c("NI1","NI2","NI3","MRU")
 for (i in 1:length(segments))
 	{
-		setwd(paste(wd,wd1,sep="/"))
+		setwd(paste(wd,wdb1,sep="/"))
 		fastaAll = scan(paste0("LASV_",segments[i],"_alignment_2.fasta"), what="", sep="\n", quiet=T)
 		metadata = read.csv(paste0("LASV_",segments[i],"_alignment_2.csv"), colClasses="character", header=T)
-		setwd(paste(wd,wd2,sep="/"))
+		setwd(paste(wd,wdb2,sep="/"))
 		for (j in 1:length(clades))
 			{
 				tree = read.nexus(paste0("LASV_",segments[i],"_alignment_2_",clades[j],".tree"))
@@ -310,9 +472,9 @@ for (i in 1:length(segments))
 			}
 	}
 
-# 3. Temporal signal analyses
+# B3. Temporal signal analyses
 
-setwd(paste(wd,wd3,sep="/"))
+setwd(paste(wd,wdb3,sep="/"))
 source("Temporal_signal_functions/mantelCounding.r")
 source("Temporal_signal_functions/randRegression.r")
 source("Temporal_signal_functions/tempSignalFunctions.r")
@@ -371,9 +533,9 @@ for (i in 1:length(names)) # tests with clustering by date within clades (not do
 		pValues = c(pValues, test$p_value)
 	}
 
-# 4. Continuous phylogeographic analyses
+# B4. Continuous phylogeographic analyses
 
-setwd(paste(wd,wd4,sep="/"))
+setwd(paste(wd,wdb4,sep="/"))
 
 	# 4.1. Preparing and running analyses in BEAST
 	
@@ -492,9 +654,9 @@ for (i in 1:length(study_areas))
 			}
 	}
 	
-# 5. Generating dispersal history graphs
+# B5. Generating dispersal history graphs
 
-setwd(paste(wd,wd5,sep="/"))
+setwd(paste(wd,wdb5,sep="/"))
 percentage = 80; precision = 20
 analyses = c("MRU_segL","NIG1_segL","NIG2_segL","NIG3_segL","MRU_segS","NIG1_segS","NIG2_segS","NIG3_segS")
 
@@ -611,9 +773,9 @@ for (h in 1:2)
 		dev.off()
 	}
 
-# 6. Estimating dispersal statistics
+# B6. Estimating dispersal statistics
 
-setwd(paste(wd,wd6,sep="/"))
+setwd(paste(wd,wdb6,sep="/"))
 analyses = c("MRU_segL","NIG_segL","NIG1_segL","NIG2_segL","NIG3_segL","MRU_segS","NIG_segS","NIG1_segS","NIG2_segS","NIG3_segS")
 timSlices = 200; onlyTipBranches = FALSE; showingPlots = FALSE; nberOfCores = 1; slidingWindow = 5
 for (i in 1:length(analyses))
@@ -659,14 +821,14 @@ for (i in 1:4)
 		title(ylab="distance (km)", cex.lab=0.7, mgp=c(0.8,0,0), col.lab="gray30")
 		# title(main="Furthest extent of epidemic wavefront (spatial distance from epidemic origin)", cex.main=0.55, col.main="gray30", line=0.3)
 		rect(1200, 0, 2018, 700, lwd=0.2, border="gray30"); # box(lwd=0.2, col="gray30")
-		mtext(side=3, segment_names[i], line=-2.2, at=1360, cex=0.65, col="gray30")
+		mtext(side=3, segment_names[i], line=-1.0, at=1360, cex=0.65, col="gray30")
 		legend(1265, 600, legend=genotype_names, pch=16, col=unlist(cols1), border="gray30", text.col="gray30", bty="n", pt.cex=1, cex=0.6, x.intersp=0.9, y.intersp=1.2)
 	}
 dev.off()
 
-# 7. Post-hoc landscape phylogeography
+# B7. Post-hoc landscape phylogeography
 
-setwd(paste(wd,wd7,sep="/"))
+setwd(paste(wd,wdb7,sep="/"))
 
 	# 7.1. Generating null models of lineages dispersal
 
@@ -1270,9 +1432,10 @@ index3 = which(grepl("delta_R2",colnames(simulations[[i]]))&grepl(envVariableNam
 		cat("\n"); cat(analyses[a]); cat("\n"); print(allResults, quote=F)
 	}
 
-# 8. Prepration of skygrid-GLM covariates
+# B8. Prepration of skygrid-GLM covariates
 
-setwd(paste(wd,wd8,sep="/"))
+setwd(paste(wd,wdb8,sep="/"))
+analyses = c("LASV2_MRU_segL","LASV2_MRU_segS","LASV2_NGA_segL","LASV2_NGA_segS")
 
 	# 8.1. Preparation of climatic covariates
 	
@@ -1380,7 +1543,7 @@ for (h in 1:length(variables))
 				axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(24.4,26.6,0.2))
 				title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
 				title(ylab=yLabs[h], cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-				title(main="M-R-U", cex.main=0.8, col.main="gray30", line=-0.2)
+				title(main="M-R-U", cex.main=0.8, col.main="gray30", line=-0.1)
 				legend(1972, 24.95, legend=c("sliding window of 5 years"), lwd=1, cex=0.6, col=c("red"), text.col="gray30", border=NA, x.intersp=0.5, bty="n")
 				plot(curves1[[3]][,1], curves1[[3]][,2], lwd=0.5, type="l", axes=F, ann=F)
 				lines(curves2[[3]][,1], curves2[[3]][,2], lwd=1.0, col="red")
@@ -1388,7 +1551,7 @@ for (h in 1:length(variables))
 				axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(25.6,27.2,0.2))
 				title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
 				title(ylab=yLabs[h], cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-				title(main="Nigeria", cex.main=0.8, col.main="gray30", line=-0.2)
+				title(main="Nigeria", cex.main=0.8, col.main="gray30", line=-0.1)
 				dev.copy2pdf(file=paste0("CRU_",variables[h],"_NEW.pdf"))
 			}
 		if (h == 2)
@@ -1400,7 +1563,7 @@ for (h in 1:length(variables))
 				axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(135,240,10))
 				title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
 				title(ylab=yLabs[h], cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-				title(main="M-R-U", cex.main=0.8, col.main="gray30", line=-0.2)
+				title(main="M-R-U", cex.main=0.8, col.main="gray30", line=-0.1)
 				legend(1920, 140, legend=c("sliding window of 5 years"), lwd=1, cex=0.6, col=c("red"), text.col="gray30", border=NA, x.intersp=0.5, bty="n")
 				plot(curves1[[3]][,1], curves1[[3]][,2], lwd=0.5, type="l", axes=F, ann=F)
 				lines(curves2[[3]][,1], curves2[[3]][,2], lwd=1.0, col="red")
@@ -1408,89 +1571,101 @@ for (h in 1:length(variables))
 				axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(90,150,10))
 				title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
 				title(ylab=yLabs[h], cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-				title(main="Nigeria", cex.main=0.8, col.main="gray30", line=-0.2)
+				title(main="Nigeria", cex.main=0.8, col.main="gray30", line=-0.1)
 				dev.copy2pdf(file=paste0("CRU_",variables[h],"_NEW.pdf"))
 			}
 	}
 
 	# 8.2. Preparation of land cover covariates
 	
-		# Preparation of past land use estimates based on data from the Harmonized Global Land Use for Years 1500-2100 (V1)
-		# Source: https://daac.ornl.gov/VEGETATION/guides/Land_Use_Harmonization_V1.html
-			# "We obtained scenarios of 21st century land-use from the Land-Use Harmonization project (i.e. LUHa_u2t1.v1; http://luh.umd.edu; 
-			# Hurtt et al. (2011) Harmonization of land-use scenarios for the period 1500–2100: 600 years of global gridded annual land-use 
-			# transitions, wood harvest, and resulting secondary land. Climatic Change 109: 117–161)"
+		# Preparation of past land use estimates based on data from the Harmonized Global Land Use for Years 815-2015 (V2)
+		# Source: http://gsweb1vh2.umd.edu/LUH2/LUH2_v2h/states.nc ("historic data", 850-2015 AD, "states.nc", 5.8 GB)
 
-selected_years = c(1901:2005); curves_list = list()
+nc = nc_open("LUHv2_land_use_states.nc")
 xMin = -16; xMax = 16; yMin = 3; yMax = 15
-variables = c("gcrop","gothr","gsecd","gpast","gurbn")
-suffixes = c("Crop","Prim","Secd","Past","Urbn")
-variable_names = c("cropland","primary land","secondary land","pasture","urban land")
-for (h in 1:length(variables))
+times = ncvar_get(nc,"time"); years = times+850
+lon = ncvar_get(nc,"lon"); lat = ncvar_get(nc,"lat")
+indices1 = which((lon>xMin)&(lon<xMax))
+indices2 = which((lat>yMin)&(lat<yMax))
+lon = lon[indices1]; lat = lat[indices2]
+for (i in 1:length(nc$var))
 	{
-		nc = nc_open(paste0("Land_use_for_1500-2100/LUHa_u2t1.v1_",variables[h],".nc4"))
-		time = ncvar_get(nc,"time")
-		lon = ncvar_get(nc,"lon")
-		lat = ncvar_get(nc,"lat")
-		if (h == 1) var1 = ncvar_get(nc,"prop_crop")
-		if (h == 2) var1 = ncvar_get(nc,"prop_primary")
-		if (h == 3) var1 = ncvar_get(nc,"prop_secd")
-		if (h == 4) var1 = ncvar_get(nc,"prop_pasture")
-		if (h == 5) var1 = ncvar_get(nc,"prop_urbn")
-		indices1 = which((lon>xMin)&(lon<xMax))
-		indices2 = which((lat>yMin)&(lat<yMax))
-		lon = lon[indices1]; lat = lat[indices2]
-		var1 = var1[indices1,indices2,]
-		years = time+1700; n = 0; var2 = c()
-		tot = dim(var1)[1]*dim(var1)[2]
-		for (i in 1:dim(var1)[1])
+		if (i == 1) names = nc$var[[i]][[9]]
+		if (i >= 2) names = c(names, nc$var[[i]][[9]])
+		if (i == 1) codes = nc$var[[i]][[2]]
+		if (i >= 2) codes = c(codes, nc$var[[i]][[2]])
+	}
+curves_list = list(); selected_years = c(1901:2005)
+variable_codes = c("Croplands","Pastures","UrbanAreas","PrimaryForest","PrimaryNonF","SecondaryForest","SecondaryNonF")
+variable_names = c("crops","pasture","urban land","forested primary land","non-forested primary land",
+				   "potentially forested secondary land","potentially non-forested secondary land")
+for (i in 1:length(variable_names))
+	{
+		indices = which(names==variable_names[i]); variables1 = list(); variables2 = list()
+		if (length(indices) == 0) indices = which(grepl(variable_names[i],names))
+		if (variable_names[i] == "pasture") indices = c(indices, which(grepl("rangeland",names)))
+		for (j in 1:length(indices))
 			{
-				for (j in 1:dim(var1)[2])
+				variables1[[j]] = ncvar_get(nc,varid=codes[indices[j]],start=c(1,1,times[which(years==selected_years[1])]))
+			}
+		for (j in 1:length(variables1))
+			{
+				variable1 = variables1[[j]][indices1,indices2,]; variable2 = c()
+				for (k in 1:dim(variable1)[1])
 					{
-						n = n+1
-						row = cbind(lon[i],lat[j],t(var1[i,j,]))
-						var2 = rbind(var2, row)
+						for (l in 1:dim(variable1)[2])
+							{
+								row = cbind(lon[k],lat[l],t(variable1[k,l,]))
+								variable2 = rbind(variable2, row)
+							}
+					}
+				variables2[[j]] = variable2
+			}
+		variable3 = variables2[[1]]
+		if (length(variables2) > 1)
+			{
+				for (j in 2:length(variables2))
+					{
+						variable3[,3:dim(variable3)[2]] = variable3[,3:dim(variable3)[2]]+variables2[[j]][,3:dim(variables2[[j]])[2]]
 					}
 			}
-		colnames(var2) = c("longitude","latitude",years); curves = list()
-		analyses = c("LASV2_MRU_segL","LASV2_MRU_segS","LASV2_NIG_segL","LASV2_NIG_segS")
-		for (i in 1:length(analyses))
+		colnames(variable3) = c("longitude","latitude",years); curves = list()
+		for (j in 1:length(analyses))
 			{
 				values = matrix(nrow=length(selected_years), ncol=2)
-				for (y in 1:length(selected_years))
+				for (k in 1:length(selected_years))
 					{
-						buffer = var2[,3:dim(var2)[2]]; colNames = gsub("X","",colnames(buffer))
-						selectedMeasures = cbind(var2[,1:2],buffer[,which(floor(as.numeric(colNames))==selected_years[y])])
-						hull = readOGR(dsn="Minimum_convex_hulls", layer=paste0(analyses[i],"_",selected_years[y]))
+						buffer = variable3[,3:dim(variable3)[2]]; colNames = gsub("X","",colnames(buffer))
+						selectedMeasures = cbind(variable3[,1:2],buffer[,which(floor(as.numeric(colNames))==selected_years[k])])
+						hull = readOGR(dsn="Minimum_convex_hulls", layer=paste0(analyses[j],"_",selected_years[k]))
 						inHull = point.in.polygon(selectedMeasures[,"longitude"],selectedMeasures[,"latitude"],
 								 		   		  hull@polygons[[1]]@Polygons[[1]]@coords[,1],
 								 		   		  hull@polygons[[1]]@Polygons[[1]]@coords[,2])
-						indices = which(inHull==1); values[y,1] = selected_years[y]
-						values[y,2] = mean(as.matrix(selectedMeasures[indices,3:dim(selectedMeasures)[2]]), na.rm=T)
+						indices = which(inHull==1); values[k,1] = selected_years[k]
+						values[k,2] = mean(as.matrix(selectedMeasures[indices,3:dim(selectedMeasures)[2]]), na.rm=T)
 					}
-				curves[[i]] = values; colnames(values) = c("time",variables[h])
-				write.csv(values, paste0(gsub("LASV2",suffixes[h],analyses[i]),".csv"), row.names=F)
+				curves[[j]] = values; colnames(values) = c("time",variables[i])
+				write.csv(values, paste0(gsub("LASV2",suffixes[i],analyses[j]),".csv"), row.names=F)
 			}
 		curves_list[[h]] = curves
 	}
-analyses = c("LASV2_MRU_segL","LASV2_MRU_segS","LASV2_NIG_segL","LASV2_NIG_segS")
-for (h in 1:length(variables))
+for (i in 1:length(variables))
 	{
 		curves = list()
-		for (i in 1:length(analyses))
+		for (j in 1:length(analyses))
 			{
-				curves[[i]] = read.csv(paste0(gsub("LASV2",suffixes[h],analyses[i]),".csv"), header=T)
+				curves[[j]] = read.csv(paste0(gsub("LASV2",variables_codes[i],analyses[j]),".csv"), header=T)
 			}
-		curves_list[[h]] = curves
+		curves_list[[i]] = curves
 	}
 entropies = list()
 for (i in 1:length(analyses))
 	{
 		proportions = matrix(nrow=dim(curves_list[[1]][[i]])[1], ncol=length(variables)+1)
 		proportions[,1] = curves_list[[1]][[i]][,1]
-		for (h in 1:length(variables))
+		for (j in 1:length(variables))
 			{
-				proportions[,h+1] = curves_list[[h]][[i]][,2]
+				proportions[,j+1] = curves_list[[j]][[i]][,2]
 			}
 		entropy = matrix(nrow=dim(proportions)[1], ncol=2); entropy[,1] = proportions[,1]
 		for (j in 1:dim(proportions)[1])
@@ -1507,48 +1682,14 @@ for (i in 1:length(analyses))
 				entropy[j,2] = p
 			}
 		entropies[[i]] = entropy; colnames(values) = c("time","entropy")
-		write.csv(values, paste0(gsub("LASV2","Enty",analyses[i]),".csv"), row.names=F)
+		write.csv(values, paste0(gsub("LASV2","Entropy",analyses[i]),".csv"), row.names=F)
 	}
-cols = c("olivedrab3","mediumseagreen","steelblue3","orange1","tan3")
-cols = c("orange1","olivedrab3","mediumseagreen","gray60","steelblue3")
-dev.new(width=9, height=3); par(mfrow=c(1,2), mgp=c(0,0,0), oma=c(1.0,1.0,0.5,0.5), mar=c(2.0,2.0,1,1))
-plot(curves_list[[1]][[1]][,1], curves_list[[1]][[1]][,2], col=cols[1], lwd=1.5, type="l", axes=F, ann=F, ylim=c(0,0.9))
-for (i in 2:5) lines(curves_list[[i]][[1]][,1], curves_list[[i]][[1]][,2], col=cols[i], lwd=1.5)
-axis(side=1, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,-0.05,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(1900,2020,10))
-axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(0,0.9,0.1))
-title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
-title(ylab="land use proportion", cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-title(main="M-R-U", cex.main=0.8, col.main="gray30", line=-0.2)
-plot(curves_list[[1]][[3]][,1], curves_list[[1]][[3]][,2], col=cols[1], lwd=1.5, type="l", axes=F, ann=F, ylim=c(0,0.9))
-for (i in 2:5) lines(curves_list[[i]][[3]][,1], curves_list[[i]][[3]][,2], col=cols[i], lwd=1.5)
-axis(side=1, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,-0.05,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(1900,2020,10))
-axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(0,0.9,0.1))
-title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
-title(ylab="land use proportion", cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-title(main="Nigeria", cex.main=0.8, col.main="gray30", line=-0.2)
-legend(1975, 0.97, legend=variable_names, lwd=2, cex=0.6, col=cols, text.col="gray30", border=NA, x.intersp=0.5, bty="n")
-dev.copy2pdf(file=paste0("Land_use_1901-2005.pdf"))
-dev.new(width=9, height=3); par(mfrow=c(1,2), mgp=c(0,0,0), oma=c(1.0,1.0,0.5,0.5), mar=c(2.0,2.0,1,1))
-plot(entropies[[1]][,1], entropies[[1]][,2], col="red", lwd=1.5, type="l", axes=F, ann=F)
-axis(side=1, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,-0.05,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(1900,2020,10))
-axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(0.75,1.00,0.05))
-title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
-title(ylab="land use entropy", cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-title(main="M-R-U", cex.main=0.8, col.main="gray30", line=-0.2)
-plot(entropies[[3]][,1], entropies[[3]][,2], col="red", lwd=1.5, type="l", axes=F, ann=F)
-axis(side=1, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,-0.05,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(1900,2020,10))
-axis(side=2, lwd.tick=0.2, cex.axis=0.5, mgp=c(0,0.25,0), lwd=0.2, tck=-0.020, col.axis="gray30", at=seq(1.03,1.17,0.01))
-title(xlab="time (year)", cex.lab=0.6, mgp=c(0.7,0,0), col.lab="gray30")
-title(ylab="land use entropy", cex.lab=0.6, mgp=c(1.1,0,0), col.lab="gray30")
-title(main="Nigeria", cex.main=0.8, col.main="gray30", line=-0.2)
-legend(1975, 0.97, legend=variable_names, lwd=2, cex=0.6, col=cols, text.col="gray30", border=NA, x.intersp=0.5, bty="n")
-dev.copy2pdf(file=paste0("Entropy_1901-2005.pdf"))
 
 	# 8.3. Preparation of the BEAST skygrid-GLM analyses
 
 		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, skygrid coalescent model (grid points defined to have one point until 1901)
 
-analyses = c("MRU_segL","MRU_segS","NIG_segL","NIG_segS")
+analyses = c("MRU_segL","MRU_segS","NGA_segL","NGA_segS")
 mostRecentSamplingDates = c(2018.1671232876713, 2018.1671232876713, 2019.1780821917807, 2019.1780821917807)
 for (a in 1:length(analyses))
 	{
@@ -1675,52 +1816,7 @@ for (a in 1:length(analyses))
 		write(txt, paste0("GLM_",analyses[a],".xml"))
 	}
 
-# 9. Analysis of skygrid-GLM analyses
+# B9. Analysis of skygrid-GLM analyses
 
 XXXX
-
-# 10. Species distribution modelling
-
-setwd(paste(wd,wd10,sep="/"))
-
-	# 10.1. Preparation of environmental rasters
-
-envVariableNames = read.csv("Environmental_rasters/LC_vars.csv")[,2]
-# Source: http://luh.umd.edu/data.shtml; see also Lawrence et al. (2016, Geosci. Model Dev.)
-fileName = "Environmental_rasters/Historical/GFDL-ESM2M/landcover_historical_annual_1986_2005_timmean.nc4"
-land_cover = nc_open(fileName); varNames = names(land_cover$var); land_covers = list(); cols = list()
-for (i in 2:13) land_covers[[i-1]] = brick(fileName, varname=varNames[i])
-for (i in 1:length(land_covers))
-	{
-		names(land_covers[[i]]) = varNames[i+1]
-		cols[[i]] = colorRampPalette(brewer.pal(9,"YlGn"))(120)[11:110]
-		if (i == 1)
-			{
-				r_global = land_covers[[1]]
-			}	else		{
-				r_global[] = r_global[]+land_covers[[i]][]	
-			}
-	}
-if (!file.exists("Land_cover_rasters.pdf"))	
-	{
-		pdf("Land_cover_rasters.pdf", width=7.5, height=5.0); par(mfrow=c(4,3), oma=c(1.5,2.0,1,0.5), mar=c(0,0,0,0), mgp=c(1,0.2,0), lwd=0.2)
-		for (i in 1:12)
-			{
-				plot(land_covers[[i]], bty="n", box=F, axes=F, legend=F, col=c("gray90",cols[[i]]), colNA="white")
-				plot(land_covers[[i]], legend.only=T, add=T, col=cols[[i]], legend.width=0.5, legend.shrink=0.3, smallplot=c(0.09,0.105,0.14,0.49), adj=3,
-					 axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.8, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.4,0)), alpha=1, side=3)
-				mtext(envVariableNames[i], side=1, adj=0.5, line=-1.8, at=40, cex=0.55, font=1, col="gray30")
-			}
-		dev.off()
-	}
-mask = raster("Environmental_rasters/Mask.nc4")
-nc_open("Environmental_rasters/Historical/GFDL-ESM2M/population_histsoc_0p5deg_annual_1986_2005_timmean.nc4")
-nc_open("Environmental_rasters/Historical/GFDL-ESM2M/tas_day_GFDL-ESM2M_historical_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
-nc_open("Environmental_rasters/Historical/GFDL-ESM2M/pr_day_GFDL-ESM2M_historical_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
-population = raster("Environmental_rasters/Historical/GFDL-ESM2M/population_histsoc_0p5deg_annual_1986_2005_timmean.nc4")
-temperature = raster("Environmental_rasters/Historical/GFDL-ESM2M/tas_day_GFDL-ESM2M_historical_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
-precipitation = raster("Environmental_rasters/Historical/GFDL-ESM2M/pr_day_GFDL-ESM2M_historical_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
-population[is.na(mask[])] = NA; # unit: number of people # plot(population)
-temperature[is.na(mask[])] = NA; # unit: K (Kelvin, °C+273.15) # plot(temperature)
-precipitation[is.na(mask[])] = NA; # unit: kg/m2/second # plot(precipitation)
 

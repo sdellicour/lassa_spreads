@@ -1,4 +1,0 @@
-Substitution model: GTR+G
-Molecular clock: relaxed, lognormal
-Coalescent models: skygrid
-	--> points defined to have one point until 1901
