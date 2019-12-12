@@ -1,9 +1,11 @@
+library(blockCV)
 library(diagram)
 library(dismo)
 library(gbm)
 library(geosphere)
 library(lubridate)
 library(ncdf4)
+library(ncf)
 library(pgirmess)
 library(seraphim)
 library(seqinr)
@@ -177,15 +179,15 @@ samplingPtsMinDist = function(observations, minDist=500, nberOfPoints=5)
 		dists = list(spDistsN1(as.matrix(observations), as.matrix(observations[indices[1],]), longlat=T))
 		for (i in 2:nberOfPoints)
 			{
-    			selection = which(dists[[(i-1)]] > minDist)
-    			if (length(selection) == 0)
-    				{
-    					stop("Restarts the function with a smaller minimum distance")
-				}
-    			selection_list[[i]] = selection
-    			test = table(unlist(selection_list))
-    			indices_minDist = as.numeric(names(which(test==i)))
-    			indices[i] = sample(indices_minDist, 1)   
+    				selection = which(dists[[(i-1)]] > minDist)
+    				if (length(selection) == 0)
+    					{
+    						stop("Restarts the function with a smaller minimum distance")
+					}
+    				selection_list[[i]] = selection
+    				test = table(unlist(selection_list))
+    				indices_minDist = as.numeric(names(which(test==i)))
+    				indices[i] = sample(indices_minDist, 1)   
 				dists[[i]] = spDistsN1(as.matrix(observations), as.matrix(observations[indices[i],]), longlat=T)
 			}
 		return(indices)
@@ -202,6 +204,7 @@ lassaVirus = read.csv("Occurrence_data_sets/Lassa_virus_cases_RKXXXXXX.csv", hea
 backgrounds = list(); backgrounds[[1]] = background1; backgrounds[[2]] = background2
 datasets = list(); datasets[[1]] = natalensis; datasets[[2]] = lassaVirus
 
+datas = list()
 for (i in 1:length(datasets))
 	{
 		probas = values(backgrounds[[i]])[!is.na(values(backgrounds[[i]]))]
@@ -239,8 +242,22 @@ for (i in 1:length(datasets))
 						buffer = rbind(buffer, data[which(cellIDs==unique(cellIDs)[j]),])
 					}
 			}
-		data = buffer
-			
+		data = buffer; datas[[i]] = data
+		plottingCorrelogram = FALSE
+		if (plottingCorrelogram == TRUE)
+			{
+				correlogram = ncf::correlog(data[,"longitude"], data[,"latitude"], data[,"response"], na.rm=T, increment=10, resamp=0, latlon=T)
+				dev.new(width=4.5, height=3); par(mar=c(2.2,2.2,1.5,1.5))
+				plot(correlogram$mean.of.class[-1], correlogram$correlation[-1], ann=F, axes=F, lwd=0.2, cex=0.5, col=NA, ylim=c(-0.4,1.0), xlim=c(0,8500))
+				abline(h=0, lwd=0.5, col="red", lty=2)
+				points(correlogram$mean.of.class[-1], correlogram$correlation[-1], lwd=0.2, cex=0.35, col="gray30")
+				lines(correlogram$mean.of.class[-1], correlogram$correlation[-1], lwd=0.2, col="gray30")
+				axis(side=1, pos=-0.4, lwd.tick=0.2, cex.axis=0.6, lwd=0.2, tck=-0.015, col.axis="gray30", mgp=c(0,-0.05,0), at=seq(0,9000,1000))
+				axis(side=2, pos=0, lwd.tick=0.2, cex.axis=0.6, lwd=0.2, tck=-0.015, col.axis="gray30", mgp=c(0,0.18,0), at=seq(-0.4,1,0.2))
+				title(xlab="distance (km2)", cex.lab=0.7, mgp=c(0.3,0,0), col.lab="gray30")
+				title(ylab="correlation", cex.lab=0.7, mgp=c(0.4,0,0), col.lab="gray30")
+			}
+		theRanges = c(2000,2000)*1000 # distance in meters
 		nberOfReplicates = 10 # one replicate = one folds partition
 		gbm.x = names(rasters_stack)
 		gbm.y = colnames(data)[3]
@@ -270,64 +287,136 @@ for (i in 1:length(datasets))
 		showingFoldsPlot = FALSE
 		
 		brt_model_ccvs = list() # classic cross-validations (CCVs)
-		brt_model_scvs = list() # spatial cross-validations (SCVs)
-		AUCs = matrix(nrow=nberOfReplicates, ncol=2)
-		colnames(AUCs) = c("CCV_AUC","SCV_AUC")
-		for (j in 1:nberOfReplicates)
+		brt_model_scv1 = list() # spatial cross-validations 1 (SCV1)
+		brt_model_scv2 = list() # spatial cross-validations 1 (SCV2)
+		AUCs = matrix(nrow=nberOfReplicates, ncol=3)
+		colnames(AUCs) = c("CCV_AUC","SCV1_AUC","SCV2_AUC")
+		for (j in 4:nberOfReplicates)
 			{
-				# BRT with classic (standard) cross-validation (CCV):
-				n.trees = 100; fold.vector = NULL
-				brt_model_ccvs[[j]] = gbm.step(data, gbm.x, gbm.y, offset, fold.vector, tree.complexity, learning.rate, bag.fraction, site.weights,
+				# # BRT with classic (standard) cross-validation (CCV):
+				# n.trees = 100; fold.vector = NULL
+				# brt_model_ccvs[[j]] = gbm.step(data, gbm.x, gbm.y, offset, fold.vector, tree.complexity, learning.rate, bag.fraction, site.weights,
+					# var.monotone, n.folds, prev.stratify, family, n.trees, step.size, max.trees, tolerance.method, tolerance, plot.main, plot.folds,
+					# verbose, silent, keep.fold.models, keep.fold.vector, keep.fold.fit); # summary(brt_model_scv) # gbm.plot(brt_model_scv, plot.layout=c(4,4))
+				# dev.copy2pdf(file=paste0("BRT_prediction_files/BRT_models/",analyses[i],"_CCV_replicate_",j,".pdf")); dev.off()
+				# AUCs[j,"CCV_AUC"] = brt_model_ccvs[[j]]$cv.statistics$discrimination.mean # Mean test AUC (from the AUCs computed on each fold tested as test data in the CCV)
+				# object = brt_model_ccvs[[i]]; df = as.data.frame(rasters_stack)
+				# not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
+				# n.trees = brt_model_ccvs[[i]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
+				# prediction = predict.gbm(object, newdata, n.trees, type, single.tree)
+				# rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction
+				
+				# # BRT with spatial (geographic) cross-validation (SCV) based on the folds generation of Dhingra, Artois et al. (2016, eLife):
+				# folds_with_similar_sizes = FALSE; c = 0
+				# while (folds_with_similar_sizes == FALSE) # while loop to select a partition where the x folds gather at least
+					# {									  # a proportion = (1/(x+1)) of the total number of presence points
+						# data_presence = data[which(data[,3]==1),]; c = c+1; # print(c)
+						# fivePoints = samplingPtsMinDist(data_presence[,1:2], minDist=200, nberOfPoints=n.folds)
+						# fold.vector = foldSelection(data[,1:2], selectedPoints=data_presence[fivePoints,1:2])
+						# fold.vector_presences = fold.vector[which(data[,3]==1)]
+						# counts = hist(fold.vector_presences, plot=F)$counts
+						# props = counts[which(counts > 0)]/sum(counts); print(round(props,2))
+						# if (min(props) > (1/(n.folds+1))) folds_with_similar_sizes = TRUE
+					# }
+				# if (showingFoldsPlot == TRUE)
+					# {
+						# par(mar=c(0,0,0,0), oma=c(0.0,3.6,0.0,0.0), mgp=c(0,0.4,0), lwd=0.2, bty="o")
+						# cols = c("olivedrab3","tan3","steelblue3","orange1","tomato2","mediumseagreen")[fold.vector]
+						# plot(backgrounds[[i]], col="gray90", useRaster=T, colNA=NA, box=F, axes=F, legend=F)
+						# pchs = c(16,3)[data[,3]+1]; cexs = c(0.25,0.5)[data[,3]+1]
+						# points(data[,1:2], col=cols, pch=pchs, cex=cexs, lwd=0.7)
+					# }
+				# n.trees = 100
+				# brt_model_scv1[[j]] = gbm.step(data, gbm.x, gbm.y, offset, fold.vector, tree.complexity, learning.rate, bag.fraction, site.weights,
+					# var.monotone, n.folds, prev.stratify, family, n.trees, step.size, max.trees, tolerance.method, tolerance, plot.main, plot.folds,
+					# verbose, silent, keep.fold.models, keep.fold.vector, keep.fold.fit); # summary(brt_model_scv) # gbm.plot(brt_model_scv, plot.layout=c(4,4))
+				# dev.copy2pdf(file=paste0("BRT_prediction_files/BRT_models/",analyses[i],"_SCV1_replicate_",j,".pdf")); dev.off()
+				# # AUCs[j,"Full_AUC"] = brt_model_scv1[[j]]$self.statistics$discrimination # AUC on the complete data set
+				# AUCs[j,"SCV1_AUC"] = brt_model_scv1[[j]]$cv.statistics$discrimination.mean # Mean test AUC (from the AUCs computed on each fold tested as test data in the SCV)
+				# object = brt_model_scv1[[j]]; df = as.data.frame(rasters_stack)
+				# not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
+				# n.trees = brt_model_scv1[[j]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
+				# prediction = predict.gbm(object, newdata, n.trees, type, single.tree)
+				# rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction
+				
+				# BRT with spatial (geographic) cross-validation (SCV) based on the blocks generation of Valavi et al. (2019, MEE):
+				# for (j in 4:nberOfReplicates) {
+				spdf = SpatialPointsDataFrame(data[c("longitude","latitude")], data[,3:dim(data)[2]], proj4string=crs(nullRaster))
+				myblocks = spatialBlock(spdf, species="response", rasterLayer=nullRaster, k=n.folds, theRange=theRanges[i], selection="random")
+				fold.vector = myblocks$foldID; n.trees = 100
+				brt_model_scv2[[j]] = gbm.step(data, gbm.x, gbm.y, offset, fold.vector, tree.complexity, learning.rate, bag.fraction, site.weights,
 					var.monotone, n.folds, prev.stratify, family, n.trees, step.size, max.trees, tolerance.method, tolerance, plot.main, plot.folds,
 					verbose, silent, keep.fold.models, keep.fold.vector, keep.fold.fit); # summary(brt_model_scv) # gbm.plot(brt_model_scv, plot.layout=c(4,4))
-				dev.copy2pdf(file=paste0("BRT_prediction_files/BRT_models/",analyses[i],"_CCV_replicate_",j,".pdf")); dev.off()
-				AUCs[j,"CCV_AUC"] = brt_model_ccvs[[j]]$cv.statistics$discrimination.mean # Mean test AUC (from the AUCs computed on each fold tested as test data in the CCV)
-				object = brt_model_ccvs[[i]]; df = as.data.frame(rasters_stack)
+				dev.copy2pdf(file=paste0("BRT_prediction_files/BRT_models/",analyses[i],"_SCV2_replicate_",j,".pdf")); dev.off()
+				AUCs[j,"SCV2_AUC"] = brt_model_scv2[[j]]$cv.statistics$discrimination.mean # Mean test AUC (from the AUCs computed on each fold tested as test data in the SCV)
+				object = brt_model_scv2[[j]]; df = as.data.frame(rasters_stack)
 				not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
-				n.trees = brt_model_ccvs[[i]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
+				n.trees = brt_model_scv2[[j]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
 				prediction = predict.gbm(object, newdata, n.trees, type, single.tree)
 				rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction
-				writeRaster(rast, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_CCV_replicate_",j,".asc"), overwrite=T)
-				# BRT with spatial (geographic) cross-validation (SCV):
-				folds_with_similar_sizes = FALSE; c = 0
-				while (folds_with_similar_sizes == FALSE) # while loop to select a partition where the x folds gather at least
-					{									  # a proportion = (1/(x+1)) of the total number of presence points
-						data_presence = data[which(data[,3]==1),]; c = c+1; # print(c)
-						fivePoints = samplingPtsMinDist(data_presence[,1:2], minDist=200, nberOfPoints=n.folds)
-						fold.vector = foldSelection(data[,1:2], selectedPoints=data_presence[fivePoints,1:2])
-						fold.vector_presences = fold.vector[which(data[,3]==1)]
-						counts = hist(fold.vector_presences, plot=F)$counts
-						props = counts[which(counts > 0)]/sum(counts); print(round(props,2))
-						if (min(props) > (1/(n.folds+1))) folds_with_similar_sizes = TRUE
-					}
-				if (showingFoldsPlot == TRUE)
-					{
-						par(mar=c(0,0,0,0), oma=c(0.0,3.6,0.0,0.0), mgp=c(0,0.4,0), lwd=0.2, bty="o")
-						cols = c("olivedrab3","tan3","steelblue3","orange1","tomato2","mediumseagreen")[fold.vector]
-						plot(backgrounds[[i]], col="gray90", useRaster=T, colNA=NA, box=F, axes=F, legend=F)
-						pchs = c(16,3)[data[,3]+1]; cexs = c(0.25,0.5)[data[,3]+1]
-						points(data[,1:2], col=cols, pch=pchs, cex=cexs, lwd=0.7)
-					}
-				n.trees = 100
-				brt_model_scvs[[j]] = gbm.step(data, gbm.x, gbm.y, offset, fold.vector, tree.complexity, learning.rate, bag.fraction, site.weights,
-					var.monotone, n.folds, prev.stratify, family, n.trees, step.size, max.trees, tolerance.method, tolerance, plot.main, plot.folds,
-					verbose, silent, keep.fold.models, keep.fold.vector, keep.fold.fit); # summary(brt_model_scv) # gbm.plot(brt_model_scv, plot.layout=c(4,4))
-				dev.copy2pdf(file=paste0("BRT_prediction_files/BRT_models/",analyses[i],"_SCV_replicate_",j,".pdf")); dev.off()
-				# AUCs[j,"Full_AUC"] = brt_model_scvs[[j]]$self.statistics$discrimination # AUC on the complete data set
-				AUCs[j,"SCV_AUC"] = brt_model_scvs[[j]]$cv.statistics$discrimination.mean # Mean test AUC (from the AUCs computed on each fold tested as test data in the SCV)
-				object = brt_model_scvs[[i]]; df = as.data.frame(rasters_stack)
-				not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
-				n.trees = brt_model_scvs[[i]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
-				prediction = predict.gbm(object, newdata, n.trees, type, single.tree)
-				rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction
-				writeRaster(rast, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_SCV_replicate",j,".asc"), overwrite=T)
 			}
 		saveRDS(brt_model_ccvs, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_CCV.rds"))
-		saveRDS(brt_model_scvs, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV.rds"))
+		saveRDS(brt_model_scv1, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV1.rds"))
+		saveRDS(brt_model_scv2, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV2.rds"))
 		write.csv(AUCs, paste0("BRT_prediction_files/BRT_models/",analyses[i],"_CCV_SCV_AUCs.csv"), row.names=F, quote=F)
 	}
 
-# A.4. BRT predictions on historical and future scenarios
+# A.4. Estimation of spatial sorting bias (SSB)
+
+	# SSB = Dp/Da (Hijsmans 2012, Ecology), where:
+		# Dp = mean distance between testing presence sites and neasrest traning-presence sites
+		# Dp = mean distance between testing absence sites and neasrest traning-presence sites
+		# --> SSB = 1 suggests there is no spatial sorting bias
+		# --> SSB = 0 suggests extreme spatial sorting bias
+
+SSB_list = list()
+for (i in 1:length(datasets))
+	{
+		data = datas[[i]]; n.folds = 5
+		SSBs = matrix(nrow=n.folds, ncol=3)
+		colnames(SSBs) = c("SSB_CCV","SSB_SCV1","SSB_SCV2")
+		for (j in 1:n.folds)
+			{
+				fold.vector = rep(NA, dim(data)[1])
+				for (k in 1:dim(data)[1]) fold.vector[k] = sample(1:n.folds,1)
+				p = data[which((data[,"response"]==1)&(fold.vector!=j)),1:2]
+				a = data[which((data[,"response"]==0)&(fold.vector!=j)),1:2]
+				reference = data[which((data[,"response"]==1)&(fold.vector==j)),1:2]
+				SSB = ssb(p, a, reference); SSBs[j,1] = SSB[1,"p"]/SSB[1,"a"]
+			}
+		folds_with_similar_sizes = FALSE; c = 0
+		while (folds_with_similar_sizes == FALSE)
+			{
+				data_presence = data[which(data[,3]==1),]; c = c+1; # print(c)
+				fivePoints = samplingPtsMinDist(data_presence[,1:2], minDist=200, nberOfPoints=n.folds)
+				fold.vector = foldSelection(data[,1:2], selectedPoints=data_presence[fivePoints,1:2])
+				fold.vector_presences = fold.vector[which(data[,3]==1)]
+				counts = hist(fold.vector_presences, plot=F)$counts
+				props = counts[which(counts > 0)]/sum(counts); print(round(props,2))
+				if (min(props) > (1/(n.folds+1))) folds_with_similar_sizes = TRUE
+			}
+		for (j in 1:n.folds)
+			{
+				p = data[which((data[,"response"]==1)&(fold.vector!=j)),1:2]
+				a = data[which((data[,"response"]==0)&(fold.vector!=j)),1:2]
+				reference = data[which((data[,"response"]==1)&(fold.vector==j)),1:2]
+				SSB = ssb(p, a, reference); SSBs[j,2] = SSB[1,"p"]/SSB[1,"a"]
+			}
+		spdf = SpatialPointsDataFrame(data[c("longitude","latitude")], data[,3:dim(data)[2]], proj4string=crs(nullRaster))
+		myblocks = spatialBlock(spdf, species="response", rasterLayer=nullRaster, k=n.folds, theRange=theRanges[i], selection="random")
+		for (j in 1:n.folds)
+			{
+				fold.vector = myblocks$foldID
+				p = data[which((data[,"response"]==1)&(fold.vector!=j)),1:2]
+				a = data[which((data[,"response"]==0)&(fold.vector!=j)),1:2]
+				reference = data[which((data[,"response"]==1)&(fold.vector==j)),1:2]
+				SSB = ssb(p, a, reference); SSBs[j,3] = SSB[1,"p"]/SSB[1,"a"]
+			}
+		write.table(round(SSBs,5), paste0("BRT_prediction_files/BRT_models/",analyses[i],"_CCV_SCV_SSBs.csv"), sep=",", row.names=F, quote=F)
+		SSB_list[[i]] = SSBs
+	}
+		
+# A.5. BRT predictions on historical and future scenarios
 
 scenarios = c("Historical","RCP_26","RCP_60","RCP_85")
 models = c("GFDL-ESM2M","HadGEM2-ES","IPSL-CM5A-LR","MIROC5")
@@ -393,25 +482,25 @@ predictions_list = list()
 for (i in 1:length(analyses))
 	{
 		c = 0; predictions1 = list()
-		brt_model_scvs = readRDS(paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV.rds"))
+		brt_model_scv1 = readRDS(paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV1.rds"))
 		for (s in 1:length(scenarios))
 			{
 				predictions2 = list()
 				for (m in 1:length(models))
 					{
 						c = c+1; rasters_stack = rasters_stacks[[c]]; replicates = list()
-						for (j in 1:length(brt_model_scvs))
+						for (j in 1:length(brt_model_scv1))
 							{
 								df = as.data.frame(rasters_stack); not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
-								n.trees = brt_model_scvs[[j]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
-								prediction = predict.gbm(brt_model_scvs[[j]], newdata, n.trees, type, single.tree)
+								n.trees = brt_model_scv1[[j]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
+								prediction = predict.gbm(brt_model_scv1[[j]], newdata, n.trees, type, single.tree)
 								rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction; replicates[[j]] = rast
 							}
 						rasts = stack(replicates); prediction = mean(rasts); predictions2[[m]] = prediction
 					}
 				rasts = stack(predictions2); prediction = mean(rasts)
 				names(prediction) = paste0(analyses[i],"_",scenarios[s]); predictions1[[s]] = prediction
-				writeRaster(prediction, paste0("BRT_prediction_files/BRT_predictions/",scenarios[s],"_",models[m],".asc"), overwrite=T)
+				writeRaster(prediction, paste0("BRT_prediction_files/BRT_predictions/",analyses[i],"_",scenarios[s],".asc"), overwrite=T)
 			}
 		predictions_list[[i]] = predictions1
 	}
