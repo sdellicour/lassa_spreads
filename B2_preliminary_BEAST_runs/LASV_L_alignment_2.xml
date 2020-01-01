@@ -3982,11 +3982,11 @@
 	<!-- throughout the time spanned by the genealogy.                           -->
 	<constantSize id="constant" units="years">
 		<populationSize>
-			<parameter id="constant.popSize" value="1.0" lower="0.0"/>
+			<parameter id="constant.popSize" value="6.0897E7" lower="0.0"/>
 		</populationSize>
 	</constantSize>
 	
-
+		
 	<!-- Generate a random starting tree under the coalescent process            -->
 	<coalescentSimulator id="startingTree">
 		<taxa idref="taxa"/>
@@ -4452,10 +4452,10 @@
 		<distribution>
 			<logNormalDistributionModel meanInRealSpace="true">
 				<mean>
-					<parameter id="ucld.mean" value="1.0" lower="0.0"/>
+					<parameter id="ucld.mean" value="1.2878E-7" lower="0.0"/>
 				</mean>
 				<stdev>
-					<parameter id="ucld.stdev" value="0.3333333333333333" lower="0.0"/>
+					<parameter id="ucld.stdev" value="4.5841E-8" lower="0.0"/>
 				</stdev>
 			</logNormalDistributionModel>
 		</distribution>
@@ -4988,7 +4988,7 @@
 	
 
 	<!-- Define MCMC                                                             -->
-	<mcmc id="mcmc" chainLength="1000000000" autoOptimize="true" operatorAnalysis="LASV_L_alignment_2.ops">
+	<mcmc id="mcmc" chainLength="5000000000" autoOptimize="true" operatorAnalysis="LASV_L_alignment_2.ops">
 		<joint id="joint">
 			<prior id="prior">
 				<dirichletPrior alpha="1.0" sumsTo="6.0">
