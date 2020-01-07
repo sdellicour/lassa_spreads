@@ -10,7 +10,7 @@
 	
 
 	<!-- The list of taxa to be analysed (can also include dates/ages).          -->
-	<!-- ntax=773                                                                -->
+	<!-- ntax=771                                                                -->
 	<taxa id="taxa">
 		<taxon id="AF181854|las803213|Human|Nigeria|1974-02">
 			<date value="1974.0849315068492" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
@@ -115,10 +115,7 @@
 			<date value="2000.2377049180327" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="PB1_NGA-Plateau_Jos_Hs_1982-01">
-			<date value="0.0" direction="forwards" units="years"/>
-		</taxon>
-		<taxon id="AJ969406|523|Mn|LBR|?">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="1982.0" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="AY179173|NL|Human|Sierra_Leone|2000-07">
 			<date value="2000.4972677595629" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
@@ -181,7 +178,7 @@
 			<date value="2009.1287671232876" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="GA391_NGA-Kaduna_Zaria_Hs_1977-11">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="1977.8328767123287" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="GU481064|Nig08-02|Human|Nigeria|2008-01-02">
 			<date value="2008.0027322404371" direction="forwards" units="years"/>
@@ -276,7 +273,7 @@
 		<taxon id="GU830837|Lib07-624|Human|LIB|2007">
 			<date value="2007.0" direction="forwards" units="years" uncertainty="1.0"/>
 		</taxon>
-		<taxon id="GU979509|SL06-2057|Human|SLE|2006">
+		<taxon id="GU979508|SL06-2057|Human|SLE|2006">
 			<date value="2006.0" direction="forwards" units="years" uncertainty="1.0"/>
 		</taxon>
 		<taxon id="KF478766|Bamba_R114|Mouse|Mali|2012-03">
@@ -826,7 +823,7 @@
 			<date value="2012.0" direction="forwards" units="years" uncertainty="1.0"/>
 		</taxon>
 		<taxon id="pinneo_NGA-Borno_Lassa_LS_1969">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="1969.0" direction="forwards" units="years" uncertainty="1.0"/>
 		</taxon>
 		<taxon id="KM822130|Z0947_SLE_2011|Mouse|Sierra_Leone|2011">
 			<date value="2011.0" direction="forwards" units="years" uncertainty="1.0"/>
@@ -1003,34 +1000,31 @@
 			<date value="2014.3534246575343" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="ONM-299_NGA-Benue_COORDINATES_Me_2011-10-23">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2011.8082191780823" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="ONM-314_NGA-Benue_COORDINATES_Me_2011-10-24">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2011.8109589041096" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="ONM-700_NGA-Benue_COORDINATES_Me_2012-10-29">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.8251366120219" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="Kak-428_NGA-Osun_COORDINATES_Hp_2012-03-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.2021857923498" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="OSPMH86_NGA-Osun_COORDINATES_Hp_2008-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2008.7486338797814" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="OSPMH89_NGA-Osun_COORDINATES_Hp_2008-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2008.7486338797814" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="OSPMH123_NGA-Osun_COORDINATES_Hp_2009-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2009.1616438356164" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="OSPMH124_NGA-Osun_COORDINATES_Hp_2009-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2009.1616438356164" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="KU961971|Togo/2016/7082|Human|Togo|2016-02-26">
 			<date value="2016.1530054644809" direction="forwards" units="years"/>
-		</taxon>
-		<taxon id="KU978807|Guinea Faranah|Human|GIN|?">
-			<date value="0.0" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="KU978811|NIGERIA IKEJI|Human|NIG|1989-01-01">
 			<date value="1989.0" direction="forwards" units="years"/>
@@ -1762,130 +1756,130 @@
 			<date value="2017.2904109589042" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2011_IRR_001_NGA-Ondo_Ose_Hs_2011-08-02">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2011.5835616438355" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_010_NGA-Delta_Asaba_Hs_2012-05-28">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.4043715846994" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_014_NGA-Bauchi_Bauchi_Hs_2013-11-23">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.8931506849315" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_016_NGA-Bauchi_Bauchi_Hs_2013-12-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.9342465753425" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_008_NGA-Taraba_Jalingo_Hs_2013-03-06">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.1753424657534" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_005_NGA-Ebonyi_Abakaliki_Hs_2014-05-14">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.3643835616438" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="MK107903|IRR_006_NIG_2014|Human|NIG|2014-05-14">
 			<date value="2014.3643835616438" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_010_NGA-Ondo_Okeluse_Hs_2014-05-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.372602739726" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_011_NGA-Ondo_Okeluse_Hs_2014-08-01">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.5808219178082" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_012_NGA-Ondo_Ifon_Hs_2014-08-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.6054794520549" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_002_NGA-Nassarawa_Lafia_Hs_2014-01-20">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.0520547945205" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_009_NGA-Bauchi_Mbal_Hs_2015-04-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.3123287671233" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_008_NGA-Bauchi_Alkaleri_Hs_2015-04-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.2712328767122" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_010_NGA-Kogi_Ibaji_Hs_2015-07-02">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.4986301369863" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_014_NGA-Nassarawa_Agyaragu_Hs_2015-12-30">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.9945205479453" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_011_NGA-Ondo_Owo_Hs_2015-09-16">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.7068493150684" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_012_NGA-Ondo_Ifon_Hs_2015-11-06">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.8465753424657" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_012_NGA-Bauchi_TafawaBalewa_Hs_2016-01-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0655737704917" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_014_NGA-Bauchi_Alkaleri_Hs_2016-01-28">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0737704918033" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_019_NGA-Bauchi_LimanKatagum_Hs_2016-01-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0300546448088" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_028_NGA-Bauchi_SabonGari_Hs_2016-02-29">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1612021857923" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_025_NGA-Benue_Oiji_Hs_2016-02-26">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1530054644809" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_007_NGA-AkwaIbom_Uyo_Hs_2016-01-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0464480874316" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_018_NGA-Ebonyi_Ikwo_Hs_2016-02-09">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1065573770493" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_021_NGA-Ebonyi_NA_Hs_2016-02-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1311475409836" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_026_NGA-Ebonyi_Ohaukwu_Hs_2016-02-26">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1530054644809" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_027_NGA-Ebonyi_Izzi_Hs_2016-02-28">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1584699453551" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_006_NGA-Ekiti_IdoEkiti_Hs_2016-01-14">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.035519125683" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_013_NGA-Imo_Owerri_Hs_2016-01-27">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0710382513662" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_023_NGA-Kaduna_Kaduna_Hs_2016-02-23">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1448087431695" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_016_NGA-Nassarawa_Kwarra_Hs_2016-02-06">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0983606557377" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_008_NGA-Nassarawa_Lafia_Hs_2016-01-20">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.051912568306" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_015_NGA-Nassarawa_Lafia_Hs_2016-02-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0901639344263" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_032_NGA-Nassarawa_Lafia_Hs_2016-03-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1967213114754" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_020_NGA-Nassarawa_Lafia_Hs_2016-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.122950819672" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_017_NGA-Ondo_Ifon_Hs_2016-02-06">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0983606557377" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_033_NGA-Ondo_Ondo_Hs_2016-03-14">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1994535519125" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_029_NGA-Ondo_Owo_Hs_2016-03-01">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1639344262296" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_009_NGA-Plateau_Shendam_Hs_2016-01-20">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.051912568306" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_003_NGA-Plateau_Kumbul_Hs_2016-01-04">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0081967213114" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_010_NGA-Taraba_Kwesati_Hs_2016-01-22">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0573770491803" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_004_NGA-Taraba_Takun_Hs_2016-01-05">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0109289617487" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="MK107943|IRR_015_NGA_2017|Human|NIG|2017">
 			<date value="2017.0" direction="forwards" units="years" uncertainty="1.0"/>
@@ -1894,382 +1888,382 @@
 			<date value="2017.0" direction="forwards" units="years" uncertainty="1.0"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_015_NGA-Bauchi_Bauchi_Hs_2013-12-04">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.9232876712329" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_011_NGA-Rivers_Obio-Akpor_Hs_2013-03-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.2082191780821" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_004_NGA-Ondo_Okeluse_Hs_2014-05-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.3479452054794" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_015_NGA-Nassarawa_Lafia_Hs_2015-12-30">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.9945205479453" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_006_NGA-Ondo_Ifon_Hs_2015-02-22">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.1424657534246" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_001_NGA-Plateau_Buji_Hs_2015-01-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.0191780821917" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_007_NGA-Taraba_Jalingo_Hs_2015-02-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.150684931507" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_005_NGA-Bauchi_Bundot_Hs_2016-01-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.01912568306" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_031_NGA-Bauchi_Mbal_Hs_2016-03-11">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.191256830601" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_022_NGA-Kogi_Idah_Hs_2016-02-20">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.136612021858" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_024_NGA-Ondo_Irun_Hs_2016-02-24">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.1475409836066" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_001_NGA-Taraba_Jalingo_Hs_2012-02-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.103825136612" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="MK107959|IRR_002_NGA_2012|Human|NIG|2012-02-10">
 			<date value="2012.1092896174864" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_003_NGA-Taraba_Jalingo_Hs_2012-02-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.1092896174864" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_005_NGA-Ebonyi_Abakaliki_Hs_2013-01-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.0657534246575" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_007_NGA-Enugu_Enugu_Hs_2013-02-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.0904109589042" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_001_NGA-Ondo_Imoru_Hs_2013-01-16">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.041095890411" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_006_NGA-Ondo_Ifon_Hs_2013-01-30">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.0794520547945" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_002_NGA-Benue_Makurdi_Hs_2013-01-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.0438356164384" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_004_NGA-Rivers_Ikwerre_Hs_2012-02-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.1092896174864" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_006_NGA-Rivers_PortHarcourt_Hs_2012-02-21">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.139344262295" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_003_NGA-Nassarawa_Lafia_Hs_2013-01-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.0465753424658" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_004_NGA-Plateau_Bukuru_Hs_2013-01">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.0" direction="forwards" units="years" uncertainty="0.08333333333333333"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_008_NGA-FederalCapitalTerritory_NA_Hs_2012-03-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.1830601092897" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_009_NGA-Kogi_Iyano_Hs_2012-04-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.27868852459" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2012_IRR_007_NGA-Nassarawa_Lafia_Hs_2012-02-27">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2012.155737704918" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_010_NGA-Bauchi_Bauchi_Hs_2013-03-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.186301369863" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_013_NGA-Plateau_Jos_Hs_2013-02-27">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.1561643835616" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2013_IRR_012_NGA-Rivers_Ohio-Akpor_Hs_2013-04-11">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2013.2739726027398" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="MK107977|IRR_009_NIG_2013|Human|NIG|2013-03-09">
 			<date value="2013.1835616438357" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_002_NGA-Bauchi_Bauchi_Hs_2015-01-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.0191780821917" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_004_NGA-Bauchi_Bauchi_Hs_2015-01-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.0465753424658" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_013_NGA-Bauchi_Dass_Hs_2015-12-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.958904109589" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_005_NGA-Kaduna_Zaria_Hs_2015-01-28">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.0739726027398" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2015_IRR_003_NGA-Plateau_Vom_Hs_2015-01-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2015.0301369863014" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2014_IRR_001_NGA-Edo_NA_Hs_2014-01-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2014.0657534246575" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_001_NGA-Edo_NA_Hs_2016-01-04">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.0081967213114" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2016_IRR_002_NGA-Edo_NA_Hs_2016-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2016.122950819672" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_001_NGA-Nassarawa_NA_Hs_2017-01-24">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.0630136986301" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_003_NGA-Edo_NA_Hs_2017-04-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.2520547945205" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_004_NGA-Edo_Uzairue_Hs_2017">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.0" direction="forwards" units="years" uncertainty="1.0"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_005_NGA-Edo_Okeluse_Hs_2017-01-16">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.041095890411" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_006_NGA-Ondo_Owo_Hs_2017-01-19">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.0493150684931" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_008_NGA-Ebonyi_EzzaNorth_Hs_2017-02-02">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.0876712328768" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2017_IRR_014_NGA-Ondo_Owo_Hs_2017-04-28">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2017.3205479452056" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_001_NGA-Bauchi_LimanKatagum_Hs_2018-01-02">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0027397260274" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_002_NGA-Edo_Ogwa_Hs_2018-01-07">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0164383561644" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_003_NGA-Ondo_Owo_Hs_2018-01-07">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0164383561644" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_005_NGA-Edo_OwanWest_Hs_2018-01-09">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.021917808219" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_006_NGA-Edo_Auchi_Hs_2018-01-09">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.021917808219" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_008_NGA-Ondo_IjebuOwo_Hs_2018-01-11">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.027397260274" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_009_NGA-Anambra_AnambraWest_Hs_2018-01-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0328767123287" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_010_NGA-Ondo_Owo_Hs_2018-01-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0301369863014" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_011_NGA-Ebonyi_Amauro_Hs_2018-01-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0328767123287" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_014_NGA-Ondo_Owo_Hs_2018-01-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0383561643835" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_015_NGA-Ondo_Owo_Hs_2018-01-16">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.041095890411" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_017_NGA-Ondo_Owo_Hs_2018-01-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0383561643835" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_019_NGA-Ondo_Owo_Hs_2018-01-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0438356164384" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_020_NGA-Ondo_Owo_Hs_2018-01-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0438356164384" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_021_NGA-Nassarawa_Keffi_Hs_2018-01-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0465753424658" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_022_NGA-Kogi_Lokoja_Hs_2018-01-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0438356164384" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_023_NGA-Edo_Uzebba_Hs_2018-01-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0465753424658" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_024_NGA-Edo_Agenegbode_Hs_2018-01-19">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0493150684931" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_025_NGA-Imo_Orlu_Hs_2018-01-19">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0493150684931" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_031_NGA-Edo_Uromi_Hs_2018-01-24">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0630136986301" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_033_NGA-Edo_Jattu_Hs_2018-01-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0657534246575" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_034_NGA-Ebonyi_Iboko_Hs_2018-01-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0657534246575" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_035_NGA-Ebonyi_Okposi-Okwa_Hs_2018-01-23">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0602739726028" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_036_NGA-Edo_Ekpoma_Hs_2018-01-26">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0684931506848" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_037_NGA-Edo_Ubiaja_Hs_2018-01-26">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0684931506848" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_038_NGA-Ondo_Akure_Hs_2018-01-26">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0684931506848" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_042_NGA-Anambra_Nzam_Hs_2018-01-29">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0767123287671" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_044_NGA-Ebonyi_AgbajaAzumili_Hs_2018-01-30">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0794520547945" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_046_NGA-Edo_Ekpoma_Hs_2018-02-05">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0958904109589" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_047_NGA-Ondo_Owo_Hs_2018-02-05">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0958904109589" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_048_NGA-Ondo_Owo_Hs_2018-02-04">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0931506849315" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_050_NGA-Ondo_Ifon_Hs_2018-02-05">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0958904109589" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_051_NGA-Edo_Uromi_Hs_2018-02-06">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0986301369862" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_052_NGA-Ondo_Owo_Hs_2018-02-07">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1013698630136" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_053_NGA-Edo_Uromi_Hs_2018-02-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1041095890412" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_054_NGA-Bauchi_Kufai_Hs_2018-02-04">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0931506849315" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_056_NGA-Ondo_Owo_Hs_2018-02-09">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1068493150685" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_057_NGA-Ondo_Owo_Hs_2018-02-09">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1068493150685" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_060_NGA-Ebonyi_Isiama_Hs_2018-02-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0904109589042" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_061_NGA-Ebonyi_Abakaliki_Hs_2018-02-07">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1013698630136" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_063_NGA-Ebonyi_Amogwe_Hs_2018-02-07">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1013698630136" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_064_NGA-Ebonyi_Abakaliki_Hs_2018-02-03">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.0904109589042" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_066_NGA-Edo_Auchi_Hs_2018-02-10">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.109589041096" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_071_NGA-Ondo_Ifon_Hs_2018-02-11">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1123287671232" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_072_NGA-Ondo_Owo_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_073_NGA-Anambra_Ode-Nzam_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_074_NGA-Edo_Sobe_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_075_NGA-Edo_BeninCity_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_077_NGA-Edo_Ubunmwonde_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_078_NGA-Edo_Auchi_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_079_NGA-Edo_Uromi_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_080_NGA-Edo_Ekpoma_Hs_2018-02-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1178082191782" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_082_NGA-Ondo_Owo_Hs_2018-02-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1178082191782" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_083_NGA-Ondo_Owo_Hs_2018-02-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1178082191782" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_084_NGA-Ondo_Owo_Hs_2018-02-13">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1178082191782" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_085_NGA-Edo_Sabongida-Ora_Hs_2018-02-14">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1205479452055" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_086_NGA-Bauchi_Wandi_Hs_2018-02-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1041095890412" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_091_NGA-Edo_Afowa_Hs_2018-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.123287671233" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_092_NGA-Ondo_Owo_Hs_2018-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.123287671233" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_093_NGA-Ondo_Owo_Hs_2018-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.123287671233" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_095_NGA-Ekiti_Ado-Ekiti_Hs_2018-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.123287671233" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_096_NGA-Delta_Asaba_Hs_2018-02-17">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1287671232876" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_099_NGA-Ebonyi_UmunwaguIdembia_Hs_2018-02-15">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.123287671233" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_100_NGA-Ebonyi_Ohaozara_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_101_NGA-Ebonyi_Abakaliki_Hs_2018-02-12">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1150684931506" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_103_NGA-Edo_Uromi_Hs_2018-02-18">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.131506849315" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_110_NGA-Edo_Iyamho_Hs_2018-02-20">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.13698630137" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_114_NGA-Edo_Ekpoma_Hs_2018-02-21">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1397260273973" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_117_NGA-Edo_Afuze_Hs_2018-02-24">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1479452054793" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_119_NGA-Edo_Auchi_Hs_2018-02-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.150684931507" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_120_NGA-Edo_Ehor_Hs_2018-02-25">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.150684931507" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_121_NGA-Edo_Uhiele_Hs_2018-02-26">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1534246575343" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_126_NGA-Ondo_Ute_Hs_2018-02-28">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.158904109589" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_131_NGA-Edo_BeninCity_Hs_2018-03-01">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1616438356164" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_133_NGA-Kogi_Idah_Hs_2018-03-02">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.164383561644" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_135_NGA-Edo_Ekpoma_Hs_2018-03-05">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.172602739726" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_136_NGA-Bauchi_Lukshi_Hs_2018-03-05">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.172602739726" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_137_NGA-Edo_Uromi_Hs_2018-03-08">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1808219178083" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_140_NGA-Ondo_Akure_Hs_2018-02-23">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.145205479452" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_141_NGA-Kogi_Idah_Hs_2018-02-23">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.145205479452" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="LASV_NGA_2018_IRR_142_NGA-Edo_Uromi_Hs_2018-03-09">
-			<date value="0.0" direction="forwards" units="years"/>
+			<date value="2018.1835616438357" direction="forwards" units="years"/>
 		</taxon>
 		<taxon id="MK281624|LASV0230-DELTA-2018|Human|NIG|2018-02-04">
 			<date value="2018.0931506849315" direction="forwards" units="years"/>
@@ -2336,7 +2330,7 @@
 	
 
 	<!-- The sequence alignment (each sequence refers to a taxon above).         -->
-	<!-- ntax=773 nchar=3189                                                     -->
+	<!-- ntax=771 nchar=3189                                                     -->
 	<alignment id="alignment" dataType="nucleotide">
 		<sequence>
 			<taxon idref="AF181854|las803213|Human|Nigeria|1974-02"/>
@@ -2477,10 +2471,6 @@
 		<sequence>
 			<taxon idref="PB1_NGA-Plateau_Jos_Hs_1982-01"/>
 			NNN---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------NNNATGGGGCAAATAGTGACATTCTTTCAAGAAGTTCCTCATGTTATTGAGGAAATCATGAACATTGTCCTCATCACTCTGTCCCTGCTTGCAGTTTTGAAGGGATTATATAACTTTGCCACATGTGGTCTCATTGGCTTGATCACATTCCTTTTCCTCTGTGGAAGGTCATGTTTAACAATT---TACAAAGGGAGTTATCAACACCGACACTTAGAGCTAAACATGGAAACACTCAACATGACCATGCCTCTATCCTGCACAAAAAACAACAGTCACCATTACATAAGAGTGGGCAATGAAACAGGACTCGAATTGACCTTAACCAACACAAGCATCATAACCCATAAGTTCTGCAATCTTTCTGATGCACACAAAAAGAATCTCTATGATCACACCCTCATGAGCATCATCTCCACTTTCCATTTATCCATCCCTAATTTCAATCAATATGAAGCAATGAGTTGTGATTTCAACGGGGGTAAGATCAGTGTTCAATACAATCTAAGTCACAGTTATGCAGGGGATGCGGCTAATCACTGTGGCACTGTGCAA------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		</sequence>
-		<sequence>
-			<taxon idref="AJ969406|523|Mn|LBR|?"/>
-			------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------NNNATGGGACAGATAGTGACATTCTTTCAGGAAGTGCCTCACGTTATAGAAGAGGTAATGAACATTGTTCTCATTGCACTGTCTATACTAGCAGTGCTGAAAGGTCTGTACAACTTTGCAACATGTGGCCTCGTTGGTCTGGTTACTTTCCTCCTGTTGTGTGGCAGGTCTTGTACAACCAGTCTTTATAAGGGGGTTTATGAGCTTCAGACTCTGGAACTGAACATGGAGACACTCAATATGACCATGCCTCTCTCCTGCACAAAGAACAACAGTCATCATTATATAATGGTGGGTAATGAGACAGGACTAGAATTGACCTTGACCAACACGAGCATTATTAATCATAAATTCTGCAATCTGTCTGATGCCCACAAAAAGAGCCTCTATGACCACGCTCTTATGAGCATAATCTCAACTTTCCACTTGTCCATCCCCAACTTCAATCAGTATGAGGCAATGAGCTGCGATTTTAATGGGGGAAAGATTAGTGTGCAGTACAACCTGAGTCACAGTTATGCTGGGGATGCGGCCAACCATTGTGGCACTGTTGCAAATGGTGTCTTGCAN---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		</sequence>
 		<sequence>
 			<taxon idref="AY179173|NL|Human|Sierra_Leone|2000-07"/>
@@ -2691,7 +2681,7 @@
 			------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------NNNATGGGGCAAATTATAACATTCTTTCAAGAAGTGCCTCATGTGATAGAAGAGGTGATGAACATAGTGCTCATTGCACTGTCCATACTTGCAGTGTTGAAGGGCTTGTACAATGTTGCAACGTGTGGCATAATTGGATTGATCACTTTCCTCTTGCTATGTGGTAGGTCTTGCACAACCACTCTTTACAAAGGAGTCTATGAGCTTCAAACCCTGGAACTGAACATGGAGACATTAAACATGACCATGCCTCTCTCCTGTACAAAAAACAATAGCCACCATTACATAAGGGTGGGTAATGAGACAGGGTTGGAGTTGACACTGACCAACACAAGCATCATTGATCATAAGTTTTGCAACCTCTCTGATGCACACAAGAAAAACCTTTATGATCATGCTCTCATGAGTATAATCTCAACCTTTCACTTGTCCATTCCCAACTTCAATCAGTATGAGGCAATGAGTTGTGACTTCAATGGAGGAAAGATCAGTGTACAATACAACTTAAGTCATGCTTATGCTGGGGATGCAGCTACACACTGCGGCACAGTTGCAAATGGTATCTTACAGACCTTCATGAGGTTTGCTTGGGGTGGGAGTTACATAGCTCTTGACTCAGGTCGTGGTGGATGGGACTGTGTCATGACCAGCTATCAGTATTTGATAATCCAAAACACAACCTGGGAGGATCATTGCCAATTCTCAAGGCCATCTCCCATTGGCTACCTTGGGCTTCTTTCGCAGAGAACCAGGGACATCTACATTAGCAGGAGACTCTTAGGGACATTCACATGGACATTGTCGGATTCCGAGGGTAAAGATACACCAGGAGGGTACTGTTTGACAAGATGGATGTTGATTGAGGCTGAGTTGAAGTGCTTTGGGAACACGGCGGTAGCN---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		</sequence>
 		<sequence>
-			<taxon idref="GU979509|SL06-2057|Human|SLE|2006"/>
+			<taxon idref="GU979508|SL06-2057|Human|SLE|2006"/>
 			------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------NNNATGGGACAGATAGTGACATTCTTCCAGGAGGTGCCTCATGTAATAGAAGAGGTGATGAACATCGTGCTCATCGCACTATCAATACTAGCAGTGCTGAAAGGTTTGTACAATGTTGCAACATGTGGCCTCATTGGTTTAATTACTTTTCTCCTGCTGTGTGGTAGATCCTGCACAACTACTCTTTACAAAGGAGTCTATGAACTTCAGACTTTGGAACTAAACATGGAGACACTCAACATGACCATGCCTCTCTCTTGCACAAAGAACAACAGTCATCACTACATAATGGTGGGTAATGAAACAGGACTAGAACTGACCCTGACCAATACAAGCATTATTAATCACAAATTCTGTAATCTGTCTGATGCTCACAAAAAGAACCTCTATGATCATGCTCTTATGAGCATAATCTCAACCTTCCATTTATCTATCCCCAACTTCAATCAGTATGAAGCAATGAGCTGTGATTTTAATGGAGGAAAGATTAGTGTGCAGTACAATCTAAGTCACAGCTATGCTGGGGATGCAGCCAACCATTGTGGTACAGTAGCAAATGGTGTCTTACAGACTTTCATGAGGATGGCTTGGGGTGGGAGCTATATTGCTCTTGACTCAGGTCGTGGTGGATGGGACTGTATTATGACTAGTTATCAATATCTAATAATTCAAAATGTATCCTGGGAAAACCACTGCCAGTTCTCAAGACCATCCCCCATCGGTTACCTTGGACTCCTCTCACAAAGAACTAGAGACATATATATTAGCAGAAGACTACTGGGAACATTTACATGGACACTGTCAGATTCTGAAGGCAAAGATGCACCAGGAGGGTATTGTTTGACTAGGTGGATGCTAATTGAAGCTGAACTAAAN---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		</sequence>
 		<sequence>
@@ -3693,10 +3683,6 @@
 		<sequence>
 			<taxon idref="KU961971|Togo/2016/7082|Human|Togo|2016-02-26"/>
 			ATGAGTAACTCTAAAGAGGTGAAGTCTTTTCTCTGGACTCAGTCTCTGAGGAGAGAGCTGTCAGGTTACTGCTCTAACATCAAACTCCAGGTGGTCAAGGATGCTCAGGCCTTATTACATGGGCTTGATTTCTCTGAAGTGAGCAATGTTCAGAGGCTGATGCGAAAACAGAAGAGGGATGATGGTGACCTCAAGAGGCTCAGAGACCTGAATCAAGCGGTAAATAATCTTGTTGAACTAAAATCAGTTCAACAAAAAAGTATATTGAGAGTTGGCACCCTGACCTCTGATGACTTACTAACACTTGCTGCTGACCTAGAAAAACTAAAGTCTAAAGTAACTAGGACTGAAAGACCTTTGAGTTCAGGAGTTTATATGGGAAACCTCAGCTCTCAGCAACTTGACCAGAGGAGAGCCCTCCTGAGCATGATAGGGATGAGTGGTGGGAACCAGAACAGCCAACCCAAAGGAGATGGTGTTGTGAGGGTTTGGGATGTGAAAAATGCTGACCTGCTGAACAACCAGTTTGGAACGATGCCCAGTCTTACATTAGCATGCTTAACAAAGCAGGGACAAGTGGATTTGAATGATGCTGTTCAGGCACTGACTGATCTAGGGTTGATTTACACAGCTAAATACCCGAACTCATCTGACCTAGACAGACTTTCACAAAGCCATCCAATCCTGAACATGATCGATACCAAGAAGAGCTCATTGAACATCTCTGGCTACAATTTTAGTTTAGGGGCCGCAATCAAGACTGGGGCATGCATGCTTGATGGGGGCAACATGCTGGAGACAATCAAGGTCACTCCCCAAACCATGGATGGGATTTTGAAATCCATTTTAAAGGTGAAGAGGAGTCTTGGGATGTTTATTTCTGATACACCTGGAGAAAGGAATCCTTATGAAAACATTCTTTATAAAATCTGTCTTTCAGGAGACGGGTGGCCTTACATAGCCTCACGAACTGCCATCATTGGTAGAGCATGGGAAAACACTGTGGTTGATTTGGAGTCTGATAGCAAGCCACAAAAGATTGGGAGCAATGGATCTAACAAATCATTGCAATCTGCAGGCTTTGCCCCTGGACTGACATACTCTCAGCTCATGACCCTCAAAGACTCAATGTTGCAATTAGATCCTAATGCAAAGACTTGGATAGACATTGAAGGTAGGCCGGAAGACCCTGTTGAGGTCGCCTTGTTTCAGCCTATCTCAGGTTGCTACATACACTTCTTTAGAGAACCAACAGACCTGAAGCAATTTAAACAAGATGCAAAGTACTCACATGGGATAGATGTCACCGATTTGTTTGCTGCTCAGCCAGGTTTGACCAGTGCTGTCATTGAGGCACTTCCCAGGAATATGGTGCTGACCTGTCAGGGATCAGACGACATCAAAAAATTGTTGGATTCACAGGGGAGAAGGGACATTAAACTCATTGATGTTTCTCTCAATAAAATTGACTCAAGAAAGTTTGAGAATGCTGTATGGGATCAATACAAAGATCTGTGTCACATGCATACAGGGGTAGTCGTGGAGAAGAAAAAGAAGGGAGGGAAAGAAGAAATAACCCCTCATTGTGCCTTGCTAGACTGCATCATGTTTGATGCAGCCGTGTCCGGAGGCCTAAATGCCACAGTTTTGAGAGCTGTTCTACCTAGAGACATGGTGTTTAGAACGTCATCACCTAAAGTCGTTCTGTAANNNATGGGGCAAATAATAACCTTCTTCCAGGAGGTTCCTCATGTTATAGAGGAGGTGATGAACATTGTTCTGATAGCACTCTCACTCCTAGCTATCCTGAAAGGGGTCTACAATGTGGCAACATGTGGGATAATTGGGCTTGTGACCTTCCTCTTTCTCTGTGGAAGATCTTGTTCACTGATC---TACAAAGGCAGTTATGAGCTGCAAACATTGGAGTTAAATATGGAGACCCTAAACATGACCATGCCTCTGTCATGCACTAAAAATAGTAGCCACCATTATATTCGAGTTGGGAACGAGACTGGCTTAGAGCTGACATTGACCAACACCAGCATTATAAATCACAAATTCTGTAACCTGTCAGATGCTCACAAACGTAATCTGTATGACCACGCACTCATGAGCATCCTTTCCACATTCCATCTGTCCATCCCAAACTTCAACCAGTATGAGGCGATGAGTTGTGACTTCAATGGAGGCAAAATCAGTGTGCAATATAATCTCAGCCATGCTTATGCAGTTGATGCTGCCGAACACTGCGGAACAGTTGCAAATGGTGTGCTACAAACATTCATGAGGATGGCTTGGGGAGGAAGTTACATTGCACTTGACTCTGGGAGAGGCAATTGGGACTGTATTATGACAAGCTACCAATACTTAATCATTCAGAATACAACATGGGAAGATCACTGCCAATTTTCAAGACCTTCTCCTATTGGTTATCTCGGCTTATTGTCACAAAGAACAAGAGACATTTATATCAGTAGGAGGCTGCTGGGTACATTCACCTGGACACTTTCTGACTCAGAGGGAAATGAGACACCAGGCGGATACTGTTTAACAAGATGGATGCTGATAGAGGCTGAGCTAAAATGTTTTGGAAACACAGCTGTTGCAAAGTGTAATGAGAAGCATGATGAGGAATTCTGCGACATGTTAAGGTTGTTTGACTTCAACAAACAGGCAATTCAGAGGCTCAAATCAGAGGCACAAATGAGCATCCAGTTAATAAATAAAGCAGTGAATGCATTGATAAATGATCAGCTCATTATGAAGAACCACTTAAGGGATATGATGGGTATACCGTATTGCAACTACAGTAAGTATTGGTATCTCAATCACACCTCATCAGGGAGAACATCGTTGCCTAAATGCTGGCTTGTTTCCAATGGAAGTTATCTGAATGAGACCCACTTCTCAGATGATATTGAACAACAGGCAGACAACATGATAACTGAAATGTTACAAAAGGAATATATCGATAGGCAGGGTAAAACACCTTTAGGACTTGTTGACCTTTTTGTTTTCAGCACGAGTTTTTACCTTATAAGTATATTCTTACACTTGATAAAGATACCTACTCATAGGCACATAGTTGGAAAGCCATGCCCCAAGCCACACCGCCTCAACCACATGGGGATCTGCTCTTGTGGACTATACAAGCAGCCTGGTGTCCCAACCAGATGGAAGAGATAA
-		</sequence>
-		<sequence>
-			<taxon idref="KU978807|Guinea Faranah|Human|GIN|?"/>
-			ATGAGTGTCTCAAAAGAAGTGAAATCCTTCCTATGGACACAATCTCTGAGGAGGGAGTTGTCAGGTTACTGCTCCAACATCAAGTTGCAAGTTGTAAAGGATGCCCAAGCTCTCCTACATGGACTTGACTTCTCTGAGGTAAGCAATGTCCAACGTCTGATGCGCAAGCAAAGGAGAGATGACAGTGATTTGAAGAGACTCAGAGATCTGAATCAAGCAGTCAACAACCTTGTTGAACTGAAATCAACTCAACAAAAGAGTGTCTTGAGAGTTGGGACCCTAACTTCAGATGATCTGCTGATCTTGGCTGCTGATCTAGAGAAACTGAAATCAAAAGTCACCAGAACGGAAAGGCCACTGAGTGCAGGTGTCTACATGGGAAATCTAAGTTCACAGCAGCTCGATCAGAGACGGGCTCTTCTGAACATGATAGGGATGAATGGTGGTAATCAGGGAGTTCAAGCTGGGAGAGACGGGGTAGTGAGAGTTTGGGATGTGAAAAACGCAGAGTTGCTCAACAACCAATTCGGGACTATGCCAAGTTTGACACTAGCATGTCTGACGAAGCAGGGGCAAGTTGACTTAAATGACGCAGTTCAGGCACTGACAGACCTTGGTTTAATCTACACAGCAAAATATCCCAACACCTCTGATTTAGACAGGTTGGCTCAAAGCCACCCTATTCTGAATATGATTGACACCAAGAAGAGCTCATTGAACATCTCTGGCTACAACTTCAGTCTGGGTGCTGCTGTGAAGGCAGGAGCCTGTATGTTGGATGGTGGCAACATGCTAGAGACAATCAAAGTATCACCCCAAACAATGGATGGTATCCTCAAAGCTATCTTAAAAGTAAAAAGGACTCTTGGAATGTTTGTTTCAGATACTCCTGGTGAAAGGAACCCTTATGAAAACATACTTTATAAAATCTGCCTATCAGGGGATGGATGGCCATACATTGCATCGAGAACATCAATAACAGGAAGAGCTTGGGAGAATACTGTAGTAGATTTAGAATCAGACGGGAAGCCACAGAAAGTTGGAAATAATGGTTCCAACAAATCTTTGCAATCAGCAGGCTTCTCTGCTGGACTTACATATTCTCAACTCATGACTCTCAAAGATGCAATGCTGCAGCTTGACCCAAATACAAAGACCTGGATGGATATTGAGGGAAGGCCCGAAGATCCAGTGGAAGTTGCTCTTTACCAACCGAGCTCTGGTTGTTATATTCACTTCTTTCGTGAGCCTACTGACTTAAAGCAGTTTAAACAAGATGCCAAATATTCACATGGGATTGATGTCACAGACCTGTTTGCTGCACAGCCAGGTCTGACCAGTGCAGTTATCGAAGCACTCCCTCGAAACATGGTCATCACCTGCCAAGGGTCTGAAGACATAAGAAAGCTCCTTGAATCACAGGGAAGGAAGGATATAAAACTGATTGACATTGCCCTCAGCAAGGCCGACTCCAGGAAGTATGAAAATGCAGTCTGGGACCAATGCAAAGACTTGTGCCACATGCACACAGGTATTGTTGTTGAGAAGAAGAAGAGAGGTGGCAAAGAGGAGATAACCCCTCACTGCGCACTGATGGATTGCATCATGTTTGATGCAGCAGTGTCAGGAGGATTAAACACACAGGTTTTGAGGGCAGTGCTGCCCAGAGACATGGTTTTTAGGACATCAACACCCAAAGTCGTCTTGTAANNNATGGGACAGATTGTGACATTCTTCCAAGAGGTACCTCATGTGATAGAGGAGGTAATGAACATTGTACTCATTGCATTGTCTATACTTGCAGTGTTGAAAGGTTTGTACAATGTGGCAACATGTGGTCTCATCGGCCTCATTGCTTTTCTTCTACTGTGTGGCAGATCTTGTACATCAACCCTTTACAAAGGGGTGTATGAACTTCAGGCTTTAGAATTAAACATGGAAACACTCAACATGACCATGCCTCTCTCCTGCACAAAAAACAATTCTCACCATTACATTATGGTGGGTAATGAGACAGGATTGGAATTAACCCTGACCAACACAAGTATCATCAACCACAAGTTTTGCAACCTCTCTGATGCTCATAAAAAGAATCTATACAACCACGCTCTCATGAGCATAATTTCGACTTTCCACTTGTCTATTCCTAATTTCAATCAGTATGAGGCAATGAGTTGTGACTTCAATGGGGGAAAGATCAGTGTGCAGTACAACCTGAGCCACAGTTATGCTGTGGATGCAGCCAACCATTGTGGCACAGTTGCCAATGGCATTCTGCAGACCTTCATGAGGATGGCCTGGGGTGGGAGCTACATTGCTCTTGACTCAGGCCATGGTGGGTGGGACTGCATTATGAGCAGTTACCAATATTTGGTAATTCAAAACACAACCTGGGAAGACCACTGTCAATTCTCGAGACCATCCCCCATTGGTTATCTTGGGCTCCTATCACAGAGAACTAGAGACATCTACATTAGTAGGAGATTACTGGGTACATTCACCTGGACATTATCAGATTCTGAAGGCAAAGACACACCAGGAGGATATTGTTTGACCAGGTGGATGTTGATTGAAGCTGAATTGAAATGCTTTGGAAACACAGCTGTAGCAAAATGTAATGAAAAACATGATGAAGAATTCTGTGACATGCTTAGGTTATTTGATTTCAACAAGCAAGCCATTCAAAGATTGAAAGCTGAGGCACAAATGAGCATACAATTAATCAACAAAGCAGTGAATGCTCTAATAAACGATCAGCTAATTATGAAGAATCATTTGCGTGACATCATGGGAATACCATACTGCAATTACAGTAAGTATTGGTATCTTAACCACACAATCACTGGGAGAACTTCCCTACCAAAATGTTGGCTTGTATCCAATGGCTCATACTTGAATGAAACCCACTTCTCCGATGACATCGAGCAACAAGCTGACAACATGATCACTGAGATGCTGCAGAAAGAATATCTAGAGAGACAAGGGAAAACACCACTAGGTTTGGTTGACCTTTTTGTGTTTAGCACGAGTTTTTACCTCATAAGCATTTTCCTACACTTAATCAAAATACCAACTCATAGACACATTGTGGGCAAATCATGTCCTAAACCCCACAGGCTAAATCACATGGGTGTATGCTCATGTGGTCTCTACAAACAGCCTGGCGTTCCTGTGAGATGGAAGAGATAA
 		</sequence>
 		<sequence>
 			<taxon idref="KU978811|NIGERIA IKEJI|Human|NIG|1989-01-01"/>
@@ -5435,7 +5421,7 @@
 	
 
 	<!-- The unique patterns from 1 to end                                       -->
-	<!-- npatterns=2592                                                          -->
+	<!-- npatterns=2588                                                          -->
 	<patterns id="patterns" from="1" strip="false">
 		<alignment idref="alignment"/>
 	</patterns>
@@ -5445,7 +5431,7 @@
 	<!-- throughout the time spanned by the genealogy.                           -->
 	<constantSize id="constant" units="years">
 		<populationSize>
-			<parameter id="constant.popSize" value="1.7322E7" lower="0.0"/>
+			<parameter id="constant.popSize" value="1.0" lower="0.0"/>
 		</populationSize>
 	</constantSize>
 	
@@ -5469,638 +5455,6 @@
 		<nodeHeights internalNodes="true" rootNode="true">
 			<parameter id="treeModel.allInternalNodeHeights"/>
 		</nodeHeights>
-
-		<!-- START Tip date sampling                                                 -->
-		<leafHeight taxon="AF181854|las803213|Human|Nigeria|1974-02">
-			<parameter id="age(AF181854|las803213|Human|Nigeria|1974-02)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182220|las803214|Human|Nigeria|1974">
-			<parameter id="age(AF182220|las803214|Human|Nigeria|1974)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182221|las806316|Human|Nigeria|1989">
-			<parameter id="age(AF182221|las806316|Human|Nigeria|1989)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182222|las808031|Human|Nigeria|1994">
-			<parameter id="age(AF182222|las808031|Human|Nigeria|1994)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182223|las806320|Human|Nigeria|1989">
-			<parameter id="age(AF182223|las806320|Human|Nigeria|1989)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182225|las806321|Human|Nigeria|1989">
-			<parameter id="age(AF182225|las806321|Human|Nigeria|1989)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182226|las806322|Human|Nigeria|1989">
-			<parameter id="age(AF182226|las806322|Human|Nigeria|1989)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182227|las803787|Human|Nigeria|1981">
-			<parameter id="age(AF182227|las803787|Human|Nigeria|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182228|las806791|Human|Nigeria|1993">
-			<parameter id="age(AF182228|las806791|Human|Nigeria|1993)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182229|las803210|Human|Nigeria|1975">
-			<parameter id="age(AF182229|las803210|Human|Nigeria|1975)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182230|las803212|Human|Nigeria|1976">
-			<parameter id="age(AF182230|las803212|Human|Nigeria|1976)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182232|las803208|Human|Nigeria|1975">
-			<parameter id="age(AF182232|las803208|Human|Nigeria|1975)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182233|las802662|Human|Sierra_Leone|1980">
-			<parameter id="age(AF182233|las802662|Human|Sierra_Leone|1980)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182235|las803205|Human|Sierra_Leone|1976">
-			<parameter id="age(AF182235|las803205|Human|Sierra_Leone|1976)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182237|las9607290|Human|Sierra_Leone|1996">
-			<parameter id="age(AF182237|las9607290|Human|Sierra_Leone|1996)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182239|las801105|Mouse|Sierra_Leone|1978">
-			<parameter id="age(AF182239|las801105|Mouse|Sierra_Leone|1978)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182244|las801108|Mouse|Sierra_Leone|1978">
-			<parameter id="age(AF182244|las801108|Mouse|Sierra_Leone|1978)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182245|las807875|Mouse|Sierra_Leone|1982">
-			<parameter id="age(AF182245|las807875|Mouse|Sierra_Leone|1982)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182246|las807976|Human|Sierra_Leone|1977">
-			<parameter id="age(AF182246|las807976|Human|Sierra_Leone|1977)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182247|las803211|Human|Sierra_Leone|1972">
-			<parameter id="age(AF182247|las803211|Human|Sierra_Leone|1972)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182250|las803206|Human|Sierra_Leone|1976">
-			<parameter id="age(AF182250|las803206|Human|Sierra_Leone|1976)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182252|las9607300|Human|Sierra_Leone|1996">
-			<parameter id="age(AF182252|las9607300|Human|Sierra_Leone|1996)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182253|las801100|Mouse|Sierra_Leone|1978">
-			<parameter id="age(AF182253|las801100|Mouse|Sierra_Leone|1978)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182254|las806843|Human|Sierra_Leone|1993">
-			<parameter id="age(AF182254|las806843|Human|Sierra_Leone|1993)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182255|las9607302|Human|Sierra_Leone|1996">
-			<parameter id="age(AF182255|las9607302|Human|Sierra_Leone|1996)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182256|las803972|Human|Sierra_Leone|1982">
-			<parameter id="age(AF182256|las803972|Human|Sierra_Leone|1982)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182257|las807974|Human|Sierra_Leone|1976">
-			<parameter id="age(AF182257|las807974|Human|Sierra_Leone|1976)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182261|las806828|Human|GIN|1981">
-			<parameter id="age(AF182261|las806828|Human|GIN|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182265|las807998|Human|Guinea|1997">
-			<parameter id="age(AF182265|las807998|Human|Guinea|1997)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182267|las807992|Human|Guinea|1997">
-			<parameter id="age(AF182267|las807992|Human|Guinea|1997)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182269|las807868|Human|Guinea|1996">
-			<parameter id="age(AF182269|las807868|Human|Guinea|1996)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182270|las808255|Mouse|Guinea|1996">
-			<parameter id="age(AF182270|las808255|Mouse|Guinea|1996)"/>
-		</leafHeight>
-		<leafHeight taxon="AF182272|las9608911|Human|Nigeria|1996">
-			<parameter id="age(AF182272|las9608911|Human|Nigeria|1996)"/>
-		</leafHeight>
-		<leafHeight taxon="AY179173|NL|Human|Sierra_Leone|2000-07">
-			<parameter id="age(AY179173|NL|Human|Sierra_Leone|2000-07)"/>
-		</leafHeight>
-		<leafHeight taxon="AY628205|Z148|?|LIB|1981">
-			<parameter id="age(AY628205|Z148|?|LIB|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="AY628206|Weller|?|NIG|1981">
-			<parameter id="age(AY628206|Weller|?|NIG|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832667|GB129|Mouse|Guinea|2003">
-			<parameter id="age(DQ832667|GB129|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832668|GB132|Mouse|Guinea|2003">
-			<parameter id="age(DQ832668|GB132|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832669|BA263|Mouse|Guinea|2003">
-			<parameter id="age(DQ832669|BA263|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832671|BA302|Mouse|Guinea|2003">
-			<parameter id="age(DQ832671|BA302|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832672|BA350|Mouse|Guinea|2003">
-			<parameter id="age(DQ832672|BA350|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832674|BA356|Mouse|Guinea|2003">
-			<parameter id="age(DQ832674|BA356|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832676|BA375|Mouse|Guinea|2003">
-			<parameter id="age(DQ832676|BA375|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832678|BA378|Mouse|Guinea|2003">
-			<parameter id="age(DQ832678|BA378|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832682|TA416|Mouse|Guinea|2003">
-			<parameter id="age(DQ832682|TA416|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832683|TA341|Mouse|Guinea|2003">
-			<parameter id="age(DQ832683|TA341|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832684|TA444|Mouse|Guinea|2003">
-			<parameter id="age(DQ832684|TA444|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832686|TA464|Mouse|Guinea|2003">
-			<parameter id="age(DQ832686|TA464|Mouse|Guinea|2003)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832689|TA817|Mouse|Guinea|2004">
-			<parameter id="age(DQ832689|TA817|Mouse|Guinea|2004)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832690|TA820|Mouse|Guinea|2004">
-			<parameter id="age(DQ832690|TA820|Mouse|Guinea|2004)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832692|DGD4|Mouse|Guinea|2005">
-			<parameter id="age(DQ832692|DGD4|Mouse|Guinea|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="DQ832694|DGD28|Mouse|Guinea|2005">
-			<parameter id="age(DQ832694|DGD28|Mouse|Guinea|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU481074|Nig08_A37|Human|Nigeria|2008-02">
-			<parameter id="age(GU481074|Nig08_A37|Human|Nigeria|2008-02)"/>
-		</leafHeight>
-		<leafHeight taxon="GU481076|Nig08_A41|Human|Nigeria|2008-02">
-			<parameter id="age(GU481076|Nig08_A41|Human|Nigeria|2008-02)"/>
-		</leafHeight>
-		<leafHeight taxon="GU481078|Nig08_A47|Human|Nigeria|2008-02">
-			<parameter id="age(GU481078|Nig08_A47|Human|Nigeria|2008-02)"/>
-		</leafHeight>
-		<leafHeight taxon="GU573547|Soromba_R240|Mouse|Mali|2009">
-			<parameter id="age(GU573547|Soromba_R240|Mouse|Mali|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="GU573551|Soromba_R245|Mouse|Mali|2009">
-			<parameter id="age(GU573551|Soromba_R245|Mouse|Mali|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830812|Lib04-2739|Human|LIB|2004">
-			<parameter id="age(GU830812|Lib04-2739|Human|LIB|2004)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830814|Lib05-406/90|Human|LIB|2005">
-			<parameter id="age(GU830814|Lib05-406/90|Human|LIB|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830815|Lib05-1580/121|Human|LIB|2005">
-			<parameter id="age(GU830815|Lib05-1580/121|Human|LIB|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830816|Lib05-2096/127|Human|LIB|2005">
-			<parameter id="age(GU830816|Lib05-2096/127|Human|LIB|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830817|Lib05-2406/129|Human|LIB|2005">
-			<parameter id="age(GU830817|Lib05-2406/129|Human|LIB|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830818|Lib05-3800|Human|LIB|2005">
-			<parameter id="age(GU830818|Lib05-3800|Human|LIB|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830819|Lib05-4094|Human|LIB|2005">
-			<parameter id="age(GU830819|Lib05-4094|Human|LIB|2005)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830820|Lib06-120|Human|LIB|2006">
-			<parameter id="age(GU830820|Lib06-120|Human|LIB|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830821|Lib06-174|Human|LIB|2006">
-			<parameter id="age(GU830821|Lib06-174|Human|LIB|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830822|Lib06-295|Human|LIB|2006">
-			<parameter id="age(GU830822|Lib06-295|Human|LIB|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830823|Lib06-383|Human|LIB|2006">
-			<parameter id="age(GU830823|Lib06-383|Human|LIB|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830824|Lib06-1099|Human|Liberia|2006">
-			<parameter id="age(GU830824|Lib06-1099|Human|Liberia|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830825|Lib06-1101|Human|Liberia|2006">
-			<parameter id="age(GU830825|Lib06-1101|Human|Liberia|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830826|Lib06-1826|Human|LIB|2006">
-			<parameter id="age(GU830826|Lib06-1826|Human|LIB|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830827|Lib06-2442|Human|LIB|2006">
-			<parameter id="age(GU830827|Lib06-2442|Human|LIB|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830828|Lib07-29|Human|LIB|2007">
-			<parameter id="age(GU830828|Lib07-29|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830829|Lib07-30|Human|LIB|2007">
-			<parameter id="age(GU830829|Lib07-30|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830830|Lib07-54|Human|LIB|2007">
-			<parameter id="age(GU830830|Lib07-54|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830831|Lib07-55|Human|LIB|2007">
-			<parameter id="age(GU830831|Lib07-55|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830832|Lib07-56|Human|LIB|2007">
-			<parameter id="age(GU830832|Lib07-56|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830833|Lib07-206|Human|LIB|2007">
-			<parameter id="age(GU830833|Lib07-206|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830834|Lib07-444|Human|LIB|2007">
-			<parameter id="age(GU830834|Lib07-444|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830835|Lib07-515|Human|LIB|2007">
-			<parameter id="age(GU830835|Lib07-515|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830836|Lib07-612|Human|LIB|2007">
-			<parameter id="age(GU830836|Lib07-612|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU830837|Lib07-624|Human|LIB|2007">
-			<parameter id="age(GU830837|Lib07-624|Human|LIB|2007)"/>
-		</leafHeight>
-		<leafHeight taxon="GU979509|SL06-2057|Human|SLE|2006">
-			<parameter id="age(GU979509|SL06-2057|Human|SLE|2006)"/>
-		</leafHeight>
-		<leafHeight taxon="KF478766|Bamba_R114|Mouse|Mali|2012-03">
-			<parameter id="age(KF478766|Bamba_R114|Mouse|Mali|2012-03)"/>
-		</leafHeight>
-		<leafHeight taxon="KF478768|Ouoma-R123|Mn|NGA|2012-03">
-			<parameter id="age(KF478768|Ouoma-R123|Mn|NGA|2012-03)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821798|G1200_LIB_2010|Human|Liberia|2010">
-			<parameter id="age(KM821798|G1200_LIB_2010|Human|Liberia|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821890|G3110_SLE_2013|Human|Sierra_Leone|2013">
-			<parameter id="age(KM821890|G3110_SLE_2013|Human|Sierra_Leone|2013)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821912|ISTH0009_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821912|ISTH0009_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821914|ISTH0012_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821914|ISTH0012_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821916|ISTH0047_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821916|ISTH0047_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821918|ISTH0073_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821918|ISTH0073_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821920|ISTH0230_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821920|ISTH0230_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821922|ISTH0531_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821922|ISTH0531_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821924|ISTH0595_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821924|ISTH0595_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821925|ISTH0964_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821925|ISTH0964_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821927|ISTH1003_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821927|ISTH1003_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821929|ISTH1038_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821929|ISTH1038_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821931|ISTH1048_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821931|ISTH1048_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821933|ISTH1058_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821933|ISTH1058_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821935|ISTH1064_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821935|ISTH1064_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821937|ISTH1069_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821937|ISTH1069_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821939|ISTH1096_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821939|ISTH1096_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821941|ISTH1107_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821941|ISTH1107_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821943|ISTH1111_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821943|ISTH1111_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821945|ISTH1121_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821945|ISTH1121_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821947|ISTH1129_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821947|ISTH1129_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821949|ISTH1137_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM821949|ISTH1137_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821951|ISTH2010_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821951|ISTH2010_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821953|ISTH2016_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821953|ISTH2016_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821955|ISTH2020_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821955|ISTH2020_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821957|ISTH2025_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821957|ISTH2025_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821959|ISTH2031_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821959|ISTH2031_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821961|ISTH2037_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821961|ISTH2037_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821963|ISTH2042_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821963|ISTH2042_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821965|ISTH2046_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821965|ISTH2046_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821967|ISTH2050_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821967|ISTH2050_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821969|ISTH2057_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821969|ISTH2057_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821971|ISTH2061_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821971|ISTH2061_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821972|ISTH2064_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821972|ISTH2064_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821979|ISTH2094_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821979|ISTH2094_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821980|ISTH2121_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821980|ISTH2121_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821982|ISTH2129_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821982|ISTH2129_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821984|ISTH2217_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821984|ISTH2217_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821986|ISTH2271_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821986|ISTH2271_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821988|ISTH2304_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821988|ISTH2304_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821990|ISTH2312_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821990|ISTH2312_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821992|ISTH2316_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821992|ISTH2316_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821994|ISTH2334_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821994|ISTH2334_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821996|ISTH2358_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821996|ISTH2358_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM821998|ISTH2376_NIG_2012|Human|Nigeria|2012">
-			<parameter id="age(KM821998|ISTH2376_NIG_2012|Human|Nigeria|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822000|LASV003_NIG_2008|Human|Nigeria|2008">
-			<parameter id="age(KM822000|LASV003_NIG_2008|Human|Nigeria|2008)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822002|LASV006_NIG_2008|Human|Nigeria|2008">
-			<parameter id="age(KM822002|LASV006_NIG_2008|Human|Nigeria|2008)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822004|LASV035_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822004|LASV035_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822006|LASV042_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822006|LASV042_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822008|LASV045_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822008|LASV045_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822010|LASV046_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822010|LASV046_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822012|LASV049_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822012|LASV049_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822014|LASV052_NIG_2008|Human|Nigeria|2008">
-			<parameter id="age(KM822014|LASV052_NIG_2008|Human|Nigeria|2008)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822016|LASV056_NIG_2008|Human|Nigeria|2008">
-			<parameter id="age(KM822016|LASV056_NIG_2008|Human|Nigeria|2008)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822018|LASV058_NIG_2008|Human|Nigeria|2008">
-			<parameter id="age(KM822018|LASV058_NIG_2008|Human|Nigeria|2008)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822020|LASV063_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822020|LASV063_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822022|LASV221_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822022|LASV221_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822023|LASV224_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822023|LASV224_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822025|LASV225_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822025|LASV225_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822027|LASV229_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822027|LASV229_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822029|LASV237_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822029|LASV237_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822031|LASV239_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822031|LASV239_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822033|LASV241_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM822033|LASV241_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822035|LASV242_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822035|LASV242_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822037|LASV245_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM822037|LASV245_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822039|LASV246_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822039|LASV246_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822041|LASV250_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM822041|LASV250_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822043|LASV251_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822043|LASV251_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822045|LASV253_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM822045|LASV253_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822047|LASV254_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM822047|LASV254_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822049|LASV256_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822049|LASV256_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822051|LASV263_NIG_2011|Human|Nigeria|2011">
-			<parameter id="age(KM822051|LASV263_NIG_2011|Human|Nigeria|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822053|LASV267_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822053|LASV267_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822055|LASV271_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822055|LASV271_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822057|LASV274_NIG_2010|Human|Nigeria|2010">
-			<parameter id="age(KM822057|LASV274_NIG_2010|Human|Nigeria|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822059|LASV711_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822059|LASV711_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822060|LASV716_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822060|LASV716_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822062|LASV719_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822062|LASV719_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822063|LASV736_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822063|LASV736_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822065|LASV737_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822065|LASV737_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822066|LASV738_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822066|LASV738_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822069|LASV966_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822069|LASV966_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822071|LASV967_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822071|LASV967_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822072|LASV969_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822072|LASV969_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822074|LASV971_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822074|LASV971_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822076|LASV975_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822076|LASV975_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822078|LASV976_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822078|LASV976_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822080|LASV977_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822080|LASV977_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822082|LASV978_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822082|LASV978_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822084|LASV979_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822084|LASV979_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822086|LASV981_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822086|LASV981_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822088|LASV982_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822088|LASV982_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822089|LASV988_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822089|LASV988_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822091|LASV989_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822091|LASV989_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822093|LASV990_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822093|LASV990_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822095|LASV991_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822095|LASV991_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822099|LASV993_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822099|LASV993_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822101|LASV1000_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822101|LASV1000_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822103|LASV1008_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822103|LASV1008_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822105|LASV1011_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822105|LASV1011_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822107|LASV1015_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822107|LASV1015_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822109|LASV1016_NIG_2009|Human|Nigeria|2009">
-			<parameter id="age(KM822109|LASV1016_NIG_2009|Human|Nigeria|2009)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822111|LM032_SLE_2010|Mouse|Sierra_Leone|2010">
-			<parameter id="age(KM822111|LM032_SLE_2010|Mouse|Sierra_Leone|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822113|LM222_SLE_2010|Mouse|Sierra_Leone|2010">
-			<parameter id="age(KM822113|LM222_SLE_2010|Mouse|Sierra_Leone|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822117|LM765_SLE_2012|Mouse|Sierra_Leone|2012">
-			<parameter id="age(KM822117|LM765_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822118|LM771_SLE_2012|Mouse|Sierra_Leone|2012">
-			<parameter id="age(KM822118|LM771_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822120|LM774_SLE_2012|Mouse|Sierra_Leone|2012">
-			<parameter id="age(KM822120|LM774_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822124|LM778_SLE_2012|Mouse|Sierra_Leone|2012">
-			<parameter id="age(KM822124|LM778_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</leafHeight>
-		<leafHeight taxon="KM822130|Z0947_SLE_2011|Mouse|Sierra_Leone|2011">
-			<parameter id="age(KM822130|Z0947_SLE_2011|Mouse|Sierra_Leone|2011)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812631|807987|Human|Liberia|1981">
-			<parameter id="age(MG812631|807987|Human|Liberia|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812632|807978|Human|Liberia|1981">
-			<parameter id="age(MG812632|807978|Human|Liberia|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812639|las806827|Human|Sierra_Leone|1977">
-			<parameter id="age(MG812639|las806827|Human|Sierra_Leone|1977)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812645|806387|Human|Guinea|1981">
-			<parameter id="age(MG812645|806387|Human|Guinea|1981)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812647|las803209|Human|Sierra_Leone|1975">
-			<parameter id="age(MG812647|las803209|Human|Sierra_Leone|1975)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812650|812673|Human|Liberia|2015">
-			<parameter id="age(MG812650|812673|Human|Liberia|2015)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812658|812337|Human|Liberia|2014">
-			<parameter id="age(MG812658|812337|Human|Liberia|2014)"/>
-		</leafHeight>
-		<leafHeight taxon="MG812679|811606|Human|Liberia|2010">
-			<parameter id="age(MG812679|811606|Human|Liberia|2010)"/>
-		</leafHeight>
-		<leafHeight taxon="MH732623|GUIN-1739-Mn-2018|Mastomys_natalensis|Guinea|2018">
-			<parameter id="age(MH732623|GUIN-1739-Mn-2018|Mastomys_natalensis|Guinea|2018)"/>
-		</leafHeight>
-		<leafHeight taxon="MK107943|IRR_015_NGA_2017|Human|NIG|2017">
-			<parameter id="age(MK107943|IRR_015_NGA_2017|Human|NIG|2017)"/>
-		</leafHeight>
-		<leafHeight taxon="MK107944|IRR_016_NGA_2017|Human|NIG|2017">
-			<parameter id="age(MK107944|IRR_016_NGA_2017|Human|NIG|2017)"/>
-		</leafHeight>
-		<leafHeight taxon="MK291248|LASV-SM1|Human|NIG|2015">
-			<parameter id="age(MK291248|LASV-SM1|Human|NIG|2015)"/>
-		</leafHeight>
-		<leafHeight taxon="MK291249|LASV-SM2|Human|NIG|2014">
-			<parameter id="age(MK291249|LASV-SM2|Human|NIG|2014)"/>
-		</leafHeight>
-		<leafHeight taxon="MK291250|LASV-SM3|Human|NIG|2014">
-			<parameter id="age(MK291250|LASV-SM3|Human|NIG|2014)"/>
-		</leafHeight>
-		<leafHeight taxon="MN275173|LF2384-NS-DIA-1|Human|SLE|2012">
-			<parameter id="age(MN275173|LF2384-NS-DIA-1|Human|SLE|2012)"/>
-		</leafHeight>
-
-		<!-- END Tip date sampling                                                   -->
-
 	</treeModel>
 
 	<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
@@ -6131,10 +5485,10 @@
 		<distribution>
 			<logNormalDistributionModel meanInRealSpace="true">
 				<mean>
-					<parameter id="ucld.mean" value="2.82E-7" lower="0.0"/>
+					<parameter id="ucld.mean" value="1.0" lower="0.0"/>
 				</mean>
 				<stdev>
-					<parameter id="ucld.stdev" value="9.37E-8" lower="0.0"/>
+					<parameter id="ucld.stdev" value="0.3333333333333333" lower="0.0"/>
 				</stdev>
 			</logNormalDistributionModel>
 		</distribution>
@@ -6252,633 +5606,6 @@
 		<scaleOperator scaleFactor="0.75" weight="3">
 			<parameter idref="constant.popSize"/>
 		</scaleOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF181854|las803213|Human|Nigeria|1974-02)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182220|las803214|Human|Nigeria|1974)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182221|las806316|Human|Nigeria|1989)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182222|las808031|Human|Nigeria|1994)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182223|las806320|Human|Nigeria|1989)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182225|las806321|Human|Nigeria|1989)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182226|las806322|Human|Nigeria|1989)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182227|las803787|Human|Nigeria|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182228|las806791|Human|Nigeria|1993)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182229|las803210|Human|Nigeria|1975)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182230|las803212|Human|Nigeria|1976)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182232|las803208|Human|Nigeria|1975)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182233|las802662|Human|Sierra_Leone|1980)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182235|las803205|Human|Sierra_Leone|1976)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182237|las9607290|Human|Sierra_Leone|1996)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182239|las801105|Mouse|Sierra_Leone|1978)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182244|las801108|Mouse|Sierra_Leone|1978)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182245|las807875|Mouse|Sierra_Leone|1982)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182246|las807976|Human|Sierra_Leone|1977)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182247|las803211|Human|Sierra_Leone|1972)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182250|las803206|Human|Sierra_Leone|1976)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182252|las9607300|Human|Sierra_Leone|1996)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182253|las801100|Mouse|Sierra_Leone|1978)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182254|las806843|Human|Sierra_Leone|1993)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182255|las9607302|Human|Sierra_Leone|1996)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182256|las803972|Human|Sierra_Leone|1982)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182257|las807974|Human|Sierra_Leone|1976)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182261|las806828|Human|GIN|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182265|las807998|Human|Guinea|1997)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182267|las807992|Human|Guinea|1997)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182269|las807868|Human|Guinea|1996)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182270|las808255|Mouse|Guinea|1996)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AF182272|las9608911|Human|Nigeria|1996)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AY179173|NL|Human|Sierra_Leone|2000-07)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AY628205|Z148|?|LIB|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(AY628206|Weller|?|NIG|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832667|GB129|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832668|GB132|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832669|BA263|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832671|BA302|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832672|BA350|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832674|BA356|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832676|BA375|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832678|BA378|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832682|TA416|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832683|TA341|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832684|TA444|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832686|TA464|Mouse|Guinea|2003)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832689|TA817|Mouse|Guinea|2004)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832690|TA820|Mouse|Guinea|2004)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832692|DGD4|Mouse|Guinea|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(DQ832694|DGD28|Mouse|Guinea|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU481074|Nig08_A37|Human|Nigeria|2008-02)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU481076|Nig08_A41|Human|Nigeria|2008-02)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU481078|Nig08_A47|Human|Nigeria|2008-02)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU573547|Soromba_R240|Mouse|Mali|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU573551|Soromba_R245|Mouse|Mali|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830812|Lib04-2739|Human|LIB|2004)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830814|Lib05-406/90|Human|LIB|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830815|Lib05-1580/121|Human|LIB|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830816|Lib05-2096/127|Human|LIB|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830817|Lib05-2406/129|Human|LIB|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830818|Lib05-3800|Human|LIB|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830819|Lib05-4094|Human|LIB|2005)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830820|Lib06-120|Human|LIB|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830821|Lib06-174|Human|LIB|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830822|Lib06-295|Human|LIB|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830823|Lib06-383|Human|LIB|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830824|Lib06-1099|Human|Liberia|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830825|Lib06-1101|Human|Liberia|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830826|Lib06-1826|Human|LIB|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830827|Lib06-2442|Human|LIB|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830828|Lib07-29|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830829|Lib07-30|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830830|Lib07-54|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830831|Lib07-55|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830832|Lib07-56|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830833|Lib07-206|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830834|Lib07-444|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830835|Lib07-515|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830836|Lib07-612|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU830837|Lib07-624|Human|LIB|2007)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(GU979509|SL06-2057|Human|SLE|2006)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KF478766|Bamba_R114|Mouse|Mali|2012-03)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KF478768|Ouoma-R123|Mn|NGA|2012-03)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821798|G1200_LIB_2010|Human|Liberia|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821890|G3110_SLE_2013|Human|Sierra_Leone|2013)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821912|ISTH0009_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821914|ISTH0012_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821916|ISTH0047_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821918|ISTH0073_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821920|ISTH0230_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821922|ISTH0531_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821924|ISTH0595_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821925|ISTH0964_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821927|ISTH1003_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821929|ISTH1038_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821931|ISTH1048_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821933|ISTH1058_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821935|ISTH1064_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821937|ISTH1069_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821939|ISTH1096_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821941|ISTH1107_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821943|ISTH1111_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821945|ISTH1121_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821947|ISTH1129_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821949|ISTH1137_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821951|ISTH2010_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821953|ISTH2016_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821955|ISTH2020_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821957|ISTH2025_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821959|ISTH2031_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821961|ISTH2037_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821963|ISTH2042_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821965|ISTH2046_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821967|ISTH2050_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821969|ISTH2057_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821971|ISTH2061_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821972|ISTH2064_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821979|ISTH2094_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821980|ISTH2121_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821982|ISTH2129_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821984|ISTH2217_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821986|ISTH2271_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821988|ISTH2304_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821990|ISTH2312_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821992|ISTH2316_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821994|ISTH2334_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821996|ISTH2358_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM821998|ISTH2376_NIG_2012|Human|Nigeria|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822000|LASV003_NIG_2008|Human|Nigeria|2008)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822002|LASV006_NIG_2008|Human|Nigeria|2008)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822004|LASV035_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822006|LASV042_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822008|LASV045_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822010|LASV046_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822012|LASV049_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822014|LASV052_NIG_2008|Human|Nigeria|2008)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822016|LASV056_NIG_2008|Human|Nigeria|2008)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822018|LASV058_NIG_2008|Human|Nigeria|2008)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822020|LASV063_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822022|LASV221_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822023|LASV224_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822025|LASV225_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822027|LASV229_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822029|LASV237_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822031|LASV239_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822033|LASV241_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822035|LASV242_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822037|LASV245_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822039|LASV246_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822041|LASV250_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822043|LASV251_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822045|LASV253_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822047|LASV254_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822049|LASV256_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822051|LASV263_NIG_2011|Human|Nigeria|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822053|LASV267_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822055|LASV271_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822057|LASV274_NIG_2010|Human|Nigeria|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822059|LASV711_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822060|LASV716_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822062|LASV719_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822063|LASV736_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822065|LASV737_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822066|LASV738_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822069|LASV966_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822071|LASV967_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822072|LASV969_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822074|LASV971_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822076|LASV975_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822078|LASV976_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822080|LASV977_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822082|LASV978_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822084|LASV979_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822086|LASV981_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822088|LASV982_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822089|LASV988_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822091|LASV989_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822093|LASV990_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822095|LASV991_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822099|LASV993_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822101|LASV1000_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822103|LASV1008_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822105|LASV1011_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822107|LASV1015_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822109|LASV1016_NIG_2009|Human|Nigeria|2009)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822111|LM032_SLE_2010|Mouse|Sierra_Leone|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822113|LM222_SLE_2010|Mouse|Sierra_Leone|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822117|LM765_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822118|LM771_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822120|LM774_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822124|LM778_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(KM822130|Z0947_SLE_2011|Mouse|Sierra_Leone|2011)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812631|807987|Human|Liberia|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812632|807978|Human|Liberia|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812639|las806827|Human|Sierra_Leone|1977)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812645|806387|Human|Guinea|1981)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812647|las803209|Human|Sierra_Leone|1975)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812650|812673|Human|Liberia|2015)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812658|812337|Human|Liberia|2014)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MG812679|811606|Human|Liberia|2010)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MH732623|GUIN-1739-Mn-2018|Mastomys_natalensis|Guinea|2018)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MK107943|IRR_015_NGA_2017|Human|NIG|2017)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MK107944|IRR_016_NGA_2017|Human|NIG|2017)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MK291248|LASV-SM1|Human|NIG|2015)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MK291249|LASV-SM2|Human|NIG|2014)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MK291250|LASV-SM3|Human|NIG|2014)"/>
-		</uniformOperator>
-		<uniformOperator weight="1">
-			<parameter idref="age(MN275173|LF2384-NS-DIA-1|Human|SLE|2012)"/>
-		</uniformOperator>
 	</operators>
 	
 
@@ -6954,220 +5681,6 @@
 			<rateStatistic idref="meanRate"/>
 			<rateStatistic idref="coefficientOfVariation"/>
 			<rateCovarianceStatistic idref="covariance"/>
-
-			<!-- START Tip date sampling                                                 -->
-			<parameter idref="age(AF181854|las803213|Human|Nigeria|1974-02)"/>
-			<parameter idref="age(AF182220|las803214|Human|Nigeria|1974)"/>
-			<parameter idref="age(AF182221|las806316|Human|Nigeria|1989)"/>
-			<parameter idref="age(AF182222|las808031|Human|Nigeria|1994)"/>
-			<parameter idref="age(AF182223|las806320|Human|Nigeria|1989)"/>
-			<parameter idref="age(AF182225|las806321|Human|Nigeria|1989)"/>
-			<parameter idref="age(AF182226|las806322|Human|Nigeria|1989)"/>
-			<parameter idref="age(AF182227|las803787|Human|Nigeria|1981)"/>
-			<parameter idref="age(AF182228|las806791|Human|Nigeria|1993)"/>
-			<parameter idref="age(AF182229|las803210|Human|Nigeria|1975)"/>
-			<parameter idref="age(AF182230|las803212|Human|Nigeria|1976)"/>
-			<parameter idref="age(AF182232|las803208|Human|Nigeria|1975)"/>
-			<parameter idref="age(AF182233|las802662|Human|Sierra_Leone|1980)"/>
-			<parameter idref="age(AF182235|las803205|Human|Sierra_Leone|1976)"/>
-			<parameter idref="age(AF182237|las9607290|Human|Sierra_Leone|1996)"/>
-			<parameter idref="age(AF182239|las801105|Mouse|Sierra_Leone|1978)"/>
-			<parameter idref="age(AF182244|las801108|Mouse|Sierra_Leone|1978)"/>
-			<parameter idref="age(AF182245|las807875|Mouse|Sierra_Leone|1982)"/>
-			<parameter idref="age(AF182246|las807976|Human|Sierra_Leone|1977)"/>
-			<parameter idref="age(AF182247|las803211|Human|Sierra_Leone|1972)"/>
-			<parameter idref="age(AF182250|las803206|Human|Sierra_Leone|1976)"/>
-			<parameter idref="age(AF182252|las9607300|Human|Sierra_Leone|1996)"/>
-			<parameter idref="age(AF182253|las801100|Mouse|Sierra_Leone|1978)"/>
-			<parameter idref="age(AF182254|las806843|Human|Sierra_Leone|1993)"/>
-			<parameter idref="age(AF182255|las9607302|Human|Sierra_Leone|1996)"/>
-			<parameter idref="age(AF182256|las803972|Human|Sierra_Leone|1982)"/>
-			<parameter idref="age(AF182257|las807974|Human|Sierra_Leone|1976)"/>
-			<parameter idref="age(AF182261|las806828|Human|GIN|1981)"/>
-			<parameter idref="age(AF182265|las807998|Human|Guinea|1997)"/>
-			<parameter idref="age(AF182267|las807992|Human|Guinea|1997)"/>
-			<parameter idref="age(AF182269|las807868|Human|Guinea|1996)"/>
-			<parameter idref="age(AF182270|las808255|Mouse|Guinea|1996)"/>
-			<parameter idref="age(AF182272|las9608911|Human|Nigeria|1996)"/>
-			<parameter idref="age(AY179173|NL|Human|Sierra_Leone|2000-07)"/>
-			<parameter idref="age(AY628205|Z148|?|LIB|1981)"/>
-			<parameter idref="age(AY628206|Weller|?|NIG|1981)"/>
-			<parameter idref="age(DQ832667|GB129|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832668|GB132|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832669|BA263|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832671|BA302|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832672|BA350|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832674|BA356|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832676|BA375|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832678|BA378|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832682|TA416|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832683|TA341|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832684|TA444|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832686|TA464|Mouse|Guinea|2003)"/>
-			<parameter idref="age(DQ832689|TA817|Mouse|Guinea|2004)"/>
-			<parameter idref="age(DQ832690|TA820|Mouse|Guinea|2004)"/>
-			<parameter idref="age(DQ832692|DGD4|Mouse|Guinea|2005)"/>
-			<parameter idref="age(DQ832694|DGD28|Mouse|Guinea|2005)"/>
-			<parameter idref="age(GU481074|Nig08_A37|Human|Nigeria|2008-02)"/>
-			<parameter idref="age(GU481076|Nig08_A41|Human|Nigeria|2008-02)"/>
-			<parameter idref="age(GU481078|Nig08_A47|Human|Nigeria|2008-02)"/>
-			<parameter idref="age(GU573547|Soromba_R240|Mouse|Mali|2009)"/>
-			<parameter idref="age(GU573551|Soromba_R245|Mouse|Mali|2009)"/>
-			<parameter idref="age(GU830812|Lib04-2739|Human|LIB|2004)"/>
-			<parameter idref="age(GU830814|Lib05-406/90|Human|LIB|2005)"/>
-			<parameter idref="age(GU830815|Lib05-1580/121|Human|LIB|2005)"/>
-			<parameter idref="age(GU830816|Lib05-2096/127|Human|LIB|2005)"/>
-			<parameter idref="age(GU830817|Lib05-2406/129|Human|LIB|2005)"/>
-			<parameter idref="age(GU830818|Lib05-3800|Human|LIB|2005)"/>
-			<parameter idref="age(GU830819|Lib05-4094|Human|LIB|2005)"/>
-			<parameter idref="age(GU830820|Lib06-120|Human|LIB|2006)"/>
-			<parameter idref="age(GU830821|Lib06-174|Human|LIB|2006)"/>
-			<parameter idref="age(GU830822|Lib06-295|Human|LIB|2006)"/>
-			<parameter idref="age(GU830823|Lib06-383|Human|LIB|2006)"/>
-			<parameter idref="age(GU830824|Lib06-1099|Human|Liberia|2006)"/>
-			<parameter idref="age(GU830825|Lib06-1101|Human|Liberia|2006)"/>
-			<parameter idref="age(GU830826|Lib06-1826|Human|LIB|2006)"/>
-			<parameter idref="age(GU830827|Lib06-2442|Human|LIB|2006)"/>
-			<parameter idref="age(GU830828|Lib07-29|Human|LIB|2007)"/>
-			<parameter idref="age(GU830829|Lib07-30|Human|LIB|2007)"/>
-			<parameter idref="age(GU830830|Lib07-54|Human|LIB|2007)"/>
-			<parameter idref="age(GU830831|Lib07-55|Human|LIB|2007)"/>
-			<parameter idref="age(GU830832|Lib07-56|Human|LIB|2007)"/>
-			<parameter idref="age(GU830833|Lib07-206|Human|LIB|2007)"/>
-			<parameter idref="age(GU830834|Lib07-444|Human|LIB|2007)"/>
-			<parameter idref="age(GU830835|Lib07-515|Human|LIB|2007)"/>
-			<parameter idref="age(GU830836|Lib07-612|Human|LIB|2007)"/>
-			<parameter idref="age(GU830837|Lib07-624|Human|LIB|2007)"/>
-			<parameter idref="age(GU979509|SL06-2057|Human|SLE|2006)"/>
-			<parameter idref="age(KF478766|Bamba_R114|Mouse|Mali|2012-03)"/>
-			<parameter idref="age(KF478768|Ouoma-R123|Mn|NGA|2012-03)"/>
-			<parameter idref="age(KM821798|G1200_LIB_2010|Human|Liberia|2010)"/>
-			<parameter idref="age(KM821890|G3110_SLE_2013|Human|Sierra_Leone|2013)"/>
-			<parameter idref="age(KM821912|ISTH0009_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821914|ISTH0012_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821916|ISTH0047_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821918|ISTH0073_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821920|ISTH0230_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821922|ISTH0531_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821924|ISTH0595_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821925|ISTH0964_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821927|ISTH1003_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821929|ISTH1038_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821931|ISTH1048_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821933|ISTH1058_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821935|ISTH1064_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821937|ISTH1069_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821939|ISTH1096_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821941|ISTH1107_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821943|ISTH1111_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821945|ISTH1121_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821947|ISTH1129_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821949|ISTH1137_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM821951|ISTH2010_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821953|ISTH2016_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821955|ISTH2020_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821957|ISTH2025_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821959|ISTH2031_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821961|ISTH2037_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821963|ISTH2042_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821965|ISTH2046_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821967|ISTH2050_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821969|ISTH2057_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821971|ISTH2061_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821972|ISTH2064_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821979|ISTH2094_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821980|ISTH2121_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821982|ISTH2129_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821984|ISTH2217_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821986|ISTH2271_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821988|ISTH2304_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821990|ISTH2312_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821992|ISTH2316_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821994|ISTH2334_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821996|ISTH2358_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM821998|ISTH2376_NIG_2012|Human|Nigeria|2012)"/>
-			<parameter idref="age(KM822000|LASV003_NIG_2008|Human|Nigeria|2008)"/>
-			<parameter idref="age(KM822002|LASV006_NIG_2008|Human|Nigeria|2008)"/>
-			<parameter idref="age(KM822004|LASV035_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822006|LASV042_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822008|LASV045_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822010|LASV046_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822012|LASV049_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822014|LASV052_NIG_2008|Human|Nigeria|2008)"/>
-			<parameter idref="age(KM822016|LASV056_NIG_2008|Human|Nigeria|2008)"/>
-			<parameter idref="age(KM822018|LASV058_NIG_2008|Human|Nigeria|2008)"/>
-			<parameter idref="age(KM822020|LASV063_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822022|LASV221_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822023|LASV224_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822025|LASV225_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822027|LASV229_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822029|LASV237_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822031|LASV239_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822033|LASV241_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM822035|LASV242_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822037|LASV245_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM822039|LASV246_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822041|LASV250_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM822043|LASV251_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822045|LASV253_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM822047|LASV254_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM822049|LASV256_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822051|LASV263_NIG_2011|Human|Nigeria|2011)"/>
-			<parameter idref="age(KM822053|LASV267_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822055|LASV271_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822057|LASV274_NIG_2010|Human|Nigeria|2010)"/>
-			<parameter idref="age(KM822059|LASV711_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822060|LASV716_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822062|LASV719_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822063|LASV736_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822065|LASV737_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822066|LASV738_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822069|LASV966_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822071|LASV967_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822072|LASV969_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822074|LASV971_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822076|LASV975_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822078|LASV976_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822080|LASV977_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822082|LASV978_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822084|LASV979_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822086|LASV981_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822088|LASV982_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822089|LASV988_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822091|LASV989_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822093|LASV990_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822095|LASV991_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822099|LASV993_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822101|LASV1000_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822103|LASV1008_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822105|LASV1011_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822107|LASV1015_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822109|LASV1016_NIG_2009|Human|Nigeria|2009)"/>
-			<parameter idref="age(KM822111|LM032_SLE_2010|Mouse|Sierra_Leone|2010)"/>
-			<parameter idref="age(KM822113|LM222_SLE_2010|Mouse|Sierra_Leone|2010)"/>
-			<parameter idref="age(KM822117|LM765_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-			<parameter idref="age(KM822118|LM771_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-			<parameter idref="age(KM822120|LM774_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-			<parameter idref="age(KM822124|LM778_SLE_2012|Mouse|Sierra_Leone|2012)"/>
-			<parameter idref="age(KM822130|Z0947_SLE_2011|Mouse|Sierra_Leone|2011)"/>
-			<parameter idref="age(MG812631|807987|Human|Liberia|1981)"/>
-			<parameter idref="age(MG812632|807978|Human|Liberia|1981)"/>
-			<parameter idref="age(MG812639|las806827|Human|Sierra_Leone|1977)"/>
-			<parameter idref="age(MG812645|806387|Human|Guinea|1981)"/>
-			<parameter idref="age(MG812647|las803209|Human|Sierra_Leone|1975)"/>
-			<parameter idref="age(MG812650|812673|Human|Liberia|2015)"/>
-			<parameter idref="age(MG812658|812337|Human|Liberia|2014)"/>
-			<parameter idref="age(MG812679|811606|Human|Liberia|2010)"/>
-			<parameter idref="age(MH732623|GUIN-1739-Mn-2018|Mastomys_natalensis|Guinea|2018)"/>
-			<parameter idref="age(MK107943|IRR_015_NGA_2017|Human|NIG|2017)"/>
-			<parameter idref="age(MK107944|IRR_016_NGA_2017|Human|NIG|2017)"/>
-			<parameter idref="age(MK291248|LASV-SM1|Human|NIG|2015)"/>
-			<parameter idref="age(MK291249|LASV-SM2|Human|NIG|2014)"/>
-			<parameter idref="age(MK291250|LASV-SM3|Human|NIG|2014)"/>
-			<parameter idref="age(MN275173|LF2384-NS-DIA-1|Human|SLE|2012)"/>
-
-			<!-- END Tip date sampling                                                   -->
-
 			<treeDataLikelihood idref="treeLikelihood"/>
 			<discretizedBranchRates idref="branchRates"/>
 			<coalescentLikelihood idref="coalescent"/>

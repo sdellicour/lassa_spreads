@@ -49,7 +49,7 @@ MG812680|810801|Human|Nigeria|1974 -
 AY693640|las803213|Human|Nigeria|1974-02 - Onitsha
  
 MG812684|807988|Human|Guinea|1996 - 
-KU978807|Guinea Faranah|Human|GIN|? - 
+KU978808|Guinea Faranah|Human|GIN|? - 
  
 MH053549|ISTH_0176|Human|Nigeria|2016-01-17 - 
 MH053516|ISTH_0146|Human|Nigeria|2016-01-15 - EsanWest
