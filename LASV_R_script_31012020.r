@@ -31,22 +31,36 @@ wdb1 = "B1_sequences_preparation"wdb2 = "B2_preliminary_BEAST_runs"wdb3 = "B3_
 
 setwd(paste(wd,wda1,sep="/"))
 analyses = c("M_natalensis","Lassa_virus")
+mask = raster("Environmental_rasters/Mask.nc4")
+continents = shapefile("Continents_shapefile/Continents.shp")
 
 # A.1. Preparation of land cover and climatic environmental rasters
 
 		# Source: http://luh.umd.edu/data.shtml; see also Lawrence et al. (2016, Geosci. Model Dev.)
 		# Units: population (# of people), temperature (Kelvin, °C+273.15), precipitation (kg/m2/second)
 
-	# A.1.1. Loading the human population, temperature, precipitation, and land cover rasters
-		
-mask = raster("Environmental_rasters/Mask.nc4"); continents = shapefile("Continents_shapefile/Continents.shp")
+	# A.1.1. Preparation of the African shapefile that will be used as a mask
+
+africa1 = subset(continents, continents$CONTINENT=="Africa"); polygons = list(); c = 0
+for (i in 1:length(africa1@polygons[[1]]@Polygons))
+	{
+		if (africa1@polygons[[1]]@Polygons[[i]]@area > 1)
+			{
+				c = c+1; polygons[[c]] = africa1@polygons[[1]]@Polygons[[i]]
+			}
+	}
+pols = Polygons(polygons, 1); pols_list = list(); pols_list[[1]] = pols
+africa2 = SpatialPolygons(pols_list); africa3 = gSimplify(africa2, 0.1)
+
+	# A.1.2. Loading the human population, temperature, precipitation, and land cover rasters
+
 population = raster("Environmental_rasters/Calibration/GSWP3_EWEMBI/population_histsoc_0p5deg_annual_1986_2005_timmean.nc4")
 temperature = raster("Environmental_rasters/Calibration/GSWP3_EWEMBI/tas_day_GSWP3+EWEMBI_HistObs_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
 precipitation = raster("Environmental_rasters/Calibration/GSWP3_EWEMBI/pr_day_GSWP3+EWEMBI_HistObs_r1i1p1_EWEMBI_1986_2005_timmean.nc4")
 land_cover = nc_open("Environmental_rasters/Calibration/GSWP3_EWEMBI/landcover_HistObs_annual_1986_2005_timmean.nc4") 
 names(population) = "population"; names(temperature) = "temperature"; names(precipitation) = "precipitation"
 
-	# A.1.2. Preparation of distinct land cover rasters from the initial ".nc" object
+	# A.1.3. Preparation of distinct land cover rasters from the initial ".nc" object
 
 landCoverVariableIDs = names(land_cover$var); cols = list()
 landCoverVariableNames = as.character(read.csv("Environmental_rasters/LC_vars.csv")[1:12,2])
@@ -76,7 +90,7 @@ if (!file.exists("Land_cover_rasters.pdf"))
 		dev.off()
 	}
 
-	# A.1.3. Saving distinct land cover rasters for the "seraphim" analyses
+	# A.1.4. Saving distinct land cover rasters for the "seraphim" analyses
 
 setwd(paste(wd,wdb7,sep="/"))
 variable_codes = c("croplands","pastures","urbanAreas","primaryForest","primaryNonF","secondaryForest","secondaryNonF")
@@ -99,19 +113,6 @@ for (i in 1:length(variable_names))
 		land_covers2[[i]] = land_cover[[1]]; land_covers3[[i]] = raster::aggregate(land_cover[[1]],2)
 	}
 setwd(paste(wd,wda1,sep="/"))
-
-	# A.1.4. Preparation of the African shapefile that will be used as a mask
-
-africa1 = subset(continents, continents$CONTINENT=="Africa"); polygons = list(); c = 0
-for (i in 1:length(africa1@polygons[[1]]@Polygons))
-	{
-		if (africa1@polygons[[1]]@Polygons[[i]]@area > 1)
-			{
-				c = c+1; polygons[[c]] = africa1@polygons[[1]]@Polygons[[i]]
-			}
-	}
-pols = Polygons(polygons, 1); pols_list = list(); pols_list[[1]] = pols
-africa2 = SpatialPolygons(pols_list); africa3 = gSimplify(africa2, 0.1)
 
 	# A.1.5. Selecting and treating the environmental rasters for the SDM analyses
 
@@ -138,25 +139,25 @@ showingPlots = FALSE; if (showingPlots == TRUE) {
 dev.new(width=8, height=3); par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
 plot(envVariables[[1]], col=colorRampPalette(brewer.pal(9,"YlOrRd"))(150)[1:100], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Air temperature", side=3, line=0.3, cex=0.65, col="gray30"); mtext("near surface (°C)", side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[1]], col=colorRampPalette(brewer.pal(9,"YlOrRd"))(150)[1:100], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[1]], col=colorRampPalette(brewer.pal(9,"YlOrRd"))(150)[1:100], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T)
 plot(envVariables[[2]], col=colorRampPalette(brewer.pal(9,"YlGnBu"))(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Precipitation", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0("(kg/m2/day)"), side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[2]], col=colorRampPalette(brewer.pal(9,"YlGnBu"))(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[2]], col=colorRampPalette(brewer.pal(9,"YlGnBu"))(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T)
 plot(envVariables[[3]], col=colorRampPalette(c("gray97","chartreuse4"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Forested", side=3, line=0.3, cex=0.65, col="gray30"); mtext("primary land", side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[3]], col=colorRampPalette(c("gray97","chartreuse4"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[3]], col=colorRampPalette(c("gray97","chartreuse4"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
 plot(envVariables[[5]], col=colorRampPalette(c("gray97","olivedrab3"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Forested", side=3, line=0.3, cex=0.65, col="gray30"); mtext("secondary land", side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[5]], col=colorRampPalette(c("gray97","olivedrab3"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[5]], col=colorRampPalette(c("gray97","olivedrab3"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
 plot(envVariables[[7]], col=colorRampPalette(c("gray97","navajowhite4"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Croplands", side=3, line=0.3, cex=0.65, col="gray30"); mtext("(all categories)", side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[7]], col=colorRampPalette(c("gray97","navajowhite4"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[7]], col=colorRampPalette(c("gray97","navajowhite4"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T)
 plot(envVariables[[8]], col=colorRampPalette(c("gray97","burlywood3"),bias=1)(100), ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Pastures", side=3, line=0.3, cex=0.65, col="gray30"); mtext("and rangeland", side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[8]], col=colorRampPalette(c("gray97","burlywood3"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
+plot(envVariables[[8]], col=colorRampPalette(c("gray97","burlywood3"),bias=1)(100), legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0), at=c(0,0.3,0.6,0.9)), alpha=1, side=3, horizontal=T)
 plot(envVariables[[9]], col=colorRampPalette(brewer.pal(9,"BuPu"))(150)[1:100], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
 mtext("Human", side=3, line=0.3, cex=0.65, col="gray30"); mtext("population (log10)", side=3, line=-0.7, cex=0.65, col="gray30")
-plot(envVariables[[9]], col=colorRampPalette(brewer.pal(9,"BuPu"))(150)[1:100], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0)), alpha=1, side=3, horizontal=T) }
+plot(envVariables[[9]], col=colorRampPalette(brewer.pal(9,"BuPu"))(150)[1:100], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T) }
 
 # A.2. Defining the background areas for the host and for the virus
 
@@ -533,203 +534,374 @@ for (i in c(1,2,3,5,7,8,9))
 
 # A.7. BRT predictions on historical and future scenarios
 
+years = c(2030, 2050, 2070)
+year_intervals = c("2021_2040","2041_2060","2061_2080") 
 scenarios = c("Historical","RCP_26","RCP_60","RCP_85")
 models = c("GFDL-ESM2M","HadGEM2-ES","IPSL-CM5A-LR","MIROC5")
 variables = c("population","pr","tas","landcover")
 rasters_stacks = list(); envVariables_list = list(); c = 0
 for (s in 1:length(scenarios))
 	{
-		for (m in 1:length(models))
+		for (y in 1:length(years))
 			{
-				files = list.files(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/"))
-				if (s != 1) files = files[grepl("2061_2080",files)]
-				files = files[!grepl("5min",files)]
-				index_population = which(grepl("population",files)); index_temperature = which(grepl("tas_day",files))
-				index_precipitation = which(grepl("pr_day",files)); index_land_cover = which(grepl("landcover",files))
-				population = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_population]))
-				temperature = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_temperature]))
-				precipitation = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_precipitation]))
-				land_cover = nc_open(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_land_cover]))
-				names(population) = "population"; names(temperature) = "temperature"; names(precipitation) = "precipitation"
-				landCoverVariableIDs = names(land_cover$var); cols = list()
-				landCoverVariableNames = as.character(read.csv("Environmental_rasters/LC_vars.csv")[1:12,2])
-				land_covers1 = list(); land_covers2 = list(); land_covers3 = list()
-				for (i in 2:13)
+				for (m in 1:length(models))
 					{
-				land_covers1[[i-1]] = brick(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_land_cover]), varname=landCoverVariableIDs[i])
-					}
-				for (i in 1:length(land_covers1)) names(land_covers1[[i]]) = landCoverVariableNames[i]
-				variable_codes = c("croplands","pastures","urbanAreas","primaryForest","primaryNonF","secondaryForest","secondaryNonF")
-				variable_names = c("crops","pasture","urban land","forested primary land","non-forested primary land",
-								   "potentially forested secondary land","potentially non-forested secondary land")
-				for (i in 1:length(variable_names))
-					{
-						names = gsub("\\."," ",landCoverVariableNames); indices = which(landCoverVariableNames==variable_names[i])
-						if (length(indices) == 0) indices = which(grepl(variable_names[i],names))
-						if (variable_names[i] == "pasture") indices = c(indices, which(grepl("rangeland",names)))
-						land_cover = land_covers1[[indices[1]]]; names(land_cover) = variable_codes[i]
-						if (length(indices) > 1)
+						files = list.files(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/"))
+						if (s != 1) files = files[grepl(year_intervals[y],files)]
+						files = files[!grepl("5min",files)]
+						index_population = which(grepl("population",files)); index_temperature = which(grepl("tas_day",files))
+						index_precipitation = which(grepl("pr_day",files)); index_land_cover = which(grepl("landcover",files))
+						population = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_population]))
+						temperature = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_temperature]))
+						precipitation = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_precipitation]))
+						land_cover = nc_open(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_land_cover]))
+						names(population) = "population"; names(temperature) = "temperature"; names(precipitation) = "precipitation"
+						landCoverVariableIDs = names(land_cover$var); cols = list()
+						landCoverVariableNames = as.character(read.csv("Environmental_rasters/LC_vars.csv")[1:12,2])
+						land_covers1 = list(); land_covers2 = list(); land_covers3 = list()
+						for (i in 2:13)
 							{
-								for (j in 2:length(indices)) land_cover[] = land_cover[]+land_covers1[[indices[j]]][]
+								land_covers1[[i-1]] = brick(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",
+															files[index_land_cover]), varname=landCoverVariableIDs[i])
 							}
-						land_covers2[[i]] = land_cover[[1]]; land_covers3[[i]] = raster::aggregate(land_cover[[1]],2)
+						for (i in 1:length(land_covers1)) names(land_covers1[[i]]) = landCoverVariableNames[i]
+						variable_codes = c("croplands","pastures","urbanAreas","primaryForest","primaryNonF","secondaryForest","secondaryNonF")
+						variable_names = c("crops","pasture","urban land","forested primary land","non-forested primary land",
+										   "potentially forested secondary land","potentially non-forested secondary land")
+						for (i in 1:length(variable_names))
+							{
+								names = gsub("\\."," ",landCoverVariableNames); indices = which(landCoverVariableNames==variable_names[i])
+								if (length(indices) == 0) indices = which(grepl(variable_names[i],names))
+								if (variable_names[i] == "pasture") indices = c(indices, which(grepl("rangeland",names)))
+								land_cover = land_covers1[[indices[1]]]; names(land_cover) = variable_codes[i]
+								if (length(indices) > 1)
+									{
+										for (j in 2:length(indices)) land_cover[] = land_cover[]+land_covers1[[indices[j]]][]
+									}
+								land_covers2[[i]] = land_cover[[1]]; land_covers3[[i]] = raster::aggregate(land_cover[[1]],2)
+							}
+						envVariables = list()
+						envVariables[[1]] = temperature; envVariables[[2]] = precipitation
+						envVariables[[3]] = land_covers3[[4]] # primary forest areas
+						envVariables[[4]] = land_covers3[[5]] # primary non-forest areas
+						envVariables[[5]] = land_covers3[[6]] # secondary forest areas
+						envVariables[[6]] = land_covers3[[7]] # secondary non-forest areas
+						envVariables[[7]] = land_covers3[[1]] # croplands (all catergories)
+						envVariables[[8]] = land_covers3[[2]] # managed pasture + rangeland
+						pLog = population; pLog[] = log10(pLog[]+1); envVariables[[9]] = pLog
+						for (i in 1:length(envVariables)) envVariables[[i]][is.na(mask[])] = NA
+						for (i in 1:length(envVariables)) envVariables[[i]] = crop(envVariables[[i]], africa2, snap="out")
+						for (i in 1:length(envVariables)) envVariables[[i]] = mask(envVariables[[i]], africa2)
+						envVariables[[1]][] = envVariables[[1]][]-273.15 # conversion to Celcius degrees
+						envVariables[[2]][] = envVariables[[2]][]*60*60*24 # conversion to kg/m2/day
+						for (i in c(1,2,9)) envVariables[[i]][is.na(envVariables[[3]][])] = NA
+						c = c+1; rasters_stacks[[c]] = stack(envVariables); envVariables_list[[c]] = envVariables
 					}
-				envVariables = list()
-				envVariables[[1]] = temperature; envVariables[[2]] = precipitation
-				envVariables[[3]] = land_covers3[[4]] # primary forest areas
-				envVariables[[4]] = land_covers3[[5]] # primary non-forest areas
-				envVariables[[5]] = land_covers3[[6]] # secondary forest areas
-				envVariables[[6]] = land_covers3[[7]] # secondary non-forest areas
-				envVariables[[7]] = land_covers3[[1]] # croplands (all catergories)
-				envVariables[[8]] = land_covers3[[2]] # managed pasture + rangeland
-				pLog = population; pLog[] = log10(pLog[]+1); envVariables[[9]] = pLog
-				for (i in 1:length(envVariables)) envVariables[[i]][is.na(mask[])] = NA
-				for (i in 1:length(envVariables)) envVariables[[i]] = crop(envVariables[[i]], africa2, snap="out")
-				for (i in 1:length(envVariables)) envVariables[[i]] = mask(envVariables[[i]], africa2)
-				envVariables[[1]][] = envVariables[[1]][]-273.15 # conversion to Celcius degrees
-				envVariables[[2]][] = envVariables[[2]][]*60*60*24 # conversion to kg/m2/day
-				for (i in c(1,2,9)) envVariables[[i]][is.na(envVariables[[3]][])] = NA
-				c = c+1; rasters_stacks[[c]] = stack(envVariables); envVariables_list[[c]] = envVariables
 			}
 	}
 
-predictions_list = list()
+predictions_list1 = list(); std_deviations_list1 = list(); human_population_list1 = list()
 for (i in 1:length(analyses))
 	{
-		c = 0; predictions1 = list()
-		brt_model_scv = readRDS(paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV2.rds"))
+		predictions_list2 = list(); std_deviations_list2 = list(); human_population_list2 = list(); c = 0
 		for (s in 1:length(scenarios))
 			{
-				predictions2 = list()
-				for (m in 1:length(models))
+				predictions1 = list(); std_deviations = list(); human_populations = list()
+				brt_model_scv = readRDS(paste0("BRT_prediction_files/BRT_models/",analyses[i],"_models_SCV2.rds"))
+				for (y in 1:length(years))
 					{
-						c = c+1; rasters_stack = rasters_stacks[[c]]; replicates = list()
-						for (j in 1:length(brt_model_scv))
+						predictions2 = list(); human_population = list()
+						for (m in 1:length(models))
 							{
-								df = as.data.frame(rasters_stack); not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
-								n.trees = brt_model_scv[[j]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
-								prediction = predict.gbm(brt_model_scv[[j]], newdata, n.trees, type, single.tree)
-								rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction; replicates[[j]] = rast
+								c = c+1; rasters_stack = rasters_stacks[[c]]; replicates = list()
+								for (j in 1:length(brt_model_scv))
+									{
+										df = as.data.frame(rasters_stack); not_NA = which(!is.na(rowMeans(df))); newdata = df[not_NA,]
+										n.trees = brt_model_scv[[j]]$gbm.call$best.trees; type = "response"; single.tree = FALSE
+										prediction = predict.gbm(brt_model_scv[[j]], newdata, n.trees, type, single.tree)
+										rast = rasters_stack[[1]]; rast[!is.na(rast[])] = prediction; replicates[[j]] = rast
+									}
+								rasts = stack(replicates); prediction = mean(rasts); predictions2[[m]] = prediction
 							}
-						rasts = stack(replicates); prediction = mean(rasts); predictions2[[m]] = prediction
+						prediction = mean(stack(predictions2)); std_deviation = calc(stack(predictions2), fun=sd)
+						names(prediction) = paste0(analyses[i],"_",years[y]); predictions1[[y]] = prediction
+						names(std_deviation) = paste0(analyses[i],"_",years[y]); std_deviations[[y]] = std_deviation
+						if (scenarios[s] == "Historical")
+							{
+								writeRaster(prediction, paste0("BRT_prediction_files/BRT_predictions/",analyses[i],"_historical.asc"), overwrite=T)
+							}	else	{
+								writeRaster(prediction, paste0("BRT_prediction_files/BRT_predictions/",analyses[i],"_",scenarios[s],"_",years[y],".asc"), overwrite=T)
+							}
+						for (m in 1:length(models))
+							{
+								files = list.files(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/"))
+								if (s != 1) files = files[grepl(year_intervals[y],files)]
+								files = files[!grepl("5min",files)]; index_population = which(grepl("population",files))
+								human_pop = raster(paste0("Environmental_rasters/",scenarios[s],"/",models[m],"/",files[index_population]))
+								human_pop[is.na(mask[])] = NA; human_population[[m]] = mask(crop(human_pop,africa2,snap="out"),africa2)
+							}
+						human_populations[[y]] = mean(stack(human_population))
 					}
-				rasts = stack(predictions2); prediction = mean(rasts)
-				names(prediction) = paste0(analyses[i],"_",scenarios[s]); predictions1[[s]] = prediction
-				writeRaster(prediction, paste0("BRT_prediction_files/BRT_predictions/",analyses[i],"_",scenarios[s],".asc"), overwrite=T)
+				predictions_list2[[s]] = predictions1; std_deviations_list2[[s]] = std_deviations; human_population_list2[[s]] = human_populations
 			}
-		predictions_list[[i]] = predictions1
+		predictions_list1[[i]] = predictions_list2; std_deviations_list1[[i]] = std_deviations_list2; human_population_list1[[i]] = human_population_list2
 	}
+
+suffixes = c("standard_deviation","SDM_difference","index_of_human_exposure")
+for (h in 1:length(suffixes)) {
+plotStdDeviations = FALSE; plotSDMdifferences = FALSE; plotHumanExposures = FALSE
+if (suffixes[h] == "standard_deviation") plotStdDeviations = TRUE
+if (suffixes[h] == "SDM_difference") plotSDMdifferences = TRUE
+if (suffixes[h] == "index_of_human_exposure") plotHumanExposures = TRUE
 for (i in 1:length(analyses))
 	{
-		rasters = list(); c = length(predictions_list[[i]])
-		for (j in 1:length(predictions_list[[i]])) rasters[[j]] = predictions_list[[i]][[j]]
-		for (j in 2:length(predictions_list[[i]]))
-			{
-				rast1 = predictions_list[[i]][[1]]; rast2 = predictions_list[[i]][[j]]
-				rast3 = rast2; rast3[] = rast3[]-rast1[]; c = c+1; rasters[[c]] = rast3
-				# cat(c(min(rasters[[c]][],na.rm=T),max(rasters[[c]][],na.rm=T),"\n"))
+		for (s in 2:length(scenarios))
+			{		
+				rasters = list()
+				rasters[[1]] = predictions_list1[[i]][[1]][[1]] # "historical" prediction
+				for (j in 1:length(predictions_list1[[i]][[s]])) rasters[[j+1]] = predictions_list1[[i]][[s]][[j]]
+				c = length(rasters)
+				if (plotStdDeviations == TRUE)
+					{
+						for (j in 1:length(std_deviations_list1[[i]][[s]]))
+							{
+								c = c+1; rasters[[c]] = std_deviations_list1[[i]][[s]][[j]]
+							}
+					}
+				if (plotSDMdifferences == TRUE)
+					{
+						for (j in 1:length(predictions_list1[[i]][[s]]))
+							{
+								rast1 = predictions_list1[[i]][[s]][[1]]; rast2 = predictions_list1[[i]][[s]][[j]]
+								rast3 = rast2; rast3[] = rast3[]-rast1[]; c = c+1; rasters[[c]] = rast3
+								# cat(c(min(rasters[[c]][],na.rm=T),max(rasters[[c]][],na.rm=T),"\n"))
+							}
+					}
+				if (plotHumanExposures == TRUE)
+					{
+						for (j in 1:length(predictions_list1[[i]][[s]]))
+							{
+								rast1 = predictions_list1[[i]][[s]][[j]]; rast1[rast1[]>=0.5] = 1; rast1[rast1[]<0.5] = 0; rast2 = human_population_list1[[i]][[s]][[j]]
+								rast3 = rast1; rast3[] = rast3[]*rast2[]; rast3[] = log10(rast3[]+1); c = c+1; rasters[[c]] = rast3
+							}
+						rast1 = predictions_list1[[i]][[1]][[1]]; rast1[rast1[]>=0.5] = 1; rast1[rast1[]<0.5] = 0; rast2 = human_population_list1[[i]][[1]][[1]]
+						rast3 = rast1; rast3[] = rast3[]*rast2[]; rast3[] = log10(rast3[]+1); c = c+1; rasters[[c]] = rast3 # for the current period
+					}
+				if (scenarios[[s]] == "RCP_26") scenario = "(RCP 2.6)"
+				if (scenarios[[s]] == "RCP_60") scenario = "(RCP 6.0)"
+				if (scenarios[[s]] == "RCP_85") scenario = "(RCP 8.5)"
+				legend1 = raster(as.matrix(c(0,1)))
+				showingPlots = TRUE; if (showingPlots == TRUE) {
+				pdf(paste0(analyses[i],"_",scenarios[s],"_",suffixes[h],".pdf"), width=8, height=3) # dev.new(width=8, height=3)
+				par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
+				plot(rasters[[1]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[1]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+				plot(africa3, add=T, border="gray50", lwd=0.5)
+				mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("Current period (t0)", side=3, line=-0.7, cex=0.65, col="gray30")
+				plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+					 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", 
+					 line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+				plot(rasters[[2]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[2]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+				plot(africa3, add=T, border="gray50", lwd=0.5)
+				mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[1]," ",scenario), side=3, line=-0.7, cex=0.65, col="gray30")
+				plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+					 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", 
+					 line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+				plot(rasters[[3]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[3]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+				plot(africa3, add=T, border="gray50", lwd=0.5)
+				mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[2]," ",scenario), side=3, line=-0.7, cex=0.65, col="gray30")
+				plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+					 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", 
+					 line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+				plot(rasters[[4]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[4]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+				plot(africa3, add=T, border="gray50", lwd=0.5)
+				mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[3]," ",scenario), side=3, line=-0.7, cex=0.65, col="gray30")
+				plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+					 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", 
+					 line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+				if (plotStdDeviations == TRUE)
+					{
+						plot(rasters[[5]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[2]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[1]," (SD)"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30",
+							 col.axis="gray30", line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+						plot(rasters[[6]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[3]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[2]," (SD)"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", 
+							 col.axis="gray30", line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+						plot(rasters[[7]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[4]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[3]," (SD)"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", 
+							 col.axis="gray30", line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
+					}
+				if (plotSDMdifferences == TRUE)
+					{
+						legend2 = raster(as.matrix(c(-0.45,0.45)))
+						if (i == 1)
+							{
+								index1 = 45+(min(rasters[[5]][],na.rm=T)*90); index2 = 45+(max(rasters[[5]][],na.rm=T)*90)
+								ats = seq(-0.25,0.25,0.25); labels = c("-0.25","0","0.25")
+							} 
+						if (i == 2)
+							{
+								index1 = 45+(min(rasters[[5]][],na.rm=T)*45); index2 = 45+(max(rasters[[5]][],na.rm=T)*45)
+								ats = seq(-0.25,0.25,0.25); labels = c("-0.50","0","0.50")
+							} 
+						cols = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(91)); cols[43:47] = "#F7F7F7"
+						plot(rasters[[5]], col=cols[index1:index2], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[1]," ",scenario," - t0"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend2, col=cols, legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+							 axis.args=list(cex.axis=0.6, lwd=0,lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0,
+							 mgp=c(0,0.0,0), at=ats, labels=labels), alpha=1, side=3, horizontal=T)
+						if (i == 1)
+							{
+								index1 = 45+(min(rasters[[6]][],na.rm=T)*90); index2 = 45+(max(rasters[[6]][],na.rm=T)*90)
+								ats = seq(-0.25,0.25,0.25); labels = c("-0.25","0","0.25")
+							}
+						if (i == 2)
+							{
+								index1 = 45+(min(rasters[[6]][],na.rm=T)*45); index2 = 45+(max(rasters[[6]][],na.rm=T)*45)
+								ats = seq(-0.25,0.25,0.25); labels = c("-0.50","0","0.50")
+							}
+						cols = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(91)); cols[43:47] = "#F7F7F7"
+						plot(rasters[[6]], col=cols[index1:index2], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[2]," ",scenario," - t0"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend2, col=cols, legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+							 axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0,
+							 mgp=c(0,0.0,0), at=ats, labels=labels), alpha=1, side=3, horizontal=T)
+						if (i == 1)
+							{
+								index1 = 45+(min(rasters[[7]][],na.rm=T)*90); index2 = 45+(max(rasters[[7]][],na.rm=T)*90)
+								ats = seq(-0.25,0.25,0.25); labels = c("-0.25","0","0.25")
+							}
+						if (i == 2)
+							{
+								index1 = 45+(min(rasters[[7]][],na.rm=T)*45); index2 = 45+(max(rasters[[7]][],na.rm=T)*45)
+								ats = seq(-0.25,0.25,0.25); labels = c("-0.50","0","0.50")
+							}
+						cols = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(91)); cols[43:47] = "#F7F7F7"
+						plot(rasters[[7]], col=cols[index1:index2], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[3]," ",scenario," - t0"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend2, col=cols, legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+							 axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0,
+							 mgp=c(0,0.0,0), at=ats, labels=labels), alpha=1, side=3, horizontal=T) }
+					}
+				if (plotHumanExposures == TRUE)
+					{
+						legend3 = raster(as.matrix(c(0,max(rasters[[7]][],na.rm=T))))
+						plot(rasters[[5]], col=colorRampPalette(brewer.pal(9,"YlOrBr"))(111)[1:81][1:(max(rasters[[7]][],na.rm=T)*10)], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[1]," (IHE)"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend1, col=colorRampPalette(brewer.pal(9,"YlOrBr"))(111)[1:81], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30",
+							 col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T)
+						plot(rasters[[6]], col=colorRampPalette(brewer.pal(9,"YlOrBr"))(111)[1:81][1:(max(rasters[[7]][],na.rm=T)*10)], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[2]," (IHE)"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend1, col=colorRampPalette(brewer.pal(9,"YlOrBr"))(111)[1:81], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", 
+							 col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T)
+						plot(rasters[[7]], col=colorRampPalette(brewer.pal(9,"YlOrBr"))(111)[1:81][1:(max(rasters[[7]][],na.rm=T)*10)], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0(years[3]," (IHE)"), side=3, line=-0.7, cex=0.65, col="gray30")
+						plot(legend1, col=colorRampPalette(brewer.pal(9,"YlOrBr"))(111)[1:81], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, 
+							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", 
+							 col.axis="gray30", line=0, mgp=c(0,0.0,0)), alpha=1, side=3, horizontal=T)
+						writeRaster(rasters[[5]], paste0("BRT_prediction_files/BRT_predictions/LASV_IHE05_",scenarios[s],"_",years[1],".asc"), overwrite=T)
+						writeRaster(rasters[[6]], paste0("BRT_prediction_files/BRT_predictions/LASV_IHE05_",scenarios[s],"_",years[2],".asc"), overwrite=T)
+						writeRaster(rasters[[7]], paste0("BRT_prediction_files/BRT_predictions/LASV_IHE05_",scenarios[s],"_",years[3],".asc"), overwrite=T)
+						writeRaster(rasters[[8]], paste0("BRT_prediction_files/BRT_predictions/LASV_IHE05_",scenarios[s],"_current.asc"), overwrite=T)
+					}
+				dev.off() # dev.copy2pdf(file=paste0(analyses[i],"_",years[y],".pdf"))
 			}
-		legend1 = raster(as.matrix(c(0,1))); legend2 = raster(as.matrix(c(-0.45,0.45)))
-		showingPlots = TRUE; if (showingPlots == TRUE) {
-		dev.new(width=8, height=3); par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
-		plot(rasters[[1]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[1]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
-		plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("Current period", side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
-		plot(rasters[[2]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[2]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
-		plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext(paste0("2070 (RCP 2.6)"), side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
-		plot(rasters[[3]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[3]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
-		plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("2070 (RCP 6.0)", side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
-		plot(rasters[[4]], col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rasters[[4]][],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
-		plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("2070 (RCP 8.5)", side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend1, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
-		if (i == 1) { index1 = 45+(min(rasters[[5]][],na.rm=T)*90); index2 = 45+(max(rasters[[5]][],na.rm=T)*90); ats = seq(-0.25,0.25,0.25); labels = c("-0.25","0","0.25") } 
-		if (i == 2) { index1 = 45+(min(rasters[[5]][],na.rm=T)*45); index2 = 45+(max(rasters[[5]][],na.rm=T)*45); ats = seq(-0.25,0.25,0.25); labels = c("-0.50","0","0.50") } 
-		cols = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(91)); cols[43:47] = "#F7F7F7"
-		plot(rasters[[5]], col=cols[index1:index2], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("Difference RCP 2.6", side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend2, col=cols, legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=ats, labels=labels), alpha=1, side=3, horizontal=T)
-		if (i == 1) { index1 = 45+(min(rasters[[6]][],na.rm=T)*90); index2 = 45+(max(rasters[[6]][],na.rm=T)*90); ats = seq(-0.25,0.25,0.25); labels = c("-0.25","0","0.25") }
-		if (i == 2) { index1 = 45+(min(rasters[[6]][],na.rm=T)*45); index2 = 45+(max(rasters[[6]][],na.rm=T)*45); ats = seq(-0.25,0.25,0.25); labels = c("-0.50","0","0.50") }
-		cols = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(91)); cols[43:47] = "#F7F7F7"
-		plot(rasters[[6]], col=cols[index1:index2], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("Difference RCP 6.0", side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend2, col=cols, legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=ats, labels=labels), alpha=1, side=3, horizontal=T)
-		if (i == 1) { index1 = 45+(min(rasters[[7]][],na.rm=T)*90); index2 = 45+(max(rasters[[7]][],na.rm=T)*90); ats = seq(-0.25,0.25,0.25); labels = c("-0.25","0","0.25") }
-		if (i == 2) { index1 = 45+(min(rasters[[7]][],na.rm=T)*45); index2 = 45+(max(rasters[[7]][],na.rm=T)*45); ats = seq(-0.25,0.25,0.25); labels = c("-0.50","0","0.50") }
-		cols = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(91)); cols[43:47] = "#F7F7F7"
-		plot(rasters[[7]], col=cols[index1:index2], ann=F, legend=F, axes=F, box=F); plot(africa3, add=T, border="gray50", lwd=0.5)
-		mtext("", side=3, line=0.3, cex=0.65, col="gray30"); mtext("Difference RCP 8.5", side=3, line=-0.7, cex=0.65, col="gray30")
-		plot(legend2, col=cols, legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.7, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", col.axis="gray30", line=0, mgp=c(0,0.1,0), at=ats, labels=labels), alpha=1, side=3, horizontal=T) }
-	}
+	}}
 	
 # A8. Plotting specific environmental factor predictions
 
 selectedVariables = c(1,2,8); cols = list()
+variableNames = c("Temperature","Precipitation","Pastures")
 cols[[1]] = colorRampPalette(brewer.pal(9,"YlOrRd"))(150)[1:100]
 cols[[2]] = colorRampPalette(brewer.pal(9,"YlGnBu"))(100)
 cols[[3]] = colorRampPalette(c("gray97","burlywood3"),bias=1)(100)
 cols[[4]] = rev(colorRampPalette(brewer.pal(11,"RdYlGn"))(100))
-scenarioNames = c("Current time (t0)","2070 (RCP 2.6)","2070 (RCP 6.0)","2070 (RCP 8.6)",
-				  "2070 (RCP 2.6) - t0","2070 (RCP 6.0) - t0","2070 (RCP 8.6) - t0")
+scenarioNames = c("Historical","RCP 2.6","RCP 6.0","RCP 8.5")
 for (i in 1:length(selectedVariables))
 	{
-		c = 0; rasts = list()
+		c = 0; rast_list1 = list(); rast_list2 = list()
 		for (s in 1:length(scenarios))
 			{
-				for (m in 1:length(models))
+				rasts = list()
+				for (y in 1:length(years))
 					{
-						c = c+1
-						if (m == 1) r = envVariables_list[[c]][[selectedVariables[i]]]
-						if (m >= 2) r[] = r[] + envVariables_list[[c]][[selectedVariables[i]]][]
+						for (m in 1:length(models))
+							{
+								c = c+1
+								if (m == 1) r = envVariables_list[[c]][[selectedVariables[i]]]
+								if (m >= 2) r[] = r[] + envVariables_list[[c]][[selectedVariables[i]]][]
+							}
+						r[!is.na(r[])] = r[!is.na(r[])]/length(models); rasts[[y]] = r
+						if ((s == 1) & (y == 1))
+							{
+								minV1 = min(rasts[[y]][],na.rm=T); maxV1 = max(rasts[[y]][],na.rm=T)
+							}	else		{
+								if (minV1 > min(rasts[[y]][],na.rm=T)) minV1 = min(rasts[[y]][],na.rm=T)
+								if (maxV1 < max(rasts[[y]][],na.rm=T)) maxV1 = max(rasts[[y]][],na.rm=T)
+							}
 					}
-				r[!is.na(r[])] = r[!is.na(r[])]/length(models); rasts[[s]] = r
-				if (s == 1)
-					{
-						minV1 = min(rasts[[s]][],na.rm=T); maxV1 = max(rasts[[s]][],na.rm=T)
-					}	else		{
-						if (minV1 > min(rasts[[s]][],na.rm=T)) minV1 = min(rasts[[s]][],na.rm=T)
-						if (maxV1 < max(rasts[[s]][],na.rm=T)) maxV1 = max(rasts[[s]][],na.rm=T)
-					}
+				rast_list1[[s]] = rasts
 			}
 		for (s in 2:length(scenarios))
 			{
-				r = rasts[[s]]; r[] = r[]-rasts[[1]][]; rasts[[3+s]] = r
-				if (s == 2)
+				rasts = list(); rasts[[1]] = rast_list1[[1]][[1]]
+				for (y in 1:length(years)) rasts[[1+y]] = rast_list1[[s]][[y]]
+				for (y in 1:length(years))
 					{
-						minV2 = min(rasts[[3+s]][],na.rm=T); maxV2 = max(rasts[[3+s]][],na.rm=T)
-					}	else		{
-						if (minV2 > min(rasts[[3+s]][],na.rm=T)) minV2 = min(rasts[[3+s]][],na.rm=T)
-						if (maxV2 < max(rasts[[3+s]][],na.rm=T)) maxV2 = max(rasts[[3+s]][],na.rm=T)
+						r = rast_list1[[s]][[y]]; r[] = r[]-rast_list1[[1]][[1]][]; rasts[[4+y]] = r
+						if ((s == 2) & (y == 1))
+							{
+								minV2 = min(rasts[[4+y]][],na.rm=T); maxV2 = max(rasts[[4+y]][],na.rm=T)
+							}	else		{
+								if (minV2 > min(rasts[[4+y]][],na.rm=T)) minV2 = min(rasts[[4+y]][],na.rm=T)
+								if (maxV2 < max(rasts[[4+y]][],na.rm=T)) maxV2 = max(rasts[[4+y]][],na.rm=T)
+							}
 					}
+				rast_list2[[s]] = rasts
 			}
-		dev.new(width=8, height=3); par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
-		for (s in 1:length(scenarios))
+		for (s in 2:length(scenarios))
 			{
-				index1 = round(((min(rasts[[s]][],na.rm=T)-minV1)/(maxV1-minV1))*100)
-				index2 = round(((max(rasts[[s]][],na.rm=T)-minV1)/(maxV1-minV1))*100)
-				plot(rasts[[s]], col=cols[[i]][index1:index2], ann=F, legend=F, axes=F, box=F)
-				plot(africa3, add=T, border="gray50", lwd=0.5)
-				mtext(scenarioNames[s], side=3, line=-0.7, cex=0.65, col="gray30")
-				rastLegend = raster(t(as.matrix(c(minV1,maxV1))))
-				plot(rastLegend, col=cols[[i]], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
-					 axis.args=list(cex.axis=0.7,lwd=0,lwd.tick=0.2,col.tick="gray30",tck=-0.6,col="gray30",col.axis="gray30",line=0,mgp=c(0,0.1,0)),alpha=1,side=3,horizontal=T)
-			}
-		for (s in (length(scenarios)+1):length(rasts))
-			{
-				index1 = round(((min(rasts[[s]][],na.rm=T)-minV2)/(maxV2-minV2))*100)
-				index2 = round(((max(rasts[[s]][],na.rm=T)-minV2)/(maxV2-minV2))*100)
-				plot(rasts[[s]], col=cols[[4]][index1:index2], ann=F, legend=F, axes=F, box=F)
-				plot(africa3, add=T, border="gray50", lwd=0.5)
-				mtext(scenarioNames[s], side=3, line=-0.7, cex=0.65, col="gray30")
-				rastLegend = raster(t(as.matrix(c(minV2,maxV2))))
-				plot(rastLegend, col=cols[[4]], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
-					 axis.args=list(cex.axis=0.7,lwd=0,lwd.tick=0.2,col.tick="gray30",tck=-0.6,col="gray30",col.axis="gray30",line=0,mgp=c(0,0.1,0)),alpha=1,side=3,horizontal=T)
+				pdf(paste0(variableNames[i],"_",scenarios[s],".pdf"), width=8, height=3) # dev.new(width=8, height=3)
+				par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
+				for (j in 1:4)
+					{
+						index1 = round(((min(rast_list2[[s]][[j]][],na.rm=T)-minV1)/(maxV1-minV1))*100)
+						index2 = round(((max(rast_list2[[s]][[j]][],na.rm=T)-minV1)/(maxV1-minV1))*100)
+						plot(rast_list2[[s]][[j]], col=cols[[i]][index1:index2], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						if (j == 1) mtext("Current period (t0)", side=3, line=-0.7, cex=0.65, col="gray30")
+						if (j >= 2) mtext(paste0(years[j-1]," (",scenarioNames[s],")"), side=3, line=-0.7, cex=0.65, col="gray30")
+						rastLegend = raster(t(as.matrix(c(minV1,maxV1))))
+						plot(rastLegend, col=cols[[i]], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+							 axis.args=list(cex.axis=0.6,lwd=0,lwd.tick=0.2,col.tick="gray30",tck=-0.6,col="gray30",col.axis="gray30",line=0,mgp=c(0,0.0,0)),
+							 alpha=1,side=3,horizontal=T)
+					}
+				for (j in 5:7)
+					{
+						index1 = round(((min(rast_list2[[s]][[j]][],na.rm=T)-minV2)/(maxV2-minV2))*100)
+						index2 = round(((max(rast_list2[[s]][[j]][],na.rm=T)-minV2)/(maxV2-minV2))*100)
+						plot(rast_list2[[s]][[j]], col=cols[[4]][index1:index2], ann=F, legend=F, axes=F, box=F)
+						plot(africa3, add=T, border="gray50", lwd=0.5)
+						mtext(paste0(years[j-4]," (",scenarioNames[s],") - t0"), side=3, line=-0.7, cex=0.65, col="gray30")
+						rastLegend = raster(t(as.matrix(c(minV2,maxV2))))
+						plot(rastLegend, col=cols[[4]], legend.only=T, add=T, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.10,0.80,0.03,0.06), adj=3,
+							  axis.args=list(cex.axis=0.6,lwd=0,lwd.tick=0.2,col.tick="gray30",tck=-0.6,col="gray30",col.axis="gray30",line=0,mgp=c(0,0.0,0)),
+							  alpha=1,side=3,horizontal=T)
+					}
+				dev.off()
 			}
 	}
 
@@ -957,6 +1129,9 @@ for (i in 1:length(segments))
 			}		
 		write(fasta3, paste0("LASV_",segments[i],"_alignment_3.fasta"))
 		write.csv(tab3, paste0("LASV_",segments[i],"_alignment_3.csv"), quote=F, row.names=F)
+		tab4 = tab3[,c(paste0("segment_",segments[i]),"latitude","longitude")]
+		colnames(tab4) = c("trait","latitude","longitude")
+		write.table(tab4, paste0("LASV_",segments[i],"_alignment_3.txt"), sep="	", row.names=F, quote=F)
 	}
 
 	# B1.4. Preparing alignments that only contain Nigerian sequences
@@ -1000,13 +1175,13 @@ for (i in 1:length(segments))
 	# B2.1. Preparing and running analyses in BEAST
 	
 		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, constant population size coalescent model
-		# Burn-in: XXXX states for segment L, XXXX states for segment S
+		# Burn-in's: 60000000 states for segment L and 30000000 states for segment S
+		# Note for segment S: three sequences were discarded because in an isolated clade
+		# 	(MF990888|201600568|Human|TGO|2016-03-12, KU961971|Togo/2016/7082|Human|Togo|2016-02-26, pinneo_NGA-Borno_Lassa_LS_1969)
 
 	# B2.2. Generating alignements and metadata for each clade
 
-########## EDITED UNTIL HERE ##########
-
-segments = c("L","S"); clades = c("NI1","NI2","NI3","MRU")
+segments = c("L","S"); clades = c("NIG1","NIG2","NIG3","MRU")
 for (i in 1:length(segments))
 	{
 		setwd(paste(wd,wdb1,sep="/"))
@@ -1019,10 +1194,10 @@ for (i in 1:length(segments))
 				tips = gsub("'","",tree$tip.label); fasta2 = c(); tab2 = c()
 				for (k in 1:length(tips))
 					{
-						index = which(fastaAll==paste0(">",tips[k]))
+						index = which(gsub(" ","",fastaAll)==paste0(">",tips[k]))
 						if (length(index) != 1) print(c(i,j,k,"fasta"))
 						fasta2 = c(fasta2, fastaAll[index], fastaAll[index+1])
-						index = which(metadata[,1]==tips[k])
+						index = which(gsub(" ","",metadata[,1])==tips[k])
 						if (length(index) != 1) print(c(i,j,k,"metadata"))
 						tab2 = rbind(tab2, metadata[index,])
 					}
@@ -1045,68 +1220,90 @@ for (i in 1:length(segments))
 				tab4 = tab3[,c(paste0("segment_",segments[i]),"latitude","longitude")]; colnames(tab4) = c("trait","latitude","longitude")
 				write.table(tab4, paste0("LASV_",segments[i],"_alignment_3_",clades[j],".txt"), sep="	", row.names=F, quote=F)
 			}
+		samplingDates = rep(NA,dim(metadata)[1])
+		for (j in 1:dim(metadata)[1])
+			{
+				if (grepl("_",metadata[j,paste0("segment_",segments[i])])) separator = "_"
+				if (grepl("\\|",metadata[j,paste0("segment_",segments[i])])) separator = "\\|"
+				index = length(unlist(strsplit(metadata[j,paste0("segment_",segments[i])],separator)))
+				samplingDate = unlist(strsplit(metadata[j,paste0("segment_",segments[i])],separator))[index]
+				if (length(unlist(strsplit(samplingDate,"-"))) == 1) samplingDates[j] = as.numeric(samplingDate)
+				if (length(unlist(strsplit(samplingDate,"-"))) == 2) samplingDates[j] = decimal_date(ymd(as.character(paste0(samplingDate,"-15"))))
+				if (length(unlist(strsplit(samplingDate,"-"))) == 3) samplingDates[j] = decimal_date(ymd(as.character(samplingDate)))				
+			}
+		cat("Segment ",segments[i],", most recent sampling date = ",max(samplingDates),sep="","\n") # 2019.178 for both segments
 	}
 
 # B3. Temporal signal analyses
 
+	# B3.1. Maximum likelihood trees were inferred using PhyML as implemented in SeaView (with default settings)
+
+	# B3.2. Temporal signal evaluation using regressions of root-to-tip genetic distances against sequence sampling times
+	
+		# B3.2.1. Estimation of regression R2 using the program TempEst 1.5.3 (cfr. screenshot for the results)
+		
+		# B3.2.2. Estimation of regression p-values were calculated using the approach of Murray et al. (2016)
+
 setwd(paste(wd,wdb3,sep="/"))
+segments = c("L","S"); analyses = c("2","3"); clades = c("NIG1","NIG2","NIG3","MRU")
+samplingDates_list1 = list(); samplingDates_list2 = list(); c1 = 0; c2 = 0
+for (i in 1:length(segments))
+	{
+		for (j in 1:length(analyses))
+			{
+				tree = read.tree(paste0("LASV_",segments[i],"_alignment_",analyses[j],".tree"))
+				tipLabels = tree$tip.label; samplingDates = rep(NA,length(tree$tip.label))
+				for (k in 1:length(tipLabels))
+					{
+						if (grepl("_",tipLabels[k])) separator = "_"
+						if (grepl("\\|",tipLabels[k])) separator = "\\|"
+						samplingDate = unlist(strsplit(tipLabels[k],separator))[length(unlist(strsplit(tipLabels[k],separator)))]
+						if (length(unlist(strsplit(samplingDate,"-"))) == 1) samplingDates[k] = as.numeric(samplingDate)
+						if (length(unlist(strsplit(samplingDate,"-"))) == 2) samplingDates[k] = decimal_date(ymd(as.character(paste0(samplingDate,"-15"))))
+						if (length(unlist(strsplit(samplingDate,"-"))) == 3) samplingDates[k] = decimal_date(ymd(as.character(samplingDate)))				
+					}
+				c1 = c1+1; samplingDates_list1[[c1]] = samplingDates
+			}
+		for (j in 1:length(clades))
+			{
+				tree = read.tree(paste0("LASV_",segments[i],"_align_3_",clades[j],".tree"))
+				tipLabels = tree$tip.label; samplingDates = rep(NA,length(tree$tip.label))
+				for (k in 1:length(tipLabels))
+					{
+						if (grepl("_",tipLabels[k])) separator = "_"
+						if (grepl("\\|",tipLabels[k])) separator = "\\|"
+						samplingDate = unlist(strsplit(tipLabels[k],separator))[length(unlist(strsplit(tipLabels[k],separator)))]
+						if (length(unlist(strsplit(samplingDate,"-"))) == 1) samplingDates[k] = as.numeric(samplingDate)
+						if (length(unlist(strsplit(samplingDate,"-"))) == 2) samplingDates[k] = decimal_date(ymd(as.character(paste0(samplingDate,"-15"))))
+						if (length(unlist(strsplit(samplingDate,"-"))) == 3) samplingDates[k] = decimal_date(ymd(as.character(samplingDate)))				
+					}
+				c2 = c2+1; samplingDates_list2[[c2]] = samplingDates
+			}
+	}
 source("Temporal_signal_functions/mantelCounding.r")
 source("Temporal_signal_functions/randRegression.r")
 source("Temporal_signal_functions/tempSignalFunctions.r")
-names = c("LASV_L_alignment","LASV_S_alignment")
-for (i in 1:length(names))
+pValues1 = c(); pValues2 = c(); c1 = 0; c2 = 0
+for (i in 1:length(segments))
 	{
-		if (!file.exists(paste0(names[i],".txt")))
+		for (j in 1:length(analyses))
 			{
-				tree = read.tree(paste0(names[i],".tree"))
-				labs = tree$tip.label; years = c()
-				for (j in 1:length(labs))
-					{
-						date = unlist(strsplit(labs[j],"_"))[length(unlist(strsplit(labs[j],"_")))]
-						if (length(unlist(strsplit(date,"-"))) == 3)
-							{
-								years = c(years, decimal_date(ymd(as.character(date))))
-							}
-						if (length(unlist(strsplit(date,"-"))) == 2)
-							{
-								date = paste0(date,"-15")
-								years = c(years, decimal_date(ymd(as.character(date))))
-							}
-						if (length(unlist(strsplit(date,"-"))) == 1)
-							{
-								years = c(years, as.numeric(date)+0.5)
-							}
-					}
-				write.table(years, paste0(names[i],".txt"), quote=F, row.name=F, col.names=F)
-			}
+				tree = read.tree(paste0("LASV_",segments[i],"_alignment_",analyses[j],".tree")); c1 = c1+1; tipDates = samplingDates_list1[[c1]]
+				test = pathogen.permutation.test(phy=tree, dates=tipDates, use.clusters=F, auto.round.dates=F, nreps=1000)
+					#  (approach of Murray et al. based on 1,000 random permutations of the sequence sampling dates)
+				pValues1 = c(pValues1, test$p_value)
+			}	# p-values: 
 	}
-for (i in 1:length(names)) # Mantel tests:
+for (i in 1:length(segments))
 	{
-		fasta = paste0(names[i],".fasta")
-		mantel.confounding.test(inputfile=fasta, use.clusters=F, auto.round.dates=T, do.plot=T,
-                        			nreps=10000, pval=".05", datatype="dna.fasta", dateschar="_")
-        # (test with clustering by date within clades:)
-		mantel.confounding.test(inputfile=fasta, use.clusters=T, auto.round.dates=T, do.plot=T,
-								nreps=10000, pval=".05", datatype="dna.fasta", dateschar="_")
-	}
-pValues = c()
-for (i in 1:length(names)) # regression tests:
-	{
-		tree = read.tree(paste0(names[i],".tree"))
-		tipDates = read.table(paste0(names[i],".txt"), header=F)
-		tipDates = c(as.numeric(tipDates$V1))
-		test = pathogen.permutation.test(phy=tree, dates=tipDates, use.clusters=F, auto.round.dates=F, nreps=1000)
-		pValues = c(pValues, test$p_value)
-	}
-pValues = c()
-for (i in 1:length(names)) # tests with clustering by date within clades (not done here):
-	{
-		tree = read.tree(paste0(names[i],".tree"))
-		tipDates = read.table(paste0(names[i],".txt"), header=F)
-		tipDates = c(as.numeric(tipDates$V1))
-		test = pathogen.permutation.test(phy=tree, dates=tipDates, use.clusters=T, auto.round.dates=T, nreps=1000)
-		pValues = c(pValues, test$p_value)
-	}
+		for (j in 1:length(clades))
+			{
+				tree = read.tree(paste0("LASV_",segments[i],"_align_3_",clades[j],".tree")); c2 = c2+1; tipDates = samplingDates_list2[[c2]]
+				test = pathogen.permutation.test(phy=tree, dates=tipDates, use.clusters=F, auto.round.dates=F, nreps=1000)
+					#  (approach of Murray et al. based on 1,000 random permutations of the sequence sampling dates)
+				pValues2 = c(pValues2, test$p_value)
+			}	# p-values: 0.160 (L-NIG1), 0.190 (L-NIG2), 0.038 (L-NIG3), 0.169 (L-MRU)
+	}					  #	0.111 (S-NIG1), 0.001 (S-NIG2), 0.111 (S-NIG3), 0.074 (S-MRU)
 
 # B4. Continuous phylogeographic analyses
 
@@ -1114,8 +1311,7 @@ setwd(paste(wd,wdb4,sep="/"))
 
 	# 4.1. Preparing and running analyses in BEAST
 	
-		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, skygrid coalescent model (with 100 grid points), RRW model (gamma, jitter = 0.01)
-		# Skygrid cutoff: 1600 (L-MRU), 1200 (L-NI1), 1300 (L-NI2), 1450 (L-NI3), 1700 (S-MRU), 1600 (S-NI1), 1800 (S-NI2), 1700 (S-NI3)
+		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, skygrid coalescent model (100 grid points, cut-off = 1500), RRW (gamma, jitter = 0.01)
 
 	# 4.2. Extraction of 1,000 tree files
 
