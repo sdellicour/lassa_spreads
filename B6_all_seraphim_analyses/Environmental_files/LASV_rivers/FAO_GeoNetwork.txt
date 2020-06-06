@@ -1,0 +1,5 @@
+Source: FAO, GeoNetwork
+http://www.fao.org/geonetwork/srv/en/main.home?uuid=b891ca64-4cd4-4efd-a7ca-b386e98d52e8
+
+Each waterway is caracterized by a Strahler number
+https://en.wikipedia.org/wiki/Strahler_number
