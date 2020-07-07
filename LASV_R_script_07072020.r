@@ -20,7 +20,7 @@ library(vioplot)
 # B4. Continuous phylogeographic analyses
 # B5. Estimating dispersal statistics
 # B6. Post hoc landscape phylogeography
-
+# 
 wd = getwd()
 wda1 = "A1_SDM_analyses_host_virus"
 wdb1 = "B1_sequences_preparation"
@@ -29,8 +29,6 @@ wdb3 = "B3_temporal_signal_analyses"
 wdb4 = "B4_RRW_phylogeography"
 wdb5 = "B5_dispersal_stat_estimations"
 wdb6 = "B6_all_seraphim_analyses"
-wdb7 = "B7_covariates_preparation"
-wdb8 = "B8_skygrid_GLM_analyses"
 
 study_areas = c("MRU","NGA")
 segments = c("L","S"); analyses = c("2","3")
@@ -353,7 +351,7 @@ for (i in 1:length(datasets))
 				
 				# BRT with spatial (geographic) cross-validation (SCV) based on the blocks generation of Valavi et al. (2019, MEE):
 				spdf = SpatialPointsDataFrame(data[c("longitude","latitude")], data[,3:dim(data)[2]], proj4string=crs(nullRaster))
-				myblocks = spatialBlock(spdf, species="response", rasterLayer=nullRaster, k=n.folds, theRange=theRanges[i], selection="random")
+				myblocks = spatialBlock(spdf, species="response", rasterLayer=nullRaster, k=n.folds, theRange=theRanges[1], selection="random")
 				fold.vector = myblocks$foldID; n.trees = 100
 				brt_model_scv2[[j]] = gbm.step(data, gbm.x, gbm.y, offset, fold.vector, tree.complexity, learning.rate, bag.fraction, site.weights,
 					var.monotone, n.folds, prev.stratify, family, n.trees, step.size, max.trees, tolerance.method, tolerance, plot.main, plot.folds,
@@ -1538,6 +1536,28 @@ for (i in 1:length(segments))
 				write.csv(tab, paste0(localTreesDirectory2,"/TreeExtractions_",j,".csv"), row.names=F, quote=F)
 			}
 	}
+	
+		# 4.2.9. Regurlarly subsampling 100 out of 1,000 tree extractions
+
+for (i in 1:length(segments))
+	{
+		localTreesDirectory1 = paste0("LASV_",segments[i],"_align_3_all_2_extractions")
+		localTreesDirectory2 = paste0("LASV_",segments[i],"_align_3_all_2_extract_100")
+		dir.create(file.path(localTreesDirectory2), showWarnings=F); n = 0
+		for (j in seq(10,nberOfExtractionFiles,10))
+			{
+				tab = read.csv(paste0(localTreesDirectory1,"/TreeExtractions_",j,".csv"), head=T); n = n+1
+				write.csv(tab, paste0(localTreesDirectory2,"/TreeExtractions_",n,".csv"), row.names=F, quote=F)
+			}
+		localTreesDirectory1 = paste0("LASV_",segments[i],"_align_3_tips2_extractions")
+		localTreesDirectory2 = paste0("LASV_",segments[i],"_align_3_tips2_extract_100")
+		dir.create(file.path(localTreesDirectory2), showWarnings=F); n = 0
+		for (j in seq(10,nberOfExtractionFiles,10))
+			{
+				tab = read.csv(paste0(localTreesDirectory1,"/TreeExtractions_",j,".csv"), head=T); n = n+1
+				write.csv(tab, paste0(localTreesDirectory2,"/TreeExtractions_",n,".csv"), row.names=F, quote=F)
+			}
+	}
 
 	# 4.3. Generating and saving annual progression polygons (convex hull polygons)
 
@@ -2166,6 +2186,25 @@ for (i in 1:length(segments))
 				write.csv(tab, paste0(localTreesDirectory2,"/TreeSimulations_",j,".csv"), row.names=F, quote=F)
 			}
 	}
+for (i in 1:length(segments))
+	{
+		localTreesDirectory1 = paste0("LASV_",segments[i],"_align_3_all_2_extractions")
+		localTreesDirectory2 = paste0("LASV_",segments[i],"_align_3_all_2_extract_100")
+		dir.create(file.path(localTreesDirectory2), showWarnings=F); n = 0
+		for (j in seq(10,nberOfExtractionFiles,10))
+			{
+				tab = read.csv(paste0(localTreesDirectory1,"/TreeSimulations_",j,".csv"), head=T); n = n+1
+				write.csv(tab, paste0(localTreesDirectory2,"/TreeSimulations_",n,".csv"), row.names=F, quote=F)
+			}
+		localTreesDirectory1 = paste0("LASV_",segments[i],"_align_3_tips2_extractions")
+		localTreesDirectory2 = paste0("LASV_",segments[i],"_align_3_tips2_extract_100")
+		dir.create(file.path(localTreesDirectory2), showWarnings=F); n = 0
+		for (j in seq(10,nberOfExtractionFiles,10))
+			{
+				tab = read.csv(paste0(localTreesDirectory1,"/TreeSimulations_",j,".csv"), head=T); n = n+1
+				write.csv(tab, paste0(localTreesDirectory2,"/TreeSimulations_",n,".csv"), row.names=F, quote=F)
+			}
+	}
 
 	# 6.2. Plotting the different environmental rasters
 	
@@ -2290,9 +2329,8 @@ setwd(wd)
 
 		# 6.3.1. Analyses based on continuous environmental rasters
 
-analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2",
-			 "LASV_L_align_3_MRU","LASV_S_align_3_MRU","LASV_L_align_3_NGA","LASV_S_align_3_NGA")
-nberOfExtractionFiles = 1000; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+nberOfExtractionFiles = 100; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
 showingPlots = FALSE; nberOfCores = 10; nberOfCores_CS = 1; OS = "Unix"
 envVariableNames = c("IGBP_croplands","IGBP_forests","IGBP_grasslands","IGBP_savannas",
 					 "Elevation","Annual_mean_temperature","Annual_precipitation","Pop_density")
@@ -2300,7 +2338,7 @@ for (i in 1:length(analyses))
 	{
 		studyArea = unlist(strsplit(gsub("_2","",analyses[i]),"_"))[length(unlist(strsplit(gsub("_2","",analyses[i]),"_")))]
 		if (studyArea == "tips2") studyArea = "all"
-		localTreesDirectory = paste0(wdb4,"/",analyses[i],"_extractions")
+		localTreesDirectory = paste0(wdb4,"/",analyses[i],"_extract_1°°")
 		raster_names = paste0(envVariableNames,"_",studyArea,"_0.04")
 		envVariables = list(); resistances = list(); avgResistances = list(); c = 0
 		for (k in c(10,100,1000))
@@ -2348,15 +2386,18 @@ for (i in 1:length(analyses))
 					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
 	}
 
-pathModels = c("Least-cost path model","Circuitscape path model")
-for (i in 1:length(analyses))
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+nberOfExtractionFiles = 100; pathModels = c("Least-cost path model","Circuitscape path model")
+envVariableNames = c("IGBP_croplands","IGBP_forests","IGBP_grasslands","IGBP_savannas",
+					 "Elevation","Annual_mean_temperature","Annual_precipitation","Pop_density")
+for (a in 1:length(analyses))
 	{
-		raster_names = paste0(envVariableNames,"_",studyArea,"_0.04")
-		extractions = list(); simulations = list(); randomisations = list()
-		extractions[[1]] = read.table(paste0(analyses[i],"_seraphim_LC_extractions_LR_results.txt"), header=T)
-		extractions[[2]] = read.table(paste0(analyses[i],"_seraphim_CS_extractions_LR_results.txt"), header=T)
-		simulations[[1]] = read.table(paste0(analyses[i],"_seraphim_LC_simulations_LR_results.txt"), header=T)
-		simulations[[2]] = read.table(paste0(analyses[i],"_seraphim_CS_simulations_LR_results.txt"), header=T)
+		studyArea = unlist(strsplit(gsub("_2","",analyses[a]),"_"))[length(unlist(strsplit(gsub("_2","",analyses[a]),"_")))]
+		raster_names = paste0(envVariableNames,"_",studyArea,"_0.04"); extractions = list(); simulations = list()
+		extractions[[1]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_LC_extractions_linear_regression_results.txt"), header=T)
+		extractions[[2]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_CS_extractions_linear_regression_results.txt"), header=T)
+		simulations[[1]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_LC_simulations_linear_regression_results.txt"), header=T)
+		simulations[[2]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_CS_simulations_linear_regression_results.txt"), header=T)
 		allResults = matrix(nrow=length(envVariableNames)*2*2*3, ncol=7); kS = c(10,100,1000); CR = c("C","R"); L = 0
 		colnames(allResults) = c("Path model","Environmental factor","k","Regression coefficient","Q statistic","p(Q) > 0","BF")
 		for (i in 1:length(pathModels))
@@ -2394,7 +2435,7 @@ for (i in 1:length(analyses))
 							}
 					}
 			}
-		cat("\n"); cat(analyses[a]); cat("\n"); print(allResults, quote=F)
+		write.csv(allResults, paste0("SERAPHIM_",analyses[a],"_TEMP.csv"), row.names=F, quote=F)
 	}
 	
 		# 6.3.2. Analyses based on rivers network rasters
@@ -2412,20 +2453,19 @@ for (i in 1:length(study_areas))
 				writeRaster(rast, paste0(wdb6,"/Environmental_files/LASV_rasters/Main_rivers_S",s,"_",study_areas[i],"_0.008.asc"), overwrite=T)
 			}
 	}
-
-analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2",
-			 "LASV_L_align_3_MRU","LASV_S_align_3_MRU","LASV_L_align_3_NGA","LASV_S_align_3_NGA")
-nberOfExtractionFiles = 1000; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
+	
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+nberOfExtractionFiles = 100; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
 showingPlots = FALSE; nberOfCores = 10; nberOfCores_CS = 1; OS = "Unix"
-BFs = matrix(nrow=5*4, ncol=length(analyses)); colnames(BFs) = analyses
 for (i in 1:length(analyses))
 	{
 		studyArea = unlist(strsplit(gsub("_2","",analyses[i]),"_"))[length(unlist(strsplit(gsub("_2","",analyses[i]),"_")))]
 		if (studyArea == "tips2") studyArea = "all"
-		localTreesDirectory = paste0(wdb4,"/",analyses[i],"_extractions")
+		localTreesDirectory = paste0(wdb4,"/",analyses[i],"_extract_100")
 		if (studyArea == "all")
 			{
-				raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008")
+				raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008",
+								 "Main_rivers_S5_all_0.008","Main_rivers_S7_all_0.008")
 			}
 		if (studyArea == "MRU")
 			{
@@ -2436,75 +2476,52 @@ for (i in 1:length(analyses))
 				raster_names = c("Main_rivers_S3_NGA_0.008","Main_rivers_S4_NGA_0.008","Main_rivers_S5_NGA_0.008",
 								 "Main_rivers_S6_NGA_0.008","Main_rivers_S7_NGA_0.008")
 			}
-		envVariables = list(); resistances = list(); avgResistances = list(); rowNames = c(); c = 0
-		for (j in 1:length(raster_names))
+		envVariables = list(); resistances = list(); avgResistances = list(); c = 0
+		for (k in c(10,100,1000,10000))
 			{
-				for (k in c(10,100,1000,10000))
+				for (j in 1:length(raster_names))
 					{
 						c = c+1
 						rast = raster(paste0(wdb6,"/Environmental_files/LASV_rasters/",raster_names[j],".asc"))
 						rast[rast[]<0] = 0; M = max(rast[], na.rm=T); rast[] = (rast[]*(k/M))+1
-						names(rast) = paste(raster_names[j],"_k",k,sep="")
+						names(rast) = paste(raster_names[j], "_k", k, sep="")
 						envVariables[[c]] = rast; names(envVariables[[c]]) = paste(raster_names[j],"_k",k,sep="")
 						resistances[[c]] = TRUE; avgResistances[[c]] = TRUE
-						rowNames = c(rowNames, paste0("Main_rivers_",unlist(strsplit(raster_names[j],"_"))[3],"_k",k))
 					}
 			}
-		if (i == 5) row.names(BFs) = rowNames
-		LC_weights_extractions = matrix(nrow=nberOfExtractionFiles, ncol=length(envVariables))
-		LC_weights_simulations = matrix(nrow=nberOfExtractionFiles, ncol=length(envVariables))
-		for (j in 1:length(envVariables))
-			{
-				trEnvVariable = transition(envVariables[[j]], function(x) 1/mean(x), directions=8)
-				trEnvVariableCorr = geoCorrection(trEnvVariable, type="c", multpl=F, scl=T); n = 0				
-				for (k in 1:nberOfExtractionFiles)
-					{
-						obs = read.csv(paste0(localTreesDirectory,"/TreeExtractions_",k,".csv"), header=T)
-						sim = read.csv(paste0(localTreesDirectory,"/TreeSimulations_",k,".csv"), header=T)
-						LC1 = diag(costDistance(trEnvVariableCorr, as.matrix(obs[,c("startLon","startLat")]), as.matrix(obs[,c("endLon","endLat")])))
-						LC2 = diag(costDistance(trEnvVariableCorr, as.matrix(sim[,c("startLon","startLat")]), as.matrix(sim[,c("endLon","endLat")])))
-						LC_weights_extractions[k,j] = sum(LC1); LC_weights_simulations[k,j] = sum(LC2)
-						if (LC1 < LC2) n = n+1
-					}
-				p = n/nberOfExtractionFiles; BFs[j,i] = p/(1-p)
-			}
-		write.csv(LC_weights_extractions, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"))
-		write.csv(LC_weights_simulations, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"))
-		write.csv(round(BFs,1), paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv"))
+		pathModel = 2; simulations = FALSE; outputName = paste0(analyses[i],"_seraphim_LC_extractions")
+		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+		pathModel = 2; simulations = TRUE; outputName = paste0(analyses[i],"_seraphim_LC_simulations")
+		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
 	}
 
-pathModels = c("Least-cost path model")
-for (i in 1:length(analyses))
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+nberOfExtractionFiles = 100; pathModels = c("Least-cost path model")
+raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008","Main_rivers_S5_all_0.008","Main_rivers_S7_all_0.008")
+for (a in 1:length(analyses))
 	{
-		if (studyArea == "NGA")
-			{
-				raster_names = c("Main_rivers_S3_NGA_0.008","Main_rivers_S4_NGA_0.008","Main_rivers_S5_NGA_0.008",
-								 "Main_rivers_S6_NGA_0.008","Main_rivers_S7_NGA_0.008")
-			}
-		if (studyArea == "MRU")
-			{
-				raster_names = c("Main_rivers_S3_MRU_0.008","Main_rivers_S4_MRU_0.008","Main_rivers_S5_MRU_0.008")
-			}
-		extractions = list(); simulations = list(); randomisations = list()
-		extractions[[1]] = read.table(paste0(analyses[i],"_seraphim_LC_extractions_LR_results.txt"), header=T)
-		simulations[[1]] = read.table(paste0(analyses[i],"_seraphim_LC_simulations_LR_results.txt"), header=T)
-		allResults = matrix(nrow=length(envVariableNames)*2*2*3, ncol=7); kS = c(10,100,1000); CR = c("C","R"); L = 0
+		extractions = list(); simulations = list()
+		extractions[[1]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_LC_extractions_linear_regression_rivers.txt"), header=T)
+		simulations[[1]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_LC_simulations_linear_regression_rivers.txt"), header=T)
+		allResults = matrix(nrow=length(raster_names)*3, ncol=7); kS = c(10,100,1000); CR = c("R"); L = 0
 		colnames(allResults) = c("Path model","Environmental factor","k","Regression coefficient","Q statistic","p(Q) > 0","BF")
 		for (i in 1:length(pathModels))
 			{
-				for (j in 1:length(envVariableNames))
+				for (j in 1:length(raster_names))
 					{
 						for (k in 1:length(CR))
 							{
 								for (l in 1:length(kS))
 									{
 										L = L+1; c1 = 0; c2 = 0; allResults[L,1] = pathModels[i]
-										allResults[L,2] = paste0(envVariableNames[j]," (",CR[k],")"); allResults[L,3] = kS[l]
-										index1 = which(grepl("LR_R2",colnames(extractions[[i]]))&grepl(envVariableNames[j],colnames(extractions[[i]]))
+										allResults[L,2] = paste0(raster_names[j]," (",CR[k],")"); allResults[L,3] = kS[l]
+										index1 = which(grepl("LR_R2",colnames(extractions[[i]]))&grepl(raster_names[j],colnames(extractions[[i]]))
 													   &grepl(paste0("k",kS[l],"_",CR[k]),colnames(extractions[[i]])))
-										index2 = which(grepl("delta_R2",colnames(extractions[[i]]))&grepl(envVariableNames[j],colnames(extractions[[i]]))
+										index2 = which(grepl("delta_R2",colnames(extractions[[i]]))&grepl(raster_names[j],colnames(extractions[[i]]))
 													   &grepl(paste0("k",kS[l],"_",CR[k]),colnames(extractions[[i]])))
-										index3 = which(grepl("delta_R2",colnames(simulations[[i]]))&grepl(envVariableNames[j],colnames(simulations[[i]]))
+										index3 = which(grepl("delta_R2",colnames(simulations[[i]]))&grepl(raster_names[j],colnames(simulations[[i]]))
 													   &grepl(paste0("k",kS[l],"_",CR[k]),colnames(simulations[[i]])))
 										R2 = extractions[[i]][,index1]; Qe = extractions[[i]][,index2]; Qs = simulations[[i]][,index3]
 										for (m in 1:length(Qe))
@@ -2525,29 +2542,37 @@ for (i in 1:length(analyses))
 							}
 					}
 			}
-		cat("\n"); cat(analyses[a]); cat("\n"); print(allResults, quote=F)
+		write.csv(allResults, paste0("RIVERS_",analyses[a],"_TEMP.csv"), row.names=F, quote=F)
 	}
 
 	# 6.4. Analysing the impact of rivers on the dispersal frequency of lineages
 
-analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2",
-			 "LASV_L_align_3_MRU","LASV_S_align_3_MRU","LASV_L_align_3_NGA","LASV_S_align_3_NGA")
-nberOfExtractionFiles = 1000; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
-showingPlots = FALSE; nberOfCores = 10; nberOfCores_CS = 1; OS = "Unix"
-BFs = matrix(nrow=5*4, ncol=length(analyses)); colnames(BFs) = analyses
+nberOfExtractionFiles = 100; interval = 10; registerDoMC(cores=5)
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
 for (i in 1:length(analyses))
 	{
-		studyArea = gsub("_2","",unlist(strsplit(analyses[i],"_"))[length(unlist(strsplit(analyses[i],"_")))])
+		if (!file.exists(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv")))
+			{
+				BFs = matrix(nrow=5*4, ncol=1); colnames(BFs) = analyses[i]
+				write.csv(round(BFs,1), paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv"), row.names=F)				
+			}	else	{
+				BFs = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv"), header=T)
+			}
+		studyArea = unlist(strsplit(gsub("_2","",analyses[i]),"_"))[length(unlist(strsplit(gsub("_2","",analyses[i]),"_")))]
 		if (studyArea == "tips2") studyArea = "all"
-		localTreesDirectory = paste0(wdb4,"/",analyses[i],"_extractions")
+		localTreesDirectory = paste0(wdb4,"/",analyses[i],"_extract_100")
+		if (studyArea == "all")
+			{
+				raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008",
+								 "Main_rivers_S6_all_0.008","Main_rivers_S7_all_0.008")
+			}
 		if (studyArea == "MRU")
 			{
 				raster_names = c("Main_rivers_S3_MRU_0.008","Main_rivers_S4_MRU_0.008","Main_rivers_S5_MRU_0.008")
 			}
 		if (studyArea == "NGA")
 			{
-				raster_names = c("Main_rivers_S3_NGA_0.008","Main_rivers_S4_NGA_0.008","Main_rivers_S5_NGA_0.008",
-								 "Main_rivers_S6_NGA_0.008","Main_rivers_S7_NGA_0.008")
+				raster_names = c("Main_rivers_S6_NGA_0.008","Main_rivers_S7_NGA_0.008")
 			}
 		envVariables = list(); resistances = list(); avgResistances = list(); rowNames = c(); c = 0
 		for (j in 1:length(raster_names))
@@ -2563,26 +2588,58 @@ for (i in 1:length(analyses))
 						rowNames = c(rowNames, paste0("Main_rivers_",unlist(strsplit(raster_names[j],"_"))[3],"_k",k))
 					}
 			}
-		if (i == 5) row.names(BFs) = rowNames
-		LC_weights_extractions = matrix(nrow=nberOfExtractionFiles, ncol=length(envVariables))
-		LC_weights_simulations = matrix(nrow=nberOfExtractionFiles, ncol=length(envVariables))
+		if (!file.exists(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv")))
+			{
+				LC_weights_extractions = matrix(nrow=(nberOfExtractionFiles), ncol=length(envVariables)); colnames(LC_weights_extractions) = rowNames
+				LC_weights_simulations = matrix(nrow=(nberOfExtractionFiles), ncol=length(envVariables)); colnames(LC_weights_simulations) = rowNames
+				write.csv(LC_weights_extractions, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)
+				write.csv(LC_weights_simulations, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)	
+			}	else		{
+				LC_weights_extractions = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), header=T)
+				LC_weights_simulations = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), header=T)							}
 		for (j in 1:length(envVariables))
 			{
 				trEnvVariable = transition(envVariables[[j]], function(x) 1/mean(x), directions=8)
-				trEnvVariableCorr = geoCorrection(trEnvVariable, type="c", multpl=F, scl=T); n = 0				
-				for (k in 1:nberOfExtractionFiles)
-					{
+				trEnvVariableCorr = geoCorrection(trEnvVariable, type="c", multpl=F, scl=T); n = 0; buffer = list()
+				buffer = foreach(k = 1:nberOfExtractionFiles) %dopar% {
 						obs = read.csv(paste0(localTreesDirectory,"/TreeExtractions_",k,".csv"), header=T)
 						sim = read.csv(paste0(localTreesDirectory,"/TreeSimulations_",k,".csv"), header=T)
 						LC1 = diag(costDistance(trEnvVariableCorr, as.matrix(obs[,c("startLon","startLat")]), as.matrix(obs[,c("endLon","endLat")])))
 						LC2 = diag(costDistance(trEnvVariableCorr, as.matrix(sim[,c("startLon","startLat")]), as.matrix(sim[,c("endLon","endLat")])))
-						LC_weights_extractions[k,j] = sum(LC1); LC_weights_simulations[k,j] = sum(LC2)
-						if (LC1 < LC2) n = n+1
+						tmp1 = LC1; tmp2 = LC2; LC1[(!is.finite(tmp1))|(!is.finite(tmp2))] = NA; LC2[(!is.finite(tmp1))|(!is.finite(tmp2))] = NA
+						cbind(sum(LC1, na.rm=T), sum(LC2, na.rm=T))
+					}
+				for (k in 1:length(buffer))
+					{	
+						LC_weights_extractions[k,j] = buffer[[k]][1,1]
+						LC_weights_simulations[k,j] = buffer[[k]][1,2]
+						if (buffer[[k]][1,1] < buffer[[k]][1,2]) n = n+1
 					}
 				p = n/nberOfExtractionFiles; BFs[j,i] = p/(1-p)
+				write.csv(LC_weights_extractions, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)
+				write.csv(LC_weights_simulations, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)
+				write.csv(BFs, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv"), row.names=F, quote=F)
 			}
-		write.csv(LC_weights_extractions, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"))
-		write.csv(LC_weights_simulations, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"))
-		write.csv(round(BFs,1), paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv"))
 	}
+
+table = matrix(nrow=5*4, ncol=length(analyses)*2); colnames(BFs) = analyses
+for (i in 1:length(analyses))
+	{
+		tab1 = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), header=T)
+		tab2 = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), header=T)
+		for (j in 1:dim(tab1)[2])
+			{
+				table[j,((i-1)*2)+1] = paste0(round(median(tab1[,j]))," [",round(quantile(tab1[,j],0.025)),"-",round(quantile(tab1[,j],0.975)),"]"); n = 0
+				for (k in 1:dim(tab1)[1])
+					{
+						if (tab1[k,j] < tab2[k,j])
+							{
+								if (k == 1) n = 1
+								if (k >= 2) n = n+1
+							}
+					}
+				p = n/dim(tab1)[1]; BF = p/(1-p); table[j,((i-1)*2)+2] = round(BF,1)
+			}
+	}
+write.table(table, "Table_1_without_layout.txt", row.names=F, quote=F, sep="\t")
 
