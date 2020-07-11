@@ -20,7 +20,7 @@ library(vioplot)
 # B4. Continuous phylogeographic analyses
 # B5. Estimating dispersal statistics
 # B6. Post hoc landscape phylogeography
-# 
+
 wd = getwd()
 wda1 = "A1_SDM_analyses_host_virus"
 wdb1 = "B1_sequences_preparation"
@@ -2388,7 +2388,7 @@ for (i in 1:length(analyses))
 
 analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
 nberOfExtractionFiles = 100; pathModels = c("Least-cost path model","Circuitscape path model")
-envVariableNames = c("IGBP_croplands","IGBP_forests","IGBP_grasslands","IGBP_savannas",
+envVariableNames = c("IGBP_forests","IGBP_grasslands","IGBP_savannas","IGBP_croplands",
 					 "Elevation","Annual_mean_temperature","Annual_precipitation","Pop_density")
 for (a in 1:length(analyses))
 	{
@@ -2398,8 +2398,8 @@ for (a in 1:length(analyses))
 		extractions[[2]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_CS_extractions_linear_regression_results.txt"), header=T)
 		simulations[[1]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_LC_simulations_linear_regression_results.txt"), header=T)
 		simulations[[2]] = read.table(paste0(wdb6,"/All_seraphim_results/",analyses[a],"_seraphim_CS_simulations_linear_regression_results.txt"), header=T)
-		allResults = matrix(nrow=length(envVariableNames)*2*2*3, ncol=7); kS = c(10,100,1000); CR = c("C","R"); L = 0
-		colnames(allResults) = c("Path model","Environmental factor","k","Regression coefficient","Q statistic","p(Q) > 0","BF")
+		allResults = matrix(nrow=length(envVariableNames)*2*2*3, ncol=4); kS = c(10,100,1000); CR = c("R","C"); L = 0
+		colnames(allResults) = c("Regression coefficient","Q statistic","p(Q) > 0","BF")
 		for (i in 1:length(pathModels))
 			{
 				for (j in 1:length(envVariableNames))
@@ -2408,8 +2408,8 @@ for (a in 1:length(analyses))
 							{
 								for (l in 1:length(kS))
 									{
-										L = L+1; c1 = 0; c2 = 0; allResults[L,1] = pathModels[i]
-										allResults[L,2] = paste0(envVariableNames[j]," (",CR[k],")"); allResults[L,3] = kS[l]
+										L = L+1; c1 = 0; c2 = 0; # allResults[L,1] = pathModels[i]
+										# allResults[L,2] = paste0(envVariableNames[j]," (",CR[k],")"); allResults[L,3] = kS[l]
 										index1 = which(grepl("LR_R2",colnames(extractions[[i]]))&grepl(envVariableNames[j],colnames(extractions[[i]]))
 													   &grepl(paste0("k",kS[l],"_",CR[k]),colnames(extractions[[i]])))
 										index2 = which(grepl("delta_R2",colnames(extractions[[i]]))&grepl(envVariableNames[j],colnames(extractions[[i]]))
@@ -2422,14 +2422,14 @@ for (a in 1:length(analyses))
 												if (Qs[m] < Qe[m]) c1 = c1+1
 											}
 										p = c1/length(Qe); BF1 = p/(1-p)
-										allResults[L,4] = paste0(round(median(R2),3)," [",round(quantile(R2,0.025),3)," - ",round(quantile(R2,0.975),3),"]")
-										allResults[L,5] = paste0(round(median(Qe),3)," [",round(quantile(Qe,0.025),3)," - ",round(quantile(Qe,0.975),3),"]")
-										allResults[L,6] = sum(Qe>0)/nberOfExtractionFiles
-										if (as.numeric(allResults[L,6]) >= 0.9)
+										allResults[L,1] = paste0(round(median(R2),3)," [",round(quantile(R2,0.025),3)," - ",round(quantile(R2,0.975),3),"]")
+										allResults[L,2] = paste0(round(median(Qe),3)," [",round(quantile(Qe,0.025),3)," - ",round(quantile(Qe,0.975),3),"]")
+										allResults[L,3] = sum(Qe>0)/nberOfExtractionFiles
+										if (as.numeric(allResults[L,3]) >= 0.9)
 											{
-												allResults[L,7] = round(BF1,1)
+												allResults[L,4] = round(BF1,1)
 											}	else	{
-												allResults[L,7] = "-"
+												allResults[L,4] = "-"
 											}
 									}
 							}
@@ -2454,7 +2454,7 @@ for (i in 1:length(study_areas))
 			}
 	}
 	
-analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2")
 nberOfExtractionFiles = 100; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
 showingPlots = FALSE; nberOfCores = 10; nberOfCores_CS = 1; OS = "Unix"
 for (i in 1:length(analyses))
@@ -2465,7 +2465,7 @@ for (i in 1:length(analyses))
 		if (studyArea == "all")
 			{
 				raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008",
-								 "Main_rivers_S5_all_0.008","Main_rivers_S7_all_0.008")
+								 "Main_rivers_S6_all_0.008","Main_rivers_S7_all_0.008")
 			}
 		if (studyArea == "MRU")
 			{
@@ -2497,9 +2497,9 @@ for (i in 1:length(analyses))
 					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
 	}
 
-analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2")
 nberOfExtractionFiles = 100; pathModels = c("Least-cost path model")
-raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008","Main_rivers_S5_all_0.008","Main_rivers_S7_all_0.008")
+raster_names = c("Main_rivers_S3_all_0.008","Main_rivers_S4_all_0.008","Main_rivers_S5_all_0.008","Main_rivers_S6_all_0.008","Main_rivers_S7_all_0.008")
 for (a in 1:length(analyses))
 	{
 		extractions = list(); simulations = list()
@@ -2548,7 +2548,7 @@ for (a in 1:length(analyses))
 	# 6.4. Analysing the impact of rivers on the dispersal frequency of lineages
 
 nberOfExtractionFiles = 100; interval = 10; registerDoMC(cores=5)
-analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
+analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2")
 for (i in 1:length(analyses))
 	{
 		if (!file.exists(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv")))
@@ -2594,12 +2594,14 @@ for (i in 1:length(analyses))
 				LC_weights_simulations = matrix(nrow=(nberOfExtractionFiles), ncol=length(envVariables)); colnames(LC_weights_simulations) = rowNames
 				write.csv(LC_weights_extractions, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)
 				write.csv(LC_weights_simulations, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)	
-			}	else		{
+			}	else	{
 				LC_weights_extractions = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), header=T)
-				LC_weights_simulations = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), header=T)							}
+				LC_weights_simulations = read.csv(paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), header=T)	
+			}
 		for (j in 1:length(envVariables))
 			{
 				trEnvVariable = transition(envVariables[[j]], function(x) 1/mean(x), directions=8)
+				# trEnvVariable = transition(aggregate(envVariables[[j]],10), function(x) 1/mean(x), directions=8)
 				trEnvVariableCorr = geoCorrection(trEnvVariable, type="c", multpl=F, scl=T); n = 0; buffer = list()
 				buffer = foreach(k = 1:nberOfExtractionFiles) %dopar% {
 						obs = read.csv(paste0(localTreesDirectory,"/TreeExtractions_",k,".csv"), header=T)
@@ -2615,7 +2617,7 @@ for (i in 1:length(analyses))
 						LC_weights_simulations[k,j] = buffer[[k]][1,2]
 						if (buffer[[k]][1,1] < buffer[[k]][1,2]) n = n+1
 					}
-				p = n/nberOfExtractionFiles; BFs[j,i] = p/(1-p)
+				p = n/nberOfExtractionFiles; BFs[j,1] = p/(1-p)
 				write.csv(LC_weights_extractions, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_extractions_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)
 				write.csv(LC_weights_simulations, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_simulations_least-cost_weights_sum_rivers.csv"), row.names=F, quote=F)
 				write.csv(BFs, paste0(wdb6,"/All_seraphim_results/",analyses[i],"_seraphim_BayesFactors_least-cost_weights_rivers.csv"), row.names=F, quote=F)
