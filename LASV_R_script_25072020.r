@@ -29,6 +29,8 @@ wdb3 = "B3_temporal_signal_analyses"
 wdb4 = "B4_RRW_phylogeography"
 wdb5 = "B5_dispersal_stat_estimations"
 wdb6 = "B6_all_seraphim_analyses"
+wdb7 = "B7_covariates_preparation"
+wdb8 = "B8_skygrid_GLM_analyses"
 
 study_areas = c("MRU","NGA")
 segments = c("L","S"); analyses = c("2","3")
