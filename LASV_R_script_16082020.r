@@ -22,7 +22,7 @@ library(vioplot)
 # B6. Post hoc landscape phylogeography
 
 wd = getwd()
-wda1 = "A1_SDM_analyses_host_virus"
+wda1 = "A1_ENM_analyses_host_virus"
 wdb1 = "B1_sequences_preparation"
 wdb2 = "B2_preliminary_BEAST_runs"
 wdb3 = "B3_temporal_signal_analyses"
@@ -125,7 +125,7 @@ for (i in 1:length(variable_names))
 	}
 setwd(paste(wd,wda1,sep="/"))
 
-	# A.1.5. Selecting and treating the environmental rasters for the SDM analyses
+	# A.1.5. Selecting and treating the environmental rasters for the ENM analyses
 
 envVariables = list()
 envVariables[[1]] = temperature; envVariables[[2]] = precipitation
@@ -144,7 +144,7 @@ envVariables[[2]][] = envVariables[[2]][]*60*60*24 # conversion to kg/m2/day
 for (i in c(1,2,9)) envVariables[[i]][is.na(envVariables[[3]][])] = NA
 rasters_stack = stack(envVariables)
 
-	# A.1.6. Plotting the different environmental rasters used for the SDM analyses
+	# A.1.6. Plotting the different environmental rasters used for the ENM analyses
 
 showingPlots = FALSE; if (showingPlots == TRUE) {
 dev.new(width=8, height=3); par(mfrow=c(2,7), oma=c(0,0,1.5,0), mar=c(0,0,0,0), lwd=0.2, col="gray30")
@@ -657,11 +657,11 @@ for (i in 1:length(analyses))
 		predictions_list1[[i]] = predictions_list2; std_deviations_list1[[i]] = std_deviations_list2; human_population_list1[[i]] = human_population_list2
 	}
 
-suffixes = c("standard_deviation","SDM_difference","index_of_human_exposure"); allIHEs = FALSE
+suffixes = c("standard_deviation","ENM_difference","index_of_human_exposure"); allIHEs = FALSE
 for (h in 1:length(suffixes)) {
-plotStdDeviations = FALSE; plotSDMdifferences = FALSE; plotHumanExposures = FALSE
+plotStdDeviations = FALSE; plotENMdifferences = FALSE; plotHumanExposures = FALSE
 if (suffixes[h] == "standard_deviation") plotStdDeviations = TRUE
-if (suffixes[h] == "SDM_difference") plotSDMdifferences = TRUE
+if (suffixes[h] == "ENM_difference") plotENMdifferences = TRUE
 if (suffixes[h] == "index_of_human_exposure") plotHumanExposures = TRUE
 for (i in 1:length(analyses))
 	{
@@ -678,7 +678,7 @@ for (i in 1:length(analyses))
 								c = c+1; rasters[[c]] = std_deviations_list1[[i]][[s]][[j]]
 							}
 					}
-				if (plotSDMdifferences == TRUE)
+				if (plotENMdifferences == TRUE)
 					{
 						for (j in 1:length(predictions_list1[[i]][[s]]))
 							{
@@ -755,7 +755,7 @@ for (i in 1:length(analyses))
 							 smallplot=c(0.10,0.80,0.03,0.06), adj=3, axis.args=list(cex.axis=0.6, lwd=0, lwd.tick=0.2, col.tick="gray30", tck=-0.6, col="gray30", 
 							 col.axis="gray30", line=0, mgp=c(0,0.0,0), at=seq(0,1,0.25), labels=c("0","0.25","0.5","0.75","1")), alpha=1, side=3, horizontal=T)
 					}
-				if (plotSDMdifferences == TRUE)
+				if (plotENMdifferences == TRUE)
 					{
 						legend2 = raster(as.matrix(c(-0.45,0.45)))
 						if (i == 1)
@@ -2646,4 +2646,3 @@ for (i in 1:length(analyses))
 			}
 	}
 write.table(table, "Table_1_without_layout.txt", row.names=F, quote=F, sep="\t")
-
