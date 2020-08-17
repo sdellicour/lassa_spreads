@@ -29,8 +29,6 @@ wdb3 = "B3_temporal_signal_analyses"
 wdb4 = "B4_RRW_phylogeography"
 wdb5 = "B5_dispersal_stat_estimations"
 wdb6 = "B6_all_seraphim_analyses"
-wdb7 = "B7_covariates_preparation"
-wdb8 = "B8_skygrid_GLM_analyses"
 
 study_areas = c("MRU","NGA")
 segments = c("L","S"); analyses = c("2","3")
@@ -211,8 +209,8 @@ foldSelection = function(observations, selectedPoints)
 		return(fold_selection)
 	}
 
-natalensis = read.csv("Occurrence_data_sets/Mastomys_natalensis_RK040120.csv", header=T)[,c("longitude","latitude")]
-lassaVirus = read.csv("Occurrence_data_sets/Lassa_virus_cases_RK040120.csv", header=T)[,c("longitude","latitude")]
+natalensis = read.csv("Occurrence_data_sets/Mastomys_natalensis_RK050820.csv", header=T)[,c("longitude","latitude")]
+lassaVirus = read.csv("Occurrence_data_sets/Lassa_virus_cases_RK070820.csv", header=T)[,c("longitude","latitude")]
 backgrounds = list(); backgrounds[[1]] = background1; backgrounds[[2]] = background2
 datasets = list(); datasets[[1]] = natalensis; datasets[[2]] = lassaVirus
 
@@ -2646,3 +2644,4 @@ for (i in 1:length(analyses))
 			}
 	}
 write.table(table, "Table_1_without_layout.txt", row.names=F, quote=F, sep="\t")
+
