@@ -2374,16 +2374,16 @@ for (i in 1:length(analyses))
 			}
 		pathModel = 2; simulations = FALSE; outputName = paste0(analyses[i],"_seraphim_LC_extractions")
 		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
-					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations=F)
 		pathModel = 2; simulations = TRUE; outputName = paste0(analyses[i],"_seraphim_LC_simulations")
 		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
-					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations=T)
 		pathModel = 3; simulations = FALSE; outputName = paste0(analyses[i],"_seraphim_CS_extractions")
 		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
-					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations=F)
 		pathModel = 3; simulations = TRUE; outputName = paste0(analyses[i],"_seraphim_CS_simulations")
 		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
-					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations=T)
 	}
 
 analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
@@ -2491,10 +2491,10 @@ for (i in 1:length(analyses))
 			}
 		pathModel = 2; simulations = FALSE; outputName = paste0(analyses[i],"_seraphim_LC_extractions")
 		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
-					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations=F)
 		pathModel = 2; simulations = TRUE; outputName = paste0(analyses[i],"_seraphim_LC_simulations")
 		spreadFactors(localTreesDirectory,nberOfExtractionFiles,envVariables,pathModel,resistances,avgResistances,fourCells,
-					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations)
+					  nberOfRandomisations,randomProcedure,outputName,showingPlots,nberOfCores,OS,simulations=T)
 	}
 
 analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2")
