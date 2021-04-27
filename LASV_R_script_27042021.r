@@ -14,12 +14,12 @@ library(vioplot)
 
 # A. SPECIES DISTRIBUTION MODEL ANALYSES
 # B. PHYLOGEOGRAPHIC AND PHYLODYNAMIC ANALYSES
-# B1. Preparation of LASV sequences
-# B2. Preliminary phylogenetic analyses
-# B3. Temporal signal analyses
-# B4. Continuous phylogeographic analyses
-# B5. Estimating dispersal statistics
-# B6. Post hoc landscape phylogeography
+# B.1. Preparation of LASV sequences
+# B.2. Preliminary phylogenetic analyses
+# B.3. Temporal signal analyses
+# B.4. Continuous phylogeographic analyses
+# B.5. Estimating dispersal statistics
+# B.6. Post hoc landscape phylogeography
 
 wd = getwd()
 wda1 = "A1_ENM_analyses_host_virus"
@@ -29,6 +29,8 @@ wdb3 = "B3_temporal_signal_analyses"
 wdb4 = "B4_RRW_phylogeography"
 wdb5 = "B5_dispersal_stat_estimations"
 wdb6 = "B6_all_seraphim_analyses"
+wdb7 = "B7_covariates_preparation"
+wdb8 = "B8_skygrid_GLM_analyses"
 
 study_areas = c("MRU","NGA")
 segments = c("L","S"); analyses = c("2","3")
@@ -930,11 +932,11 @@ for (i in 1:length(selectedVariables))
 
 # B. PHYLOGEOGRAPHIC AND PHYLODYNAMIC ANALYSES
 
-# B1. Preparation of LASV sequences
+# B.1. Preparation of LASV sequences
 
 setwd(paste(wd,wdb1,sep="/"))
 
-	# B1.1. Renaming sequence IDs to match with metadata files
+	# B.1.1. Renaming sequence IDs to match with metadata files
 
 metadata = read.csv("Original_sequence_files/LASV_all_the_metadata.csv", head=T, colClasses="character")
 for (i in 1:length(segments))
@@ -985,7 +987,7 @@ for (i in 1:length(segments))
 		write(fasta, paste0("LASV_",segments[i],"_alignment_1.fasta"))
 	}
 
-	# B1.2. Identifying and discarding suspiciouly duplicated sequences
+	# B.1.2. Identifying and discarding suspiciouly duplicated sequences
 
 mismatchesMatrix = function(sequences)
 	{
@@ -1156,7 +1158,7 @@ for (i in 1:length(segments)) # to remove CIV and TGO sequences (third, non-anal
 		write.csv(tab2, paste0("LASV_",segments[i],"_alignment_2.csv"), quote=F, row.names=F)
 	}
 
-	# B1.3. Preparing alignments for the continuous phylogeographic analyses
+	# B.1.3. Preparing alignments for the continuous phylogeographic analyses
 
 for (i in 1:length(segments))
 	{
@@ -1181,7 +1183,7 @@ for (i in 1:length(segments))
 		write.table(tab4, paste0("LASV_",segments[i],"_alignment_3.txt"), sep="	", row.names=F, quote=F)
 	}
 
-	# B1.4. Preparing alignments that only contain Nigerian sequences
+	# B.1.4. Preparing alignments that only contain Nigerian sequences
 
 for (i in 1:length(segments))
 	{
@@ -1217,18 +1219,18 @@ for (i in 1:length(segments))
 		write.csv(tab4, paste0("LASV_",segments[i],"_NGA_2019.csv"), quote=F, row.names=F)
 	}
 
-# B2. Preliminary phylogenetic analyses
+# B.2. Preliminary phylogenetic analyses
 
 setwd(paste(wd,wdb2,sep="/"))
 
-	# B2.1. Preparing and running analyses in BEAST
+	# B.2.1. Preparing and running analyses in BEAST
 	
 		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, constant population size coalescent model
 		# Burn-in's: 60000000 states for segment L and 30000000 states for segment S
 		# Note for segment S: three sequences were discarded because in an isolated clade
 		# 	(MF990888|201600568|Human|TGO|2016-03-12, KU961971|Togo/2016/7082|Human|Togo|2016-02-26, pinneo_NGA-Borno_Lassa_LS_1969)
 
-	# B2.2. Generating alignements and metadata for each clade
+	# B.2.2. Generating alignements and metadata for each clade
 
 cladeSpecificRRWanalyses = FALSE
 for (i in 1:length(segments))
@@ -1288,15 +1290,15 @@ for (i in 1:length(segments))
 		cat("Segment ",segments[i],", most recent sampling date = ",max(samplingDates),sep="","\n") # 2019.178 for both segments
 	}
 
-# B3. Temporal signal analyses
+# B.3. Temporal signal analyses
 
-	# B3.1. Maximum likelihood trees were inferred using PhyML as implemented in SeaView (with default settings)
+	# B.3.1. Maximum likelihood trees were inferred using PhyML as implemented in SeaView (with default settings)
 
-	# B3.2. Temporal signal evaluation using regressions of root-to-tip genetic distances against sequence sampling times
+	# B.3.2. Temporal signal evaluation using regressions of root-to-tip genetic distances against sequence sampling times
 	
-		# B3.2.1. Estimation of regression R2 using the program TempEst 1.5.3 (cfr. screenshot for the results)
+		# B.3.2.1. Estimation of regression R2 using the program TempEst 1.5.3 (cfr. screenshot for the results)
 		
-		# B3.2.2. Estimation of regression p-values were calculated using the approach of Murray et al. (2016)
+		# B.3.2.2. Estimation of regression p-values were calculated using the approach of Murray et al. (2016)
 
 setwd(paste(wd,wdb3,sep="/"))
 samplingDates_list = list(); c = 0
@@ -1333,23 +1335,23 @@ for (i in 1:length(segments))
 			}	# p-values: < 0.001 (L, alignment 2), 0.006 (L, alignment 3), < 0.001 (S, alignment 2), < 0.001 (S, alignment 3)
 	}
 
-# B4. Continuous phylogeographic analyses
+# B.4. Continuous phylogeographic analyses
 
 setwd(paste(wd,wdb4,sep="/"))
 nberOfExtractionFiles = 1000
 
-	# 4.1. Preparing and running analyses in BEAST
+	# B.4.1. Preparing and running analyses in BEAST
 	
 		# Models used: GTR+G substitution model, relaxed lognormal molecular clock model, skygrid coalescent model (100 grid points, cut-off = 1500), RRW (gamma, jitter = 0.01)
 		# N.B.: productStatistics "treeLengthPrecision" (1, 2, and 3) have to be manually added and logged in the XML files
 
-	# 4.2. Extraction of 1,000 tree files
+	# B.4.2. Extraction of 1,000 tree files
 
 options(scipen=9)
 mostRecentSamplingDatum = 2019.178
 burnIns = c(100000000,250000000)
 
-		# 4.2.1. Selecting 1,000 trees from the post-burn-in distribution
+		# B.4.2.1. Selecting 1,000 trees from the post-burn-in distribution
 
 for (i in 1:length(segments))
 	{
@@ -1378,7 +1380,7 @@ for (i in 1:length(segments))
 		write(log[indices], paste0("LASV_",segments[i],"_align_3_all_",nberOfExtractionFiles,".log"))		
 	}
 
-		# 4.2.2. Extractions of the spatio-temporal information contained in posterior trees
+		# B.4.2.2. Extractions of the spatio-temporal information contained in posterior trees
 
 for (i in 1:length(segments))
 	{	
@@ -1390,7 +1392,7 @@ for (i in 1:length(segments))
 		treeExtractions(localTreesDirectory, allTrees, burnIn, randomSampling, nberOfTreesToSample, mostRecentSamplingDatum, coordinateAttributeName, nberOfCores)
 	}
 
-		# 4.2.3. Generating the maximum clade credibility (MCC) trees with TreeAnnotator
+		# B.4.2.3. Generating the maximum clade credibility (MCC) trees with TreeAnnotator
 
 for (i in 1:length(segments))
 	{
@@ -1399,7 +1401,7 @@ for (i in 1:length(segments))
 		system(paste0("BEAST_ver1104_stable_release/bin/treeannotator -burninTrees 0 -heights keep ",input," ",output))
 	}
 
-		# 4.2.4. Extractions of the spatio-temporal information contained in MCC trees
+		# B.4.2.4. Extractions of the spatio-temporal information contained in MCC trees
 
 source("mccTreeExtractionFunction.r")
 for (i in 1:length(segments))
@@ -1409,7 +1411,7 @@ for (i in 1:length(segments))
 		write.csv(mcc_tab, paste0("LASV_",segments[i],"_align_3_all_MCC.csv"), row.names=F, quote=F)
 	}	# to do: open and export again the MCC trees in FigTree (Nexus format)
 
-		# 4.2.5. Dividing extraction files per lineage (clade)
+		# B.4.2.5. Dividing extraction files per lineage (clade)
 
 source("isolateACladeFromTipNodes.r")
 for (i in 1:length(segments))
@@ -1484,7 +1486,7 @@ for (i in 1:length(segments))
 			}
 	}
 	
-		# 4.2.6. Gathering all the extraction files per study area
+		# B.4.2.6. Gathering all the extraction files per study area
 
 for (i in 1:length(segments))
 	{
@@ -1504,7 +1506,7 @@ for (i in 1:length(segments))
 			}
 	}
 	
-		# 4.2.7. Gathering all the extraction files per segment
+		# B.4.2.7. Gathering all the extraction files per segment
 
 for (i in 1:length(segments))
 	{
@@ -1522,7 +1524,7 @@ for (i in 1:length(segments))
 			}
 	}
 	
-		# 4.2.8. Generating extraction tables only gathering tip branches
+		# B.4.2.8. Generating extraction tables only gathering tip branches
 
 for (i in 1:length(segments))
 	{
@@ -1537,7 +1539,7 @@ for (i in 1:length(segments))
 			}
 	}
 	
-		# 4.2.9. Regurlarly subsampling 100 out of 1,000 tree extractions
+		# B.4.2.9. Regurlarly subsampling 100 out of 1,000 tree extractions
 
 for (i in 1:length(segments))
 	{
@@ -1559,7 +1561,7 @@ for (i in 1:length(segments))
 			}
 	}
 
-	# 4.3. Generating and saving annual progression polygons (convex hull polygons)
+	# B.4.3. Generating and saving annual progression polygons (convex hull polygons)
 
 for (i in 1:length(segments))
 	{
@@ -1588,7 +1590,7 @@ for (i in 1:length(segments))
 			}
 	}
 	
-	# 4.4. Estimating kernel density polygons
+	# B.4.4. Estimating kernel density polygons
 
 percentage = 80; precision = 20	
 for (i in 1:length(segments))
@@ -1608,7 +1610,7 @@ for (i in 1:length(segments))
 			}
 	}
 
-	# 4.5. Plotting the global dispersal history graphs
+	# B.4.5. Plotting the global dispersal history graphs
 
 setwd(wd)
 background1 = raster(paste0(wdb6,"/Environmental_files/LASV_rasters/Elevation_MRU_0.008.asc"))
@@ -1841,7 +1843,9 @@ for (i in 1:length(segments))
 	}
 dev.off()
 
-# B5. Estimating dispersal statistics
+# B.5. Estimating dispersal statistics
+
+	# B.5.1. Estimating dispersal statistics for LASV lineages
 
 setwd(wd)
 nberOfExtractionFiles = 1000
@@ -1951,14 +1955,57 @@ for (i in 1:length(analyses))
 	}
 dev.off()
 
-# B6. Post hoc landscape phylogeography
+	# B.5.2. Comparing dispersal statistics with other viruses
+	
+setwd(wdb4)
+localTreesDirectory1 = "Tree_extractions_other_datasets/RABV_PE_L1_Streicker"
+localTreesDirectory2 = "Tree_extractions_other_datasets/RABV_PE_L3_Streicker"
+localTreesDirectory = "Tree_extractions_other_datasets/RABV_PE_all_Streicker"
+nberOfExtractionFiles = 1000; dir.create(file.path(localTreesDirectory3), showWarnings=F)
+for (i in 1:nberOfExtractionFiles)
+	{
+		tab1 = read.csv(paste0(localTreesDirectory1,"/TreeExtractions_",i,".csv"), head=T)
+		tab2 = read.csv(paste0(localTreesDirectory2,"/TreeExtractions_",i,".csv"), head=T)
+		tab2[,c("node1","node2")] = tab2[,c("node1","node2")] + max(tab1[,c("node1","node2")])
+		write.csv(rbind(tab1,tab2), paste0(localTreesDirectory,"/TreeExtractions_",i,".csv"), row.names=F, quote=F)
+	}
+localTreesDirectory1 = "Tree_extractions_other_datasets/RYMV2_West_logN"
+localTreesDirectory2 = "Tree_extractions_other_datasets/RYMV2_East_logN"
+localTreesDirectory = "Tree_extractions_other_datasets/RYMV2_AllC_logN"
+nberOfExtractionFiles = 100; dir.create(file.path(localTreesDirectory), showWarnings=F)
+for (i in 1:nberOfExtractionFiles)
+	{
+		tab1 = read.csv(paste0(localTreesDirectory1,"/TreeExtractions_",i,".csv"), head=T)
+		tab2 = read.csv(paste0(localTreesDirectory2,"/TreeExtractions_",i,".csv"), head=T)
+		tab2[,c("node1","node2")] = tab2[,c("node1","node2")] + max(tab1[,c("node1","node2")])
+		write.csv(rbind(tab1,tab2), paste0(localTreesDirectory,"/TreeExtractions_",i,".csv"), row.names=F, quote=F)
+	}
+datasets = c("EBOV_cauchy_k450", # Dellicour et al. (2018, Nat Com)			 "H5N1_ME_allC_pols", # Dellicour et al. (2020, Bioinf)			 "NVAV_BE_cauchy_1", # Laenen et al. (2016, Mol Ecol)			 "PDCV_Dlat_extracts", # He et al. (2020, MBE)			 "RABV_AF_logN_2", # Talbi et al. (2010, PLoS Path)			 "RABV_BR_cauchy", # Vieira et al. (2013, Virus Genes)			 "RABV_IR_allC_900t", # Dellicour et al. (2019, Mol Ecol)			 "RABV_NEA_gamma", # Torres et al. (2014, Mol Ecol)			 "RABV_PE_all_Streicker", # Streicker et al. (2016, PNAS)			 "RABV_US1_gamma", # Biek et al. (2007, PNAS)			 "RABV_US2_cauchy", # Kuzmina et al. (2013, PLoS One)			 "RYMV2_AllC_logN", # Dellicour et al. (2018, Vir Evol)			 "WNV4_gamma_all", # Dellicour et al. (submitted)			 "YFV2_wi_outliers_2") # Hill et al. (2020, PLoS Path)
+datasets = c(datasets,"LASV_S_align_3_all2","LASV_L_align_3_all2")
+timSlices = 10; onlyTipBranches = FALSE; showingPlots = FALSE; nberOfCores = 5; slidingWindow = NA
+for (i in 1:length(datasets))
+	{
+		localTreesDirectory = paste0("Tree_extractions_other_datasets/",datasets[i])
+		outputName = paste0("Dispersal_stats_other_datasets/",datasets[i]); nberOfExtractionFiles = length(list.files(localTreesDirectory))
+		spreadStatistics(localTreesDirectory, nberOfExtractionFiles, timSlices, onlyTipBranches, showingPlots, outputName, nberOfCores, slidingWindow)
+	}
+for (i in 1:length(datasets))
+	{
+		localTreesDirectory = paste0("Tree_extractions_other_datasets/",datasets[i])
+		tab = read.csv(paste0(localTreesDirectory,"/TreeExtractions_1.csv"))
+		nberOfSequences = length(which(!tab[,"node2"]%in%tab[,"node1"]))
+		tab = read.table(paste0("Dispersal_stats_other_datasets/",datasets[i],"_estimated_dispersal_statistics.txt"), header=T)[,"weighted_branch_dispersal_velocity"]
+		cat(paste0(round(median(tab),1)," km/year [",round(quantile(tab,0.025),1),", ",round(quantile(tab,0.975),1),"]\t",nberOfSequences,"\n"))
+	}
+
+# B.6. Post hoc landscape phylogeography
 
 setwd(wd)
 nberOfExtractionFiles = 1000
 
-	# 6.1. Generating null models of lineages dispersal
+	# B.6.1. Generating null models of lineages dispersal
 
-		# 6.1.1. Randomisation of tree branches position (not used)
+		# B.6.1.1. Randomisation of tree branches position (not used)
 
 analyses = c("LASV_L_align_3_MRU","LASV_L_align_3_NIG1","LASV_L_align_3_NIG2","LASV_L_align_3_NIG3",
 			 "LASV_S_align_3_MRU","LASV_S_align_3_NIG1","LASV_S_align_3_NIG2","LASV_S_align_3_NIG3")
@@ -1972,7 +2019,7 @@ for (i in 1:length(analyses))
 		treesRandomisation(localTreesDirectory, nberOfExtractionFiles, envVariables, randomProcedure, nberOfCores, showingPlots)
 	}
 
-		# 6.1.2. Relaxed random walk simulations along posterior trees
+		# B.6.1.2. Relaxed random walk simulations along posterior trees
 
 analyses = c("LASV_L_align_3_MRU","LASV_L_align_3_NIG1","LASV_L_align_3_NIG2","LASV_L_align_3_NIG3",
 			 "LASV_S_align_3_MRU","LASV_S_align_3_NIG1","LASV_S_align_3_NIG2","LASV_S_align_3_NIG3")
@@ -2206,7 +2253,7 @@ for (i in 1:length(segments))
 			}
 	}
 
-	# 6.2. Plotting the different environmental rasters
+	# B.6.2. Plotting the different environmental rasters
 	
 envVariableNames = c("IGBP_forests","IGBP_grasslands","IGBP_savannas","IGBP_croplands",
 					 "Elevation","Annual_mean_temperature","Annual_precipitation","Pop_density")
@@ -2323,11 +2370,11 @@ for (j in 1:length(rS[[2]]))
 		rect(xmin(rS[[2]][[j]]), ymin(rS[[2]][[j]]), xmax(rS[[2]][[j]]), ymax(rS[[2]][[j]]), lwd=0.2, border="gray30")
 	}
 		
-	# 6.3. Analysing the impact of environmental factors on the dispersal velocity of lineages
+	# B.6.3. Analysing the impact of environmental factors on the dispersal velocity of lineages
 
 setwd(wd)
 
-		# 6.3.1. Analyses based on continuous environmental rasters
+		# B.6.3.1. Analyses based on continuous environmental rasters
 
 analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2","LASV_L_align_3_tips2","LASV_S_align_3_tips2")
 nberOfExtractionFiles = 100; nberOfRandomisations = 0; randomProcedure = 3; fourCells = FALSE
@@ -2438,7 +2485,7 @@ for (a in 1:length(analyses))
 		write.csv(allResults, paste0("SERAPHIM_",analyses[a],"_TEMP.csv"), row.names=F, quote=F)
 	}
 	
-		# 6.3.2. Analyses based on rivers network rasters
+		# B.6.3.2. Analyses based on rivers network rasters
 
 minS = 3; maxS = c(5,7)
 for (i in 1:length(study_areas))
@@ -2545,7 +2592,7 @@ for (a in 1:length(analyses))
 		write.csv(allResults, paste0("RIVERS_",analyses[a],"_TEMP.csv"), row.names=F, quote=F)
 	}
 
-	# 6.4. Analysing the impact of rivers on the dispersal frequency of lineages
+	# B.6.4. Analysing the impact of rivers on the dispersal frequency of lineages
 
 nberOfExtractionFiles = 100; interval = 10; registerDoMC(cores=5)
 analyses = c("LASV_L_align_3_all_2","LASV_S_align_3_all_2")
@@ -2644,4 +2691,140 @@ for (i in 1:length(analyses))
 			}
 	}
 write.table(table, "Table_1_without_layout.txt", row.names=F, quote=F, sep="\t")
+
+	# B.6.5. Explorating phylogeographic simulations
+
+rotation = function(pt1, pt2, angle)
+	{
+		s = sin(angle); c = cos(angle)
+		x = pt2[1,1]-pt1[1,1]; y = pt2[1,2]-pt1[1,2]
+		x_new = (x*c)-(y*s); y_new = (x*s)+(y*c)
+		x_new = x_new+pt1[1,1]; y_new = y_new+pt1[1,2]
+		return(cbind(x_new,y_new))
+	}
+
+		# B.6.5.1. Preparation of the African shapefile that will be used as a mask
+
+continents = shapefile("A1_ENM_analyses_host_virus/Continents_shapefile/Continents.shp")
+africa1 = base::subset(continents, continents$CONTINENT=="Africa"); polygons = list(); c = 0
+for (i in 1:length(africa1@polygons[[1]]@Polygons))
+	{
+		if (africa1@polygons[[1]]@Polygons[[i]]@area > 1)
+			{
+				c = c+1; polygons[[c]] = africa1@polygons[[1]]@Polygons[[i]]
+			}
+	}
+pols = Polygons(polygons, 1); pols_list = list(); pols_list[[1]] = pols
+africa2 = SpatialPolygons(pols_list); africa3 = gSimplify(africa2, 0.1)
+
+		# B.6.5.2. Projecting simulations performed under the null dispersal model in eastern Africa
+
+time_window = 10; startingYear = 2030; nberOfSimulations = 10; e_simulation = extent(7, 45, -12, 18)
+nberOfExtractionFiles = 1000; brt_projections = list(); starting_points = list(); simulations_list = list()
+brt_rcp60_2050 = raster("A1_ENM_analyses_host_virus/BRT_prediction_files/BRT_predictions/Lassa_virus_RCP_60_2050.asc")
+brt_rcp85_2050 = raster("A1_ENM_analyses_host_virus/BRT_prediction_files/BRT_predictions/Lassa_virus_RCP_85_2050.asc")
+brt_projections[[1]] = crop(brt_rcp60_2050, e_simulation); starting_points[[1]] = cbind(32,3)
+brt_projections[[2]] = crop(brt_rcp85_2050, e_simulation); starting_points[[2]] = cbind(24,1)
+localTreeDirectory = "B4_RRW_phylogeography/LASV_S_align_3_NIG2_extractions"; nberOfRepetitions = 100
+for (h in 1:length(brt_projections))
+	{
+		simulations = list()
+		for (i in 1:nberOfSimulations)
+			{
+				tab1 = read.csv(paste0(localTreeDirectory,"/TreeExtractions_",i,".csv"), head=T)
+				dX = starting_points[[h]][1,1]-tab1[which(!tab1[,"node1"]%in%tab1[,"node2"])[1],"startLon"]
+				dY = starting_points[[h]][1,2]-tab1[which(!tab1[,"node1"]%in%tab1[,"node2"])[1],"startLat"]
+				tab1[,c("startLon","endLon")] = tab1[,c("startLon","endLon")]+dX
+				tab1[,c("startLat","endLat")] = tab1[,c("startLat","endLat")]+dY
+				tab1 = tab1[,c("node1","node2","length","startLon","startLat","endLon","endLat","startYear","endYear")]
+				indices = sample(which(tab1[,"length"]<10),2); tab2 = tab1[indices,]; tab1 = tab1[-indices,]
+				tab2[1,c("node1","node2")] = cbind(1,2); tab2[2,c("node1","node2")] = cbind(1,3)
+				tab2[1,"startYear"] = 2050; tab2[1,"endYear"] = 2050+tab2[1,"length"]
+				tab2[2,"startYear"] = 2050; tab2[2,"endYear"] = 2050+tab2[2,"length"]
+				for (j in 2:1)
+					{
+						dX = tab2[dim(tab2)[1]-(j-1),"endLon"]-tab2[dim(tab2)[1]-(j-1),"startLon"]
+						dY = tab2[dim(tab2)[1]-(j-1),"endLat"]-tab2[dim(tab2)[1]-(j-1),"startLat"]
+						tab2[dim(tab2)[1]-(j-1),c("startLon","startLat")] = starting_points[[h]]
+						tab2[dim(tab2)[1]-(j-1),c("endLon")] = tab2[dim(tab2)[1]-(j-1),"startLon"] + dX
+						tab2[dim(tab2)[1]-(j-1),c("endLat")] = tab2[dim(tab2)[1]-(j-1),"startLat"] + dY
+						extractions = rep(NA, nberOfRepetitions); pts = matrix(nrow=nberOfRepetitions, ncol=2)
+						for (k in 1:nberOfRepetitions)
+							{
+								angle = (2*pi)*runif(1)
+								pts[k,1:2] = rotation(tab2[dim(tab2)[1]-(j-1),c("startLon","startLat")], tab2[dim(tab2)[1]-(j-1),c("endLon","endLat")], angle)
+								extractions[k] = raster::extract(brt_projections[[h]], cbind(pts[k,1],pts[k,2]))
+							}
+						extractions[is.na(extractions)] = 0
+						index = sample(c(1:nberOfRepetitions), 1, prob=extractions)
+						tab2[dim(tab2)[1]-(j-1),c("endLon","endLat")] = pts[index,1:2]
+					}
+				simulation_over = FALSE
+				while (simulation_over == FALSE)
+					{
+						indices1 = which(!tab2[,"node2"]%in%tab2[,"node1"]); index = sample(indices1, 1)
+						node1 = tab2[index,"node2"]; startYear = tab2[index,"endYear"]
+						indices2 = which((startYear+tab1[,"length"]) <= 2070); counter = 0
+						if (length(indices2) < 2)
+							{
+								while (length(indices2) < 2)
+									{
+										indices1 = which(!tab2[,"node2"]%in%tab2[,"node1"]); index = sample(indices1, 1)
+										node1 = tab2[index,"node2"]; startYear = tab2[index,"endYear"]
+										indices2 = which((startYear+tab1[,"length"]) <= 2070)
+									}
+							}
+						indices3 = sample(indices2, 2); tab2 = rbind(tab2, tab1[indices3,]); tab1 = tab1[-indices3,]
+						tab2[dim(tab2)[1]-1,c("node1","node2")] = cbind(node1,max(tab2[,c("node1","node2")])+1)
+						tab2[dim(tab2)[1]-0,c("node1","node2")] = cbind(node1,max(tab2[,c("node1","node2")])+2)
+						tab2[dim(tab2)[1]-1,"startYear"] = startYear; tab2[dim(tab2)[1]-0,"startYear"] = startYear
+						tab2[dim(tab2)[1]-1,"endYear"] = startYear+tab2[dim(tab2)[1]-1,"length"]
+						tab2[dim(tab2)[1]-0,"endYear"] = startYear+tab2[dim(tab2)[1]-0,"length"]
+						for (j in 2:1)
+							{
+								dX = tab2[dim(tab2)[1]-(j-1),"endLon"]-tab2[dim(tab2)[1]-(j-1),"startLon"]
+								dY = tab2[dim(tab2)[1]-(j-1),"endLat"]-tab2[dim(tab2)[1]-(j-1),"startLat"]
+								index = which(tab2[,"node2"]==tab2[dim(tab2)[1]-(j-1),"node1"])
+								tab2[dim(tab2)[1]-(j-1),c("startLon","startLat")] = tab2[index,c("endLon","endLat")]
+								tab2[dim(tab2)[1]-(j-1),c("endLon")] = tab2[dim(tab2)[1]-(j-1),"startLon"] + dX
+								tab2[dim(tab2)[1]-(j-1),c("endLat")] = tab2[dim(tab2)[1]-(j-1),"startLat"] + dY
+								extractions = rep(NA, nberOfRepetitions); pts = matrix(nrow=nberOfRepetitions, ncol=2)
+								for (k in 1:nberOfRepetitions)
+									{
+										angle = (2*pi)*runif(1)
+										pts[k,1:2] = rotation(tab2[dim(tab2)[1]-(j-1),c("startLon","startLat")], tab2[dim(tab2)[1]-(j-1),c("endLon","endLat")], angle)
+										extractions[k] = raster::extract(brt_projections[[h]], cbind(pts[k,1],pts[k,2]))
+									}
+								extractions[is.na(extractions)] = 0
+								index = sample(c(1:nberOfRepetitions), 1, prob=extractions)
+								tab2[dim(tab2)[1]-(j-1),c("endLon","endLat")] = pts[index,1:2]
+							}
+						for (j in 1:dim(tab2)[1])
+							{
+								if ((!tab2[j,"node2"]%in%tab2[,"node1"])&(sum((tab2[j,"endYear"]+tab1[,"length"]) <= 2070) >= 2)) counter = counter+1
+							}
+						if (counter == 0) simulation_over = TRUE
+					}
+				simulations[[i]] = tab2
+			}
+		simulations_list[[h]] = simulations
+	}
+pdf(paste0("Phylogeographic_simulations_NEW.pdf"), width=8, height=2.5) # dev.new(width=8, height=3)
+par(mfrow=c(2,5), oma=c(0,0.5,0,0), mar=c(0.6,0,0.5,0), lwd=0.2, col="gray30"); africa4 = crop(africa3, e_simulation)
+for (h in 1:length(brt_projections))
+	{
+		for (i in 1:5)
+			{
+				rast = brt_projections[[h]]; tab2 = simulations_list[[h]][[i]]
+				plot(rast, col=rev(colorRampPalette(brewer.pal(11,"RdYlBu"))(131))[21:131][1:(max(rast[],na.rm=T)*100)], ann=F, legend=F, axes=F, box=F)
+				plot(africa4, add=T, border="gray50", lwd=1.5); legend1 = raster(as.matrix(c(0,1)))
+				segments(tab2[,c("startLon")], tab2[,c("startLat")], tab2[,c("endLon")], tab2[,c("endLat")], lwd=0.35, col="gray30")
+				for (j in 1:dim(tab2)[1])
+					{
+						points(tab2[j,c("endLon","endLat")], col="green3", pch=16, cex=0.7)
+						points(tab2[j,c("endLon","endLat")], col="gray30", pch=1, cex=0.7, lwd=0.35)
+					}
+			}
+	}
+dev.off()
 
