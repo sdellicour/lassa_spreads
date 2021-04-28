@@ -2719,19 +2719,19 @@ africa2 = SpatialPolygons(pols_list); africa3 = gSimplify(africa2, 0.1)
 
 		# B.6.5.2. Projecting simulations performed under the null dispersal model in eastern Africa
 
-time_window = 10; startingYear = 2030; nberOfSimulations = 10; e_simulation = extent(7, 45, -12, 18)
+localTreesDirectory = "B4_RRW_phylogeography/LASV_S_align_3_NIG2_extractions"; simus = c("RCP60_2050","RCP85_2050")
+startingYear = 2040; time_window = 20; nberOfRepetitions = 100; e_simu = extent(7, 45, -12, 18)
 nberOfExtractionFiles = 1000; brt_projections = list(); starting_points = list(); simulations_list = list()
 brt_rcp60_2050 = raster("A1_ENM_analyses_host_virus/BRT_prediction_files/BRT_predictions/Lassa_virus_RCP_60_2050.asc")
 brt_rcp85_2050 = raster("A1_ENM_analyses_host_virus/BRT_prediction_files/BRT_predictions/Lassa_virus_RCP_85_2050.asc")
-brt_projections[[1]] = crop(brt_rcp60_2050, e_simulation); starting_points[[1]] = cbind(32,3)
-brt_projections[[2]] = crop(brt_rcp85_2050, e_simulation); starting_points[[2]] = cbind(24,1)
-localTreeDirectory = "B4_RRW_phylogeography/LASV_S_align_3_NIG2_extractions"; nberOfRepetitions = 100
+brt_projections[[1]] = crop(brt_rcp60_2050, e_simu); starting_points[[1]] = cbind(32,3)
+brt_projections[[2]] = crop(brt_rcp85_2050, e_simu); starting_points[[2]] = cbind(24,1)
 for (h in 1:length(brt_projections))
 	{
 		simulations = list()
-		for (i in 1:nberOfSimulations)
+		for (i in 1:nberOfExtractionFiles)
 			{
-				tab1 = read.csv(paste0(localTreeDirectory,"/TreeExtractions_",i,".csv"), head=T)
+				tab1 = read.csv(paste0(localTreesDirectory,"/TreeExtractions_",i,".csv"), head=T)
 				dX = starting_points[[h]][1,1]-tab1[which(!tab1[,"node1"]%in%tab1[,"node2"])[1],"startLon"]
 				dY = starting_points[[h]][1,2]-tab1[which(!tab1[,"node1"]%in%tab1[,"node2"])[1],"startLat"]
 				tab1[,c("startLon","endLon")] = tab1[,c("startLon","endLon")]+dX
@@ -2739,8 +2739,8 @@ for (h in 1:length(brt_projections))
 				tab1 = tab1[,c("node1","node2","length","startLon","startLat","endLon","endLat","startYear","endYear")]
 				indices = sample(which(tab1[,"length"]<10),2); tab2 = tab1[indices,]; tab1 = tab1[-indices,]
 				tab2[1,c("node1","node2")] = cbind(1,2); tab2[2,c("node1","node2")] = cbind(1,3)
-				tab2[1,"startYear"] = 2050; tab2[1,"endYear"] = 2050+tab2[1,"length"]
-				tab2[2,"startYear"] = 2050; tab2[2,"endYear"] = 2050+tab2[2,"length"]
+				tab2[1,"startYear"] = startingYear; tab2[1,"endYear"] = startingYear+tab2[1,"length"]
+				tab2[2,"startYear"] = startingYear; tab2[2,"endYear"] = startingYear+tab2[2,"length"]
 				for (j in 2:1)
 					{
 						dX = tab2[dim(tab2)[1]-(j-1),"endLon"]-tab2[dim(tab2)[1]-(j-1),"startLon"]
@@ -2764,14 +2764,14 @@ for (h in 1:length(brt_projections))
 					{
 						indices1 = which(!tab2[,"node2"]%in%tab2[,"node1"]); index = sample(indices1, 1)
 						node1 = tab2[index,"node2"]; startYear = tab2[index,"endYear"]
-						indices2 = which((startYear+tab1[,"length"]) <= 2070); counter = 0
+						indices2 = which((startYear+tab1[,"length"]) <= (startingYear+time_window)); counter = 0
 						if (length(indices2) < 2)
 							{
 								while (length(indices2) < 2)
 									{
 										indices1 = which(!tab2[,"node2"]%in%tab2[,"node1"]); index = sample(indices1, 1)
 										node1 = tab2[index,"node2"]; startYear = tab2[index,"endYear"]
-										indices2 = which((startYear+tab1[,"length"]) <= 2070)
+										indices2 = which((startYear+tab1[,"length"]) <= (startingYear+time_window))
 									}
 							}
 						indices3 = sample(indices2, 2); tab2 = rbind(tab2, tab1[indices3,]); tab1 = tab1[-indices3,]
@@ -2801,16 +2801,18 @@ for (h in 1:length(brt_projections))
 							}
 						for (j in 1:dim(tab2)[1])
 							{
-								if ((!tab2[j,"node2"]%in%tab2[,"node1"])&(sum((tab2[j,"endYear"]+tab1[,"length"]) <= 2070) >= 2)) counter = counter+1
+								if ((!tab2[j,"node2"]%in%tab2[,"node1"])&(sum((tab2[j,"endYear"]+tab1[,"length"]) <= (startingYear+time_window)) >= 2)) counter = counter+1
 							}
 						if (counter == 0) simulation_over = TRUE
 					}
+				write.csv(tab2, paste0(localTreesDirectory,"/",simus[h],"_",i,".csv"), row.names=F, quote=F)
 				simulations[[i]] = tab2
 			}
 		simulations_list[[h]] = simulations
 	}
-pdf(paste0("Phylogeographic_simulations_NEW.pdf"), width=8, height=2.5) # dev.new(width=8, height=3)
-par(mfrow=c(2,5), oma=c(0,0.5,0,0), mar=c(0.6,0,0.5,0), lwd=0.2, col="gray30"); africa4 = crop(africa3, e_simulation)
+
+pdf(paste0("Phylogeographic_simus1_NEW.pdf"), width=8, height=2.5) # dev.new(width=8, height=3)
+par(mfrow=c(2,5), oma=c(0,0.5,0,0), mar=c(0.6,0,0.5,0), lwd=0.2, col="gray30"); africa4 = crop(africa3, e_simu)
 for (h in 1:length(brt_projections))
 	{
 		for (i in 1:5)
@@ -2825,6 +2827,81 @@ for (h in 1:length(brt_projections))
 						points(tab2[j,c("endLon","endLat")], col="gray30", pch=1, cex=0.7, lwd=0.35)
 					}
 			}
+	}
+dev.off()
+
+percentage = 95; prob = percentage/100; startDatum = startingYear; precision = 2; includeRoot = TRUE; polygons_list = list()
+for (h in 1:length(brt_projections))
+	{
+		endDatum = startingYear + time_window
+		percentage = gsub("0\\.","",as.character(prob))
+		timeInterval = precision; nodes = c()
+		for (i in 1:nberOfExtractionFiles)
+			{
+				tab = read.csv(paste0(localTreesDirectory,"/",simus[h],"_",i,".csv"), header=T)
+				startingNodeID = which(!tab[,"node1"]%in%tab[,"node2"])[1]
+				startingNode = tab[startingNodeID,c("startYear","startLon","startLat")]; colnames(startingNode) = c("time","lon","lat")
+				endingNodes = tab[,c("endYear","endLon","endLat")]; colnames(endingNodes) = c("time","lon","lat")
+				if (includeRoot == TRUE) nodes = rbind(nodes, startingNode, endingNodes)
+				if (includeRoot == FALSE) nodes = rbind(nodes, endingNodes)
+			}
+		timeSlices = seq(startDatum,endDatum,timeInterval); spreads = list(); c = 0
+		for (i in 1:length(timeSlices))
+			{
+				startTime = timeSlices[i]-timeInterval/2
+				endTime = timeSlices[i]+timeInterval/2
+				if (i == 1) startTime = -9999
+				selectedNodes = nodes[which((nodes[,"time"]>=startTime)&(nodes[,"time"]<endTime)),]
+				selectedNodes = unique(selectedNodes[,c("lon","lat")])
+				if (dim(selectedNodes)[1] > 2)
+					{
+						c = c+1; H = Hpi(cbind(selectedNodes[,"lon"],selectedNodes[,"lat"])); print(timeSlices[i])
+						kde = kde(cbind(selectedNodes[,"lon"],selectedNodes[,"lat"]), H=H, compute.cont=T, gridsize=c(1000,1000))
+						contourLevel = contourLevels(kde, prob=(1-prob)); polygons = list()
+						contourLines = contourLines(kde$eval.points[[1]], kde$eval.points[[2]], kde$estimate, level=contourLevel)
+						for (j in 1:length(contourLines)) polygons[[j]] = Polygon(cbind(contourLines[[j]]$x,contourLines[[j]]$y))
+						ps = Polygons(polygons,1); contourPolygons = SpatialPolygons(list(ps))
+						spdf = SpatialPolygonsDataFrame(contourPolygons, data.frame(ID=1:length(contourPolygons)))
+						names(spdf) = round(timeSlices[i],3); spreads[[c]] = spdf
+					}
+			}
+		polygons_list[[h]] = spreads
+	}
+
+background3 = raster(paste0(wdb6,"/Environmental_files/LASV_rasters/Elevation_simu_0.008.asc"))
+background3 = crop(background3, e_simu); background3[!is.na(background3[])] = 1; r = background3
+background_cols3 = colorRampPalette(c("grey","white"),bias=1)(max(r[],na.rm=T)-min(r[],na.rm=T))[1:(max(r[],na.rm=T)-min(r[],na.rm=T))]
+borders3 = crop(readOGR(dsn=paste0(wdb6,"/Environmental_files/Natural_Earth/"), layer="International_borders"), e_simu)
+cols = colorRampPalette(brewer.pal(9,'Blues'))(151)[11:111]; minYear = startingYear; maxYear = startingYear + time_window
+cols1 = rgb(70,118,187,255,maxColorValue=255); cols2 = rgb(70,118,187,100,maxColorValue=255)
+
+pdf(paste0("Phylogeographic_simus2_NEW.pdf"), width=12, height=10.2); # dev.new(width=12, height=10.2)
+par(mfrow=c(2,2), mar=c(0,0,0,0), oma=c(1.5,2.7,1.0,0), mgp=c(0,0.4,0), lwd=0.2, bty="o")
+for (h in 1:length(brt_projections))
+	{	
+		background = background3; background_cols = background_cols3
+		borders = borders3; pols = list(); cols_pol = list()
+		for (i in 1:length(polygons_list[[h]]))
+			{
+				date = as.numeric(names(polygons_list[[h]][[i]]))
+				yearM = (((date-minYear)/(maxYear-minYear))*100)+1
+				cols_pol[[i]] = cols[yearM]
+			}
+		for (i in 1:length(cols_pol)) cols_pol[[i]] = paste0(cols_pol[[i]],"70")
+		plot(background, main="", cex.main=1, cex.axis=0.7, bty="n", box=F, axes=F, legend=F, axis.args=list(cex.axis=0.7), col="white", colNA="gray90")
+		plot(borders, add=T, lwd=2, col="gray60", lty=2)
+		for (i in length(polygons_list[[h]]):1) plot(polygons_list[[h]][[i]], axes=F, col=cols_pol[[i]], add=T, border=NA)
+		rect(xmin(background), ymin(background), xmax(background), ymax(background), xpd=T, lwd=0.2)
+		axis(1,c(ceiling(xmin(background)), floor(xmax(background))), pos=ymin(background), mgp=c(0,0.7,0), 
+			 cex.axis=0.9, lwd=0, lwd.tick=0.2, padj=-0.8, tck=-0.01, col.axis="gray30")
+		axis(2, c(ceiling(ymin(background)), floor(ymax(background))), pos=xmin(background), mgp=c(0,0.8,0),
+			 cex.axis=0.9, lwd=0, lwd.tick=0.2, padj=1, tck=-0.01, col.axis="gray30")
+		mtext(paste0(""), side=3, line=-24.0, at=3.55, cex=0.8, font=1, col="gray30")
+		mtext(paste0(""), side=3, line=-25.0, at=3.65, cex=0.8, font=1, col=cols1)
+		legendRast = raster(as.matrix(c(minYear,maxYear)))
+		plot(legendRast, legend.only=T, add=T, col=cols, legend.width=0.5, legend.shrink=0.3, smallplot=c(0.820,0.835,0.105,0.50), alpha=1.0,
+			 legend.args=list(text="", cex=0.9, line=0.5, col="gray30"), axis.args=list(cex.axis=1.0, lwd=0, lwd.tick=0.2, tck=-0.8, 
+			 col.axis="gray30", line=0, mgp=c(0,0.6,0), at=c(2040,2045,2050,2055,2060), labels=c(2040,2045,2050,2055,2060)))					 	
 	}
 dev.off()
 
