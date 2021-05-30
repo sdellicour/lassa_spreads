@@ -1411,7 +1411,7 @@ for (i in 1:length(segments))
 		write.csv(mcc_tab, paste0("LASV_",segments[i],"_align_3_all_MCC.csv"), row.names=F, quote=F)
 	}	# to do: open and export again the MCC trees in FigTree (Nexus format)
 
-		# B.4.2.5. Dividing extraction files per lineage (clade)
+		# B.4.2.5. Dividing extraction files per clade
 
 source("isolateACladeFromTipNodes.r")
 for (i in 1:length(segments))
@@ -1629,7 +1629,7 @@ lakes2 = crop(readOGR(dsn=paste0(wdb6,"/Environmental_files/Natural_Earth/"), la
 rivers2 = crop(readOGR(dsn=paste0(wdb6,"/Environmental_files/LASV_rivers/"), layer="FAO_GeoNetwork"), e_NGA)
 rivers2@data[which(rivers2@data[,"Strahler"]<3),"Strahler"] = 0
 riverCols2 = rep("#AFBED5",dim(rivers2@data)[1]); riverCols2[which(rivers2@data[,"Strahler"]<3)] = NA
-titles = c("MRU lineage","NGA lineage IV","NGA lineage II","NGA lineage III")
+titles = c("MRU clade","NGA clade IV","NGA clade II","NGA clade III")
 cols = colorRampPalette(brewer.pal(11,'RdYlGn'))(131)[21:121]
 for (i in 1:length(segments))
 	{
@@ -1707,7 +1707,7 @@ for (i in 1:length(segments))
 			}
 		dev.off()
 	}
-titles = c("MRU lineages","NGA lineages")
+titles = c("MRU clades","NGA clades")
 cols = list(); cols1 = list(); cols2 = list()
 cols[[1]] = rev(colorRampPalette(brewer.pal(9,'YlGn'))(161)[11:111])
 cols[[2]] = colorRampPalette(brewer.pal(9,'Reds'))(151)[11:111]
@@ -1774,9 +1774,9 @@ for (i in 1:length(segments))
 					 }
 				for (k in 1:length(pols)) plot(pols[[k]], axes=F, col=cols_pol[[k]], add=T, border=NA)
 				if (clades[j] == "NIG1") mtext(paste0("SEGMENT ",segments[i]), side=3, line=-24.0, at=3.55, cex=0.8, font=1, col="gray30")
-				if (clades[j] == "NIG1") mtext("NGA lineage IV", side=3, line=-25.0, at=3.65, cex=0.8, font=1, col=cols1[[1]])
-				if (clades[j] == "NIG2") mtext("NGA lineage II", side=3, line=-26.0, at=3.65, cex=0.8, font=1, col=cols1[[2]])
-				if (clades[j] == "NIG3") mtext("NGA lineage III", side=3, line=-27.0, at=3.65, cex=0.8, font=1, col=cols1[[3]])
+				if (clades[j] == "NIG1") mtext("NGA clade IV", side=3, line=-25.0, at=3.65, cex=0.8, font=1, col=cols1[[1]])
+				if (clades[j] == "NIG2") mtext("NGA clade II", side=3, line=-26.0, at=3.65, cex=0.8, font=1, col=cols1[[2]])
+				if (clades[j] == "NIG3") mtext("NGA clade III", side=3, line=-27.0, at=3.65, cex=0.8, font=1, col=cols1[[3]])
 				if ((clades[j] == "MRU")|(clades[j] == "NIG1"))
 					{
 						plot(lakes, add=T, lwd=0.7, col=unique(riverCols)[!is.na(unique(riverCols))], border=NA)
@@ -1889,7 +1889,7 @@ write.table(results, "LASV_dispersal_statistics_NEW.txt", sep="	", quote=F)
 
 pdf("Dispersal_velocities_NEW.pdf", width=8.5, height=2.7); # dev.new(width=8.5, height=2.7)
 par(mfrow=c(1,2), mgp=c(0,0,0), oma=c(1,1.3,0,0.75), mar=c(1.5,1.2,1,0)); cols1 = list(); cols2 = list()
-lineage_names = c("MRU lineage","NGA lineage II","NGA lineage III")
+clade_names = c("MRU clade","NGA clade II","NGA clade III")
 analyses = c("LASV_L_align_3_MRU","LASV_L_align_3_NIG2","LASV_L_align_3_NIG3",
 			 "LASV_S_align_3_MRU","LASV_S_align_3_NIG2","LASV_S_align_3_NIG3")
 cols1[[1]] = rgb(69,139,0,255,maxColorValue=255); cols2[[1]] = rgb(69,139,0,100,maxColorValue=255) # green
@@ -1914,7 +1914,7 @@ for (i in 1:length(analyses))
 		if (i == 1)
 			{
 				title(ylab="Density", cex.lab=0.65, mgp=c(0.5,0,0), col.lab="gray30")
-				legend(1.34, 9, legend=lineage_names, pch=16, col=unlist(cols2)[1:3], border="gray30", text.col="gray30", 
+				legend(1.34, 9, legend=clade_names, pch=16, col=unlist(cols2)[1:3], border="gray30", text.col="gray30", 
 					   bty="n", pt.cex=1, cex=0.6, x.intersp=0.9, y.intersp=1.2)
 			}
 	}
@@ -1922,7 +1922,7 @@ dev.off()
 
 pdf("Spatial_wavefronts_NEW.pdf", width=8.5, height=2.7); # dev.new(width=8.5, height=2.7)
 par(mfrow=c(1,2), mgp=c(0,0,0), oma=c(1,1.7,0,0.75), mar=c(1.5,1.2,1,0)); cols1 = list(); cols2 = list()
-lineage_names = c("MRU lineage","NGA lineage II","NGA lineage III")
+clade_names = c("MRU clade","NGA clade II","NGA clade III")
 analyses = c("LASV_L_align_3_MRU","LASV_L_align_3_NIG2","LASV_L_align_3_NIG3",
 			 "LASV_S_align_3_MRU","LASV_S_align_3_NIG2","LASV_S_align_3_NIG3")
 cols1[[1]] = rgb(69,139,0,255,maxColorValue=255); cols2[[1]] = rgb(69,139,0,100,maxColorValue=255) # green
@@ -1948,7 +1948,7 @@ for (i in 1:length(analyses))
 				title(xlab="time (year)", cex.lab=0.7, mgp=c(0.5,0,0), col.lab="gray30")
 				rect(1300, 0, 2018, 750, lwd=0.2, border="gray30"); # box(lwd=0.2, col="gray30")
 				mtext(side=3, paste0("SEGMENT ",segment), line=-2.0, at=1420, cex=0.75, col="gray30")
-				legend(1337, 630, legend=lineage_names, pch=16, col=unlist(cols2)[1:3], border="gray30", text.col="gray30", 
+				legend(1337, 630, legend=clade_names, pch=16, col=unlist(cols2)[1:3], border="gray30", text.col="gray30", 
 					   bty="n", pt.cex=1, cex=0.6, x.intersp=0.9, y.intersp=1.2)
 			}
 		if (i == 1) title(ylab="Furthest extent of epidemic wavefront", cex.lab=0.65, mgp=c(0.5,0,0), col.lab="gray30")
