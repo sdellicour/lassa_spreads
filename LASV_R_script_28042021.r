@@ -174,7 +174,7 @@ plot(envVariables[[9]], col=colorRampPalette(brewer.pal(9,"BuPu"))(150)[1:100], 
 
 nullRaster = envVariables[[1]]; nullRaster[!is.na(nullRaster[])] = 1; names(nullRaster) = "nullRaster"
 muridaeFam = read.csv("Occurrence_data_sets/Muridae_family_allData_RK220819.csv", header=T)[,c("longitude","latitude")]
-natalensis = read.csv("Occurrence_data_sets/Mastomys_natalensis_RK260819.csv", header=T)[,c("longitude","latitude")]
+natalensis = read.csv("Occurrence_data_sets/Mastomys_natalensis_RK050820.csv", header=T)[,c("longitude","latitude")]
 backgroundCells1 = unique(raster::extract(nullRaster, muridaeFam, cellnumbers=T))
 backgroundCells2 = unique(raster::extract(nullRaster, natalensis, cellnumbers=T))
 background1 = nullRaster; background1[!(1:length(background1[]))%in%backgroundCells1] = NA
