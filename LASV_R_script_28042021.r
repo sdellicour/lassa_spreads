@@ -2651,8 +2651,8 @@ for (i in 1:length(analyses))
 				# trEnvVariable = transition(aggregate(envVariables[[j]],10), function(x) 1/mean(x), directions=8)
 				trEnvVariableCorr = geoCorrection(trEnvVariable, type="c", multpl=F, scl=T); n = 0; buffer = list()
 				buffer = foreach(k = 1:nberOfExtractionFiles) %dopar% {
-						obs = read.csv(paste0(localTreesDirectory,"/TreeExtractions_",k,".csv"), header=T)
-						sim = read.csv(paste0(localTreesDirectory,"/TreeSimulations_",k,".csv"), header=T)
+						obs = read.csv(paste0(localTreesDirectory,"/TreeExtractions_",k,".csv"), header=T); obs = obs[order(obs[,"length"]),]
+						sim = read.csv(paste0(localTreesDirectory,"/TreeSimulations_",k,".csv"), header=T); sim = sim[order(sim[,"length"]),]
 						LC1 = diag(costDistance(trEnvVariableCorr, as.matrix(obs[,c("startLon","startLat")]), as.matrix(obs[,c("endLon","endLat")])))
 						LC2 = diag(costDistance(trEnvVariableCorr, as.matrix(sim[,c("startLon","startLat")]), as.matrix(sim[,c("endLon","endLat")])))
 						tmp1 = LC1; tmp2 = LC2; LC1[(!is.finite(tmp1))|(!is.finite(tmp2))] = NA; LC2[(!is.finite(tmp1))|(!is.finite(tmp2))] = NA
