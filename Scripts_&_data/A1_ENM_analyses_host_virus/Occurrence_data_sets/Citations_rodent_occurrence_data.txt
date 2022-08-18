@@ -1,0 +1,35 @@
+Full citation rodent occurrence data
+
+Muridae:
+
+(1) GBIF.org (19 July 2019) GBIF Occurrence Download https://doi.org/10.15468/dl.cs3c41 
+
+
+Mastomys natalensis:
+
+(1) GBIF.org (19 July 2019) GBIF Occurrence Download https://doi.org/10.15468/dl.hrjyj1
+(2) http://www.idigbio.org/portal (2020),
+Query: {"filtered": {"filter": {"and": [{"exists": {"field": "geopoint"}}, {"term": {"scientificname": "mastomys natalensis"}}]}}},
+4348 records, accessed on 2020-01-04T05:40:40.066945,
+contributed by 19 Recordsets, Recordset identifiers:
+http://www.idigbio.org/portal/recordsets/a6eee223-cf3b-4079-8bb2-b77dad8cae9d (1403 records)
+http://www.idigbio.org/portal/recordsets/9e046dad-2b23-4f95-8eaf-c0346de2556e (1219 records)
+http://www.idigbio.org/portal/recordsets/09b18522-5643-478f-86e9-d2e34440d43e (949 records)
+http://www.idigbio.org/portal/recordsets/2d853a6d-50ec-4931-8e91-48fc2491fdee (532 records)
+http://www.idigbio.org/portal/recordsets/ec359278-df8e-4766-a1d3-4b55fd822704 (38 records)
+http://www.idigbio.org/portal/recordsets/cb790bee-26da-40ed-94e0-d179618f9bd4 (35 records)
+http://www.idigbio.org/portal/recordsets/fcbcb214-cd62-4453-af56-b4b49161a261 (30 records)
+http://www.idigbio.org/portal/recordsets/21ea1ef6-4a2a-4ff2-a18b-5c0f297fc1cf (26 records)
+http://www.idigbio.org/portal/recordsets/fb4a4330-9124-4013-a0e1-af42ee20cd16 (24 records)
+http://www.idigbio.org/portal/recordsets/c6969e30-ca21-4576-954d-9c0e052bdde9 (24 records)
+http://www.idigbio.org/portal/recordsets/433646ab-571a-44f5-820e-25e0736b1113 (17 records)
+http://www.idigbio.org/portal/recordsets/e6d3c1da-a02f-43a2-a5ef-6a035298b933 (16 records)
+http://www.idigbio.org/portal/recordsets/14a8f79f-eab7-48da-ad50-bda142703820 (10 records)
+http://www.idigbio.org/portal/recordsets/2d94a3ac-f505-49ec-98e7-3b7dc48344dd (9 records)
+http://www.idigbio.org/portal/recordsets/76015dea-c909-4e6d-a8e1-3bf35763571e (8 records)
+http://www.idigbio.org/portal/recordsets/271a9ce9-c6d3-4b63-a722-cb0adc48863f (3 records)
+http://www.idigbio.org/portal/recordsets/9dce915b-3de4-4a7d-a68d-e4c4c15809ce (2 records)
+http://www.idigbio.org/portal/recordsets/552ce2e5-b627-4d6d-b914-6b495d0a79e6 (2 records)
+http://www.idigbio.org/portal/recordsets/a8ac06c9-efb5-4337-9bdb-bee3b490772c (1 records)
+(3) Field Museum of Natural History Zoological collections (Field Museum of Natural History (Zoology) Mammal Collection  https://collections-zoology.fieldmuseum.org/list?f%5B0%5D=ss_CatCatalog%3A%22Mammals%22&_ga=2.123662347.1070684726.1508778418-143671043.1493067972, accessed 2019-12-13
+(4)  African Mammalia database (Van de Perre F., Adriaensen F., Terryn L., Pauwels O., Leirs H., Gilissen E., & Verheyen E. (2019). African Mammalia, http://projects.biodiversity.be/africanmammalia, accessed 2019-12-14)
